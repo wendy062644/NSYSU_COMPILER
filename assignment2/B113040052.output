@@ -1,0 +1,6255 @@
+非終結語詞在文法中無用
+
+    spec_decl__
+    decl_impl
+    final_decl__
+    final_decl_chk__
+    $@5
+    init_or_not__
+    id_list_init
+    term
+    if_expr__
+    if_simple__
+    if_compound__
+    else_simple__
+    else_compound__
+
+
+未在文法中使用終結語詞
+
+    TRUE
+    FALSE
+    COMMENT
+    ERROR_PREC
+
+
+規則在文法中無用
+
+  181 spec_decl__: variable_decl
+  182            | function_decl
+
+  183 decl_impl: '=' init_decl
+  184          | ',' id_list
+  185          | ',' ID
+  186          | ',' ID '=' init_decl
+  187          | decl_impl ',' ID
+  188          | decl_impl ',' ID '=' init_decl
+
+  189 final_decl__: final_decl_chk__ const_expr
+  190             | final_decl_chk__ NEW type arr_or_obj
+
+  191 $@5: ε
+
+  192 final_decl_chk__: FINAL type generic_id $@5 '='
+
+  193 init_or_not__: generic_id
+  194              | generic_id '=' const_expr
+  195              | init_or_not__ ',' generic_id
+  196              | init_or_not__ ',' generic_id '=' const_expr
+
+  197 id_list_init: generic_id '=' const_expr
+  198             | id_list_init ',' generic_id '=' const_expr
+
+  199 term: factor
+  200     | term '*' factor
+  201     | term '/' factor
+
+  202 if_expr__: IF '(' bool_expr ')'
+
+  203 if_simple__: if_expr__ simple_call_decl
+
+  204 if_compound__: if_expr__ compound
+
+  205 else_simple__: ELSE simple_call_decl
+
+  206 else_compound__: ELSE compound
+
+
+規則由於衝突而在剖析器中無用
+
+   21 $@4: ε
+
+   86 lvalue: generic_id '[' expr ']'
+
+  150 bool_expr: INVALID_TOKEN
+  151          | error
+
+  180 para_list: error
+
+
+狀態 1 衝突：1 項偏移/縮減
+狀態 12 衝突：4 項偏移/縮減
+狀態 22 衝突：20 項縮減/縮減
+狀態 23 衝突：2 項偏移/縮減
+狀態 30 衝突：1 項偏移/縮減
+狀態 31 衝突：1 項偏移/縮減
+狀態 32 衝突：1 項偏移/縮減
+狀態 33 衝突：1 項偏移/縮減
+狀態 34 衝突：3 項偏移/縮減
+狀態 60 衝突：3 項偏移/縮減，2 項縮減/縮減
+狀態 65 衝突：2 項偏移/縮減
+狀態 66 衝突：2 項偏移/縮減
+狀態 67 衝突：2 項偏移/縮減
+狀態 68 衝突：2 項偏移/縮減
+狀態 69 衝突：2 項偏移/縮減
+狀態 70 衝突：2 項偏移/縮減
+狀態 71 衝突：2 項偏移/縮減
+狀態 72 衝突：2 項偏移/縮減
+狀態 73 衝突：3 項偏移/縮減，20 項縮減/縮減
+狀態 74 衝突：2 項偏移/縮減
+狀態 75 衝突：3 項偏移/縮減，20 項縮減/縮減
+狀態 76 衝突：2 項偏移/縮減
+狀態 77 衝突：3 項偏移/縮減，20 項縮減/縮減
+狀態 78 衝突：2 項偏移/縮減
+狀態 79 衝突：3 項偏移/縮減，20 項縮減/縮減
+狀態 80 衝突：2 項偏移/縮減
+狀態 81 衝突：2 項偏移/縮減
+狀態 85 衝突：20 項縮減/縮減
+狀態 88 衝突：9 項偏移/縮減
+狀態 111 衝突：1 項偏移/縮減
+狀態 113 衝突：1 項偏移/縮減
+狀態 137 衝突：2 項偏移/縮減
+狀態 142 衝突：26 項縮減/縮減
+狀態 171 衝突：15 項偏移/縮減
+狀態 173 衝突：19 項偏移/縮減
+狀態 174 衝突：18 項偏移/縮減
+狀態 182 衝突：11 項偏移/縮減，4 項縮減/縮減
+狀態 192 衝突：18 項偏移/縮減
+狀態 194 衝突：10 項偏移/縮減
+狀態 196 衝突：2 項偏移/縮減，16 項縮減/縮減
+狀態 197 衝突：2 項偏移/縮減
+狀態 204 衝突：18 項偏移/縮減
+狀態 205 衝突：18 項偏移/縮減
+狀態 207 衝突：10 項偏移/縮減，4 項縮減/縮減
+狀態 216 衝突：3 項縮減/縮減
+狀態 217 衝突：4 項縮減/縮減
+狀態 220 衝突：10 項偏移/縮減，4 項縮減/縮減
+狀態 226 衝突：3 項縮減/縮減
+狀態 227 衝突：3 項偏移/縮減
+狀態 233 衝突：1 項偏移/縮減
+狀態 236 衝突：11 項偏移/縮減，4 項縮減/縮減
+狀態 238 衝突：11 項偏移/縮減，4 項縮減/縮減
+狀態 240 衝突：26 項縮減/縮減
+狀態 242 衝突：1 項縮減/縮減
+狀態 249 衝突：3 項偏移/縮減，2 項縮減/縮減
+狀態 250 衝突：2 項縮減/縮減
+狀態 257 衝突：10 項偏移/縮減，5 項縮減/縮減
+狀態 259 衝突：1 項偏移/縮減
+狀態 268 衝突：18 項偏移/縮減
+狀態 270 衝突：1 項偏移/縮減
+狀態 272 衝突：1 項縮減/縮減
+狀態 281 衝突：18 項偏移/縮減
+
+
+文法
+
+    0 $accept: YY_PARSE_classes classes $end
+    1        | YY_PARSE_lines lines $end
+
+    2 classes: ε
+    3        | class_def
+    4        | classes class_def
+    5        | classes '}'
+
+    6 lines: ε
+    7      | lines expr '\n'
+    8      | lines error '\n'
+
+    9 $@1: ε
+
+   10 $@2: ε
+
+   11 class_def: CLASS ID $@1 '{' $@2 declare '}'
+
+   12 declare: ε
+   13        | declare function_decl
+   14        | declare variable_decl
+   15        | declare class_def
+   16        | declare error ';'
+   17        | declare error '}'
+   18        | declare error
+
+   19 $@3: ε
+
+   20 compound: '{' $@3 statement_star '}'
+
+   21 $@4: ε
+
+   22 compound: '{' $@4 statement_star error '}'
+   23         | error '}'
+
+   24 id_item: ID
+   25        | ID '=' init_decl
+
+   26 id_list: id_item
+   27        | id_list ',' id_item
+
+   28 maybe_missing_semi: ';'
+   29                   | ε
+
+   30 variable_decl: spec_type__ id_list maybe_missing_semi
+   31              | error spec_type__ id_list ';'
+   32              | spec_type__ id_list error
+
+   33 function_decl: ID '(' args ')' compound
+   34              | spec_type__ ID '(' args ')' compound
+
+   35 init_decl: const_expr
+   36          | NEW type arr_or_obj
+
+   37 arr_or_obj: '[' INT_L ']'
+   38           | '(' tuple ')'
+
+   39 spec_type__: STATIC type
+   40            | FINAL type
+   41            | type
+
+   42 args: ε
+   43     | type generic_id
+   44     | args ',' type generic_id
+
+   45 tuple: tuple_items
+   46      | ε
+
+   47 tuple_items: INT_L
+   48            | FLOAT_L
+   49            | STR
+   50            | tuple_items INT_L
+   51            | tuple_items FLOAT_L
+   52            | tuple_items STR
+
+   53 generic_id: ID
+   54           | generic_id '[' expr ']'
+   55           | generic_id '.' ID
+
+   56 type: type '[' ']'
+   57     | INT
+   58     | FLOAT
+   59     | CHAR
+   60     | BOOLEAN
+   61     | VOID
+   62     | type_id
+
+   63 type_id: ID
+
+   64 const_expr: INT_L
+   65           | FLOAT_L
+   66           | STR
+   67           | generic_id
+   68           | INVALID_TOKEN
+   69           | const_expr Infixop const_expr
+
+   70 Infixop: '+'
+   71        | '-'
+   72        | '*'
+   73        | '/'
+   74        | '%'
+   75        | '>'
+   76        | '<'
+   77        | '&'
+   78        | '|'
+   79        | LE
+   80        | GE
+   81        | EQ
+   82        | NE
+   83        | AND
+   84        | OR
+
+   85 lvalue: generic_id
+   86       | generic_id '[' expr ']'
+
+   87 statement: assign_stmt
+   88          | lvalue PP ';'
+   89          | PP lvalue ';'
+   90          | simple_call_decl ';'
+   91          | compound
+   92          | conditional
+   93          | loop
+   94          | return
+   95          | declare
+   96          | expr ';'
+
+   97 statement_star: ε
+   98               | statement_star statement
+   99               | statement_star error
+
+  100 assign_stmt: generic_id '=' expr ';'
+
+  101 simple_call_decl: generic_id '(' para_list ')'
+  102                 | generic_id '=' expr
+  103                 | generic_id PP
+  104                 | PP generic_id
+  105                 | generic_id MM
+  106                 | MM generic_id
+  107                 | '+' generic_id
+  108                 | '-' generic_id
+  109                 | PRINT '(' expr ')'
+
+  110 expr: expr '+' expr
+  111     | expr '-' expr
+  112     | expr '*' expr
+  113     | expr '/' expr
+  114     | expr '%' expr
+  115     | expr AND expr
+  116     | expr OR expr
+  117     | expr EQ expr
+  118     | expr NE expr
+  119     | expr LE expr
+  120     | expr GE expr
+  121     | expr '<' expr
+  122     | expr '>' expr
+  123     | lvalue
+  124     | expr PP
+  125     | expr MM
+  126     | expr '+' error
+  127     | expr '-' error
+  128     | expr '*' error
+  129     | expr '/' error
+  130     | error
+  131     | factor
+
+  132 factor: generic_id
+  133       | INT_L
+  134       | FLOAT_L
+  135       | STR
+  136       | generic_id '(' para_list ')'
+  137       | lvalue PP
+  138       | lvalue MM
+  139       | '(' expr ')'
+  140       | '-' factor
+  141       | PP factor
+  142       | MM factor
+  143       | INVALID_TOKEN
+  144       | factor error
+  145       | error factor
+
+  146 conditional: IF '(' bool_expr ')' statement
+  147            | IF '(' bool_expr ')' statement ELSE statement
+  148            | ELSE statement
+
+  149 bool_expr: expr
+  150          | INVALID_TOKEN
+  151          | error
+
+  152 loop: while_expr__ statement
+  153     | WHILE '(' bool_expr ')' error
+  154     | for_expr__ statement
+  155     | while_expr__ error
+  156     | for_expr__ error
+
+  157 while_expr__: WHILE '(' bool_expr ')'
+  158             | WHILE '(' error
+  159             | WHILE error ')'
+
+  160 ForInitOpt: ε
+  161           | for_init_list
+
+  162 for_init_list: single_for_init
+  163              | for_init_list ',' single_for_init
+
+  164 single_for_init: generic_id '=' expr
+  165                | type generic_id '=' expr
+  166                | generic_id PP
+  167                | PP generic_id
+
+  168 for_expr__: FOR '(' ForInitOpt ';' bool_expr ';' ForUpdateOpt ')'
+  169           | FOR error ')'
+
+  170 ForUpdateOpt: ε
+  171             | for_update_list
+
+  172 for_update_list: simple_call_decl
+  173                | for_update_list ',' simple_call_decl
+
+  174 return: RETURN expr ';'
+  175       | RETURN ';'
+  176       | RETURN error
+
+  177 para_list: ε
+  178          | expr
+  179          | para_list ',' expr
+  180          | error
+
+
+終結語詞，附有它們出現處的規則
+
+    $end (0) 0 1
+    '\n' (10) 7 8
+    '%' (37) 74 114
+    '&' (38) 77
+    '(' (40) 33 34 38 101 109 136 139 146 147 153 157 158 168
+    ')' (41) 33 34 38 101 109 136 139 146 147 153 157 159 168 169
+    '*' (42) 72 112 128
+    '+' (43) 70 107 110 126
+    ',' (44) 27 44 163 173 179
+    '-' (45) 71 108 111 127 140
+    '.' (46) 55
+    '/' (47) 73 113 129
+    ';' (59) 16 28 31 88 89 90 96 100 168 174 175
+    '<' (60) 76 121
+    '=' (61) 25 100 102 164 165
+    '>' (62) 75 122
+    '[' (91) 37 54 56 86
+    ']' (93) 37 54 56 86
+    '{' (123) 11 20 22
+    '|' (124) 78
+    '}' (125) 5 11 17 20 22 23
+    error (256) 8 16 17 18 22 23 31 32 99 126 127 128 129 130 144 145 151 153 155 156 158 159 169 176 180
+    ID <sval> (258) 11 24 25 33 34 53 55 63
+    AND <sval> (259) 83 115
+    BOOLEAN <sval> (260) 60
+    CHAR <sval> (261) 59
+    CLASS <sval> (262) 11
+    EQ <sval> (263) 81 117
+    FINAL <sval> (264) 40
+    FLOAT <sval> (265) 58
+    FOR <sval> (266) 168 169
+    GE <sval> (267) 80 120
+    IF <sval> (268) 146 147
+    INT <sval> (269) 57
+    LE <sval> (270) 79 119
+    MM <sval> (271) 105 106 125 138 142
+    NE <sval> (272) 82 118
+    NEW <sval> (273) 36
+    INT_L <sval> (274) 37 47 50 64 133
+    FLOAT_L <sval> (275) 48 51 65 134
+    OR <sval> (276) 84 116
+    PP <sval> (277) 88 89 103 104 124 137 141 166 167
+    PRINT <sval> (278) 109
+    RETURN <sval> (279) 174 175 176
+    STATIC <sval> (280) 39
+    STR <sval> (281) 49 52 66 135
+    VOID <sval> (282) 61
+    WHILE <sval> (283) 153 157 158 159
+    TRUE <sval> (284)
+    FALSE <sval> (285)
+    COMMENT <sval> (286)
+    INVALID_TOKEN (287) 68 143 150
+    UMINUS (288)
+    ERROR_PREC (289)
+    IFX (290)
+    ELSE (291) 147 148
+    YY_PARSE_classes (292) 0
+    YY_PARSE_lines (293) 1
+
+
+非終結語詞，附有它們出現處的規則
+
+    $accept (59)
+        於左側： 0 1
+    classes (60)
+        於左側： 2 3 4 5
+        於右側： 0 4 5
+    lines (61)
+        於左側： 6 7 8
+        於右側： 1 7 8
+    class_def (62)
+        於左側： 11
+        於右側： 3 4 15
+    $@1 (63)
+        於左側： 9
+        於右側： 11
+    $@2 (64)
+        於左側： 10
+        於右側： 11
+    declare (65)
+        於左側： 12 13 14 15 16 17 18
+        於右側： 11 13 14 15 16 17 18 95
+    compound (66)
+        於左側： 20 22 23
+        於右側： 33 34 91
+    $@3 (67)
+        於左側： 19
+        於右側： 20
+    $@4 (68)
+        於左側： 21
+        於右側： 22
+    id_item (69)
+        於左側： 24 25
+        於右側： 26 27
+    id_list <sval> (70)
+        於左側： 26 27
+        於右側： 27 30 31 32
+    maybe_missing_semi (71)
+        於左側： 28 29
+        於右側： 30
+    variable_decl (72)
+        於左側： 30 31 32
+        於右側： 14
+    function_decl (73)
+        於左側： 33 34
+        於右側： 13
+    init_decl <pos> (74)
+        於左側： 35 36
+        於右側： 25
+    arr_or_obj <pos> (75)
+        於左側： 37 38
+        於右側： 36
+    spec_type__ (76)
+        於左側： 39 40 41
+        於右側： 30 31 32 34
+    args (77)
+        於左側： 42 43 44
+        於右側： 33 34 44
+    tuple (78)
+        於左側： 45 46
+        於右側： 38
+    tuple_items (79)
+        於左側： 47 48 49 50 51 52
+        於右側： 45 50 51 52
+    generic_id <sval> (80)
+        於左側： 53 54 55
+        於右側： 43 44 54 55 67 85 86 100 101 102 103 104 105 106 107 108 132 136 164 165 166 167
+    type <sval> (81)
+        於左側： 56 57 58 59 60 61 62
+        於右側： 36 39 40 41 43 44 56 165
+    type_id <sval> (82)
+        於左側： 63
+        於右側： 62
+    const_expr (83)
+        於左側： 64 65 66 67 68 69
+        於右側： 35 69
+    Infixop (84)
+        於左側： 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84
+        於右側： 69
+    lvalue <sval> (85)
+        於左側： 85 86
+        於右側： 88 89 123 137 138
+    statement (86)
+        於左側： 87 88 89 90 91 92 93 94 95 96
+        於右側： 98 146 147 148 152 154
+    statement_star (87)
+        於左側： 97 98 99
+        於右側： 20 22 98 99
+    assign_stmt (88)
+        於左側： 100
+        於右側： 87
+    simple_call_decl (89)
+        於左側： 101 102 103 104 105 106 107 108 109
+        於右側： 90 172 173
+    expr <sval> (90)
+        於左側： 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131
+        於右側： 7 54 86 96 100 102 109 110 111 112 113 114 115 116 117 118 119 120 121 122 124 125 126 127 128 129 139 149 164 165 174 178 179
+    factor <sval> (91)
+        於左側： 132 133 134 135 136 137 138 139 140 141 142 143 144 145
+        於右側： 131 140 141 142 144 145
+    conditional (92)
+        於左側： 146 147 148
+        於右側： 92
+    bool_expr <sval> (93)
+        於左側： 149 150 151
+        於右側： 146 147 153 157 168
+    loop (94)
+        於左側： 152 153 154 155 156
+        於右側： 93
+    while_expr__ <sval> (95)
+        於左側： 157 158 159
+        於右側： 152 155
+    ForInitOpt (96)
+        於左側： 160 161
+        於右側： 168
+    for_init_list (97)
+        於左側： 162 163
+        於右側： 161 163
+    single_for_init (98)
+        於左側： 164 165 166 167
+        於右側： 162 163
+    for_expr__ (99)
+        於左側： 168 169
+        於右側： 154 156
+    ForUpdateOpt (100)
+        於左側： 170 171
+        於右側： 168
+    for_update_list (101)
+        於左側： 172 173
+        於右側： 171 173
+    return (102)
+        於左側： 174 175 176
+        於右側： 94
+    para_list (103)
+        於左側： 177 178 179 180
+        於右側： 101 136 179
+
+
+狀態 0
+
+    0 $accept: • YY_PARSE_classes classes $end
+    1        | • YY_PARSE_lines lines $end
+
+    YY_PARSE_classes  偏移，並進入狀態 1
+    YY_PARSE_lines    偏移，並進入狀態 2
+
+
+狀態 1
+
+    0 $accept: YY_PARSE_classes • classes $end
+
+    CLASS  偏移，並進入狀態 3
+
+    CLASS     [使用規則 2 以縮減 (classes)]
+    $default  使用規則 2 以縮減 (classes)
+
+    classes    進入狀態 4
+    class_def  進入狀態 5
+
+
+狀態 2
+
+    1 $accept: YY_PARSE_lines • lines $end
+
+    $default  使用規則 6 以縮減 (lines)
+
+    lines  進入狀態 6
+
+
+狀態 3
+
+   11 class_def: CLASS • ID $@1 '{' $@2 declare '}'
+
+    ID  偏移，並進入狀態 7
+
+
+狀態 4
+
+    0 $accept: YY_PARSE_classes classes • $end
+    4 classes: classes • class_def
+    5        | classes • '}'
+
+    $end   偏移，並進入狀態 8
+    CLASS  偏移，並進入狀態 3
+    '}'    偏移，並進入狀態 9
+
+    class_def  進入狀態 10
+
+
+狀態 5
+
+    3 classes: class_def •
+
+    $default  使用規則 3 以縮減 (classes)
+
+
+狀態 6
+
+    1 $accept: YY_PARSE_lines lines • $end
+    7 lines: lines • expr '\n'
+    8      | lines • error '\n'
+
+    $end           偏移，並進入狀態 11
+    error          偏移，並進入狀態 12
+    ID             偏移，並進入狀態 13
+    MM             偏移，並進入狀態 14
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 17
+    STR            偏移，並進入狀態 18
+    INVALID_TOKEN  偏移，並進入狀態 19
+    '-'            偏移，並進入狀態 20
+    '('            偏移，並進入狀態 21
+
+    generic_id  進入狀態 22
+    lvalue      進入狀態 23
+    expr        進入狀態 24
+    factor      進入狀態 25
+
+
+狀態 7
+
+   11 class_def: CLASS ID • $@1 '{' $@2 declare '}'
+
+    $default  使用規則 9 以縮減 ($@1)
+
+    $@1  進入狀態 26
+
+
+狀態 8
+
+    0 $accept: YY_PARSE_classes classes $end •
+
+    $default  接受
+
+
+狀態 9
+
+    5 classes: classes '}' •
+
+    $default  使用規則 5 以縮減 (classes)
+
+
+狀態 10
+
+    4 classes: classes class_def •
+
+    $default  使用規則 4 以縮減 (classes)
+
+
+狀態 11
+
+    1 $accept: YY_PARSE_lines lines $end •
+
+    $default  接受
+
+
+狀態 12
+
+    8 lines: lines error • '\n'
+  130 expr: error •
+  145 factor: error • factor
+
+    error          偏移，並進入狀態 27
+    ID             偏移，並進入狀態 13
+    MM             偏移，並進入狀態 14
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 17
+    STR            偏移，並進入狀態 18
+    INVALID_TOKEN  偏移，並進入狀態 19
+    '-'            偏移，並進入狀態 20
+    '\n'           偏移，並進入狀態 28
+    '('            偏移，並進入狀態 21
+
+    AND   使用規則 130 以縮減 (expr)
+    EQ    使用規則 130 以縮減 (expr)
+    GE    使用規則 130 以縮減 (expr)
+    LE    使用規則 130 以縮減 (expr)
+    MM    [使用規則 130 以縮減 (expr)]
+    NE    使用規則 130 以縮減 (expr)
+    OR    使用規則 130 以縮減 (expr)
+    PP    [使用規則 130 以縮減 (expr)]
+    '<'   使用規則 130 以縮減 (expr)
+    '>'   使用規則 130 以縮減 (expr)
+    '+'   使用規則 130 以縮減 (expr)
+    '-'   [使用規則 130 以縮減 (expr)]
+    '*'   使用規則 130 以縮減 (expr)
+    '/'   使用規則 130 以縮減 (expr)
+    '%'   使用規則 130 以縮減 (expr)
+    '\n'  [使用規則 130 以縮減 (expr)]
+
+    generic_id  進入狀態 22
+    lvalue      進入狀態 29
+    factor      進入狀態 30
+
+
+狀態 13
+
+   53 generic_id: ID •
+
+    $default  使用規則 53 以縮減 (generic_id)
+
+
+狀態 14
+
+  142 factor: MM • factor
+
+    error          偏移，並進入狀態 27
+    ID             偏移，並進入狀態 13
+    MM             偏移，並進入狀態 14
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 17
+    STR            偏移，並進入狀態 18
+    INVALID_TOKEN  偏移，並進入狀態 19
+    '-'            偏移，並進入狀態 20
+    '('            偏移，並進入狀態 21
+
+    generic_id  進入狀態 22
+    lvalue      進入狀態 29
+    factor      進入狀態 31
+
+
+狀態 15
+
+  133 factor: INT_L •
+
+    $default  使用規則 133 以縮減 (factor)
+
+
+狀態 16
+
+  134 factor: FLOAT_L •
+
+    $default  使用規則 134 以縮減 (factor)
+
+
+狀態 17
+
+  141 factor: PP • factor
+
+    error          偏移，並進入狀態 27
+    ID             偏移，並進入狀態 13
+    MM             偏移，並進入狀態 14
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 17
+    STR            偏移，並進入狀態 18
+    INVALID_TOKEN  偏移，並進入狀態 19
+    '-'            偏移，並進入狀態 20
+    '('            偏移，並進入狀態 21
+
+    generic_id  進入狀態 22
+    lvalue      進入狀態 29
+    factor      進入狀態 32
+
+
+狀態 18
+
+  135 factor: STR •
+
+    $default  使用規則 135 以縮減 (factor)
+
+
+狀態 19
+
+  143 factor: INVALID_TOKEN •
+
+    $default  使用規則 143 以縮減 (factor)
+
+
+狀態 20
+
+  140 factor: '-' • factor
+
+    error          偏移，並進入狀態 27
+    ID             偏移，並進入狀態 13
+    MM             偏移，並進入狀態 14
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 17
+    STR            偏移，並進入狀態 18
+    INVALID_TOKEN  偏移，並進入狀態 19
+    '-'            偏移，並進入狀態 20
+    '('            偏移，並進入狀態 21
+
+    generic_id  進入狀態 22
+    lvalue      進入狀態 29
+    factor      進入狀態 33
+
+
+狀態 21
+
+  139 factor: '(' • expr ')'
+
+    error          偏移，並進入狀態 34
+    ID             偏移，並進入狀態 13
+    MM             偏移，並進入狀態 14
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 17
+    STR            偏移，並進入狀態 18
+    INVALID_TOKEN  偏移，並進入狀態 19
+    '-'            偏移，並進入狀態 20
+    '('            偏移，並進入狀態 21
+
+    generic_id  進入狀態 22
+    lvalue      進入狀態 23
+    expr        進入狀態 35
+    factor      進入狀態 25
+
+
+狀態 22
+
+   54 generic_id: generic_id • '[' expr ']'
+   55           | generic_id • '.' ID
+   85 lvalue: generic_id •
+   86       | generic_id • '[' expr ']'
+  132 factor: generic_id •
+  136       | generic_id • '(' para_list ')'
+
+    '('  偏移，並進入狀態 36
+    '['  偏移，並進入狀態 37
+    '.'  偏移，並進入狀態 38
+
+    error     使用規則 132 以縮減 (factor)
+    AND       使用規則 85 以縮減 (lvalue)
+    AND       [使用規則 132 以縮減 (factor)]
+    EQ        使用規則 85 以縮減 (lvalue)
+    EQ        [使用規則 132 以縮減 (factor)]
+    GE        使用規則 85 以縮減 (lvalue)
+    GE        [使用規則 132 以縮減 (factor)]
+    LE        使用規則 85 以縮減 (lvalue)
+    LE        [使用規則 132 以縮減 (factor)]
+    MM        使用規則 85 以縮減 (lvalue)
+    MM        [使用規則 132 以縮減 (factor)]
+    NE        使用規則 85 以縮減 (lvalue)
+    NE        [使用規則 132 以縮減 (factor)]
+    OR        使用規則 85 以縮減 (lvalue)
+    OR        [使用規則 132 以縮減 (factor)]
+    PP        使用規則 85 以縮減 (lvalue)
+    PP        [使用規則 132 以縮減 (factor)]
+    '<'       使用規則 85 以縮減 (lvalue)
+    '<'       [使用規則 132 以縮減 (factor)]
+    '>'       使用規則 85 以縮減 (lvalue)
+    '>'       [使用規則 132 以縮減 (factor)]
+    '+'       使用規則 85 以縮減 (lvalue)
+    '+'       [使用規則 132 以縮減 (factor)]
+    '-'       使用規則 85 以縮減 (lvalue)
+    '-'       [使用規則 132 以縮減 (factor)]
+    '*'       使用規則 85 以縮減 (lvalue)
+    '*'       [使用規則 132 以縮減 (factor)]
+    '/'       使用規則 85 以縮減 (lvalue)
+    '/'       [使用規則 132 以縮減 (factor)]
+    '%'       使用規則 85 以縮減 (lvalue)
+    '%'       [使用規則 132 以縮減 (factor)]
+    '\n'      使用規則 85 以縮減 (lvalue)
+    '\n'      [使用規則 132 以縮減 (factor)]
+    ';'       使用規則 85 以縮減 (lvalue)
+    ';'       [使用規則 132 以縮減 (factor)]
+    ','       使用規則 85 以縮減 (lvalue)
+    ','       [使用規則 132 以縮減 (factor)]
+    ')'       使用規則 85 以縮減 (lvalue)
+    ')'       [使用規則 132 以縮減 (factor)]
+    ']'       使用規則 85 以縮減 (lvalue)
+    ']'       [使用規則 132 以縮減 (factor)]
+    $default  使用規則 85 以縮減 (lvalue)
+
+
+狀態 23
+
+  123 expr: lvalue •
+  137 factor: lvalue • PP
+  138       | lvalue • MM
+
+    MM  偏移，並進入狀態 39
+    PP  偏移，並進入狀態 40
+
+    MM        [使用規則 123 以縮減 (expr)]
+    PP        [使用規則 123 以縮減 (expr)]
+    $default  使用規則 123 以縮減 (expr)
+
+
+狀態 24
+
+    7 lines: lines expr • '\n'
+  110 expr: expr • '+' expr
+  111     | expr • '-' expr
+  112     | expr • '*' expr
+  113     | expr • '/' expr
+  114     | expr • '%' expr
+  115     | expr • AND expr
+  116     | expr • OR expr
+  117     | expr • EQ expr
+  118     | expr • NE expr
+  119     | expr • LE expr
+  120     | expr • GE expr
+  121     | expr • '<' expr
+  122     | expr • '>' expr
+  124     | expr • PP
+  125     | expr • MM
+  126     | expr • '+' error
+  127     | expr • '-' error
+  128     | expr • '*' error
+  129     | expr • '/' error
+
+    AND   偏移，並進入狀態 41
+    EQ    偏移，並進入狀態 42
+    GE    偏移，並進入狀態 43
+    LE    偏移，並進入狀態 44
+    MM    偏移，並進入狀態 45
+    NE    偏移，並進入狀態 46
+    OR    偏移，並進入狀態 47
+    PP    偏移，並進入狀態 48
+    '<'   偏移，並進入狀態 49
+    '>'   偏移，並進入狀態 50
+    '+'   偏移，並進入狀態 51
+    '-'   偏移，並進入狀態 52
+    '*'   偏移，並進入狀態 53
+    '/'   偏移，並進入狀態 54
+    '%'   偏移，並進入狀態 55
+    '\n'  偏移，並進入狀態 56
+
+
+狀態 25
+
+  131 expr: factor •
+  144 factor: factor • error
+
+    error  偏移，並進入狀態 57
+
+    AND   使用規則 131 以縮減 (expr)
+    EQ    使用規則 131 以縮減 (expr)
+    GE    使用規則 131 以縮減 (expr)
+    LE    使用規則 131 以縮減 (expr)
+    MM    使用規則 131 以縮減 (expr)
+    NE    使用規則 131 以縮減 (expr)
+    OR    使用規則 131 以縮減 (expr)
+    PP    使用規則 131 以縮減 (expr)
+    '<'   使用規則 131 以縮減 (expr)
+    '>'   使用規則 131 以縮減 (expr)
+    '+'   使用規則 131 以縮減 (expr)
+    '-'   使用規則 131 以縮減 (expr)
+    '*'   使用規則 131 以縮減 (expr)
+    '/'   使用規則 131 以縮減 (expr)
+    '%'   使用規則 131 以縮減 (expr)
+    '\n'  使用規則 131 以縮減 (expr)
+    ';'   使用規則 131 以縮減 (expr)
+    ','   使用規則 131 以縮減 (expr)
+    ')'   使用規則 131 以縮減 (expr)
+    ']'   使用規則 131 以縮減 (expr)
+
+
+狀態 26
+
+   11 class_def: CLASS ID $@1 • '{' $@2 declare '}'
+
+    '{'  偏移，並進入狀態 58
+
+
+狀態 27
+
+  145 factor: error • factor
+
+    error          偏移，並進入狀態 27
+    ID             偏移，並進入狀態 13
+    MM             偏移，並進入狀態 14
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 17
+    STR            偏移，並進入狀態 18
+    INVALID_TOKEN  偏移，並進入狀態 19
+    '-'            偏移，並進入狀態 20
+    '('            偏移，並進入狀態 21
+
+    generic_id  進入狀態 22
+    lvalue      進入狀態 29
+    factor      進入狀態 30
+
+
+狀態 28
+
+    8 lines: lines error '\n' •
+
+    $default  使用規則 8 以縮減 (lines)
+
+
+狀態 29
+
+  137 factor: lvalue • PP
+  138       | lvalue • MM
+
+    MM  偏移，並進入狀態 39
+    PP  偏移，並進入狀態 40
+
+
+狀態 30
+
+  144 factor: factor • error
+  145       | error factor •
+
+    error  偏移，並進入狀態 57
+
+    error  [使用規則 145 以縮減 (factor)]
+    AND    使用規則 145 以縮減 (factor)
+    EQ     使用規則 145 以縮減 (factor)
+    GE     使用規則 145 以縮減 (factor)
+    LE     使用規則 145 以縮減 (factor)
+    MM     使用規則 145 以縮減 (factor)
+    NE     使用規則 145 以縮減 (factor)
+    OR     使用規則 145 以縮減 (factor)
+    PP     使用規則 145 以縮減 (factor)
+    '<'    使用規則 145 以縮減 (factor)
+    '>'    使用規則 145 以縮減 (factor)
+    '+'    使用規則 145 以縮減 (factor)
+    '-'    使用規則 145 以縮減 (factor)
+    '*'    使用規則 145 以縮減 (factor)
+    '/'    使用規則 145 以縮減 (factor)
+    '%'    使用規則 145 以縮減 (factor)
+    '\n'   使用規則 145 以縮減 (factor)
+    ';'    使用規則 145 以縮減 (factor)
+    ','    使用規則 145 以縮減 (factor)
+    ')'    使用規則 145 以縮減 (factor)
+    ']'    使用規則 145 以縮減 (factor)
+
+
+狀態 31
+
+  142 factor: MM factor •
+  144       | factor • error
+
+    error  偏移，並進入狀態 57
+
+    error  [使用規則 142 以縮減 (factor)]
+    AND    使用規則 142 以縮減 (factor)
+    EQ     使用規則 142 以縮減 (factor)
+    GE     使用規則 142 以縮減 (factor)
+    LE     使用規則 142 以縮減 (factor)
+    MM     使用規則 142 以縮減 (factor)
+    NE     使用規則 142 以縮減 (factor)
+    OR     使用規則 142 以縮減 (factor)
+    PP     使用規則 142 以縮減 (factor)
+    '<'    使用規則 142 以縮減 (factor)
+    '>'    使用規則 142 以縮減 (factor)
+    '+'    使用規則 142 以縮減 (factor)
+    '-'    使用規則 142 以縮減 (factor)
+    '*'    使用規則 142 以縮減 (factor)
+    '/'    使用規則 142 以縮減 (factor)
+    '%'    使用規則 142 以縮減 (factor)
+    '\n'   使用規則 142 以縮減 (factor)
+    ';'    使用規則 142 以縮減 (factor)
+    ','    使用規則 142 以縮減 (factor)
+    ')'    使用規則 142 以縮減 (factor)
+    ']'    使用規則 142 以縮減 (factor)
+
+
+狀態 32
+
+  141 factor: PP factor •
+  144       | factor • error
+
+    error  偏移，並進入狀態 57
+
+    error  [使用規則 141 以縮減 (factor)]
+    AND    使用規則 141 以縮減 (factor)
+    EQ     使用規則 141 以縮減 (factor)
+    GE     使用規則 141 以縮減 (factor)
+    LE     使用規則 141 以縮減 (factor)
+    MM     使用規則 141 以縮減 (factor)
+    NE     使用規則 141 以縮減 (factor)
+    OR     使用規則 141 以縮減 (factor)
+    PP     使用規則 141 以縮減 (factor)
+    '<'    使用規則 141 以縮減 (factor)
+    '>'    使用規則 141 以縮減 (factor)
+    '+'    使用規則 141 以縮減 (factor)
+    '-'    使用規則 141 以縮減 (factor)
+    '*'    使用規則 141 以縮減 (factor)
+    '/'    使用規則 141 以縮減 (factor)
+    '%'    使用規則 141 以縮減 (factor)
+    '\n'   使用規則 141 以縮減 (factor)
+    ';'    使用規則 141 以縮減 (factor)
+    ','    使用規則 141 以縮減 (factor)
+    ')'    使用規則 141 以縮減 (factor)
+    ']'    使用規則 141 以縮減 (factor)
+
+
+狀態 33
+
+  140 factor: '-' factor •
+  144       | factor • error
+
+    error  偏移，並進入狀態 57
+
+    error  [使用規則 140 以縮減 (factor)]
+    AND    使用規則 140 以縮減 (factor)
+    EQ     使用規則 140 以縮減 (factor)
+    GE     使用規則 140 以縮減 (factor)
+    LE     使用規則 140 以縮減 (factor)
+    MM     使用規則 140 以縮減 (factor)
+    NE     使用規則 140 以縮減 (factor)
+    OR     使用規則 140 以縮減 (factor)
+    PP     使用規則 140 以縮減 (factor)
+    '<'    使用規則 140 以縮減 (factor)
+    '>'    使用規則 140 以縮減 (factor)
+    '+'    使用規則 140 以縮減 (factor)
+    '-'    使用規則 140 以縮減 (factor)
+    '*'    使用規則 140 以縮減 (factor)
+    '/'    使用規則 140 以縮減 (factor)
+    '%'    使用規則 140 以縮減 (factor)
+    '\n'   使用規則 140 以縮減 (factor)
+    ';'    使用規則 140 以縮減 (factor)
+    ','    使用規則 140 以縮減 (factor)
+    ')'    使用規則 140 以縮減 (factor)
+    ']'    使用規則 140 以縮減 (factor)
+
+
+狀態 34
+
+  130 expr: error •
+  145 factor: error • factor
+
+    error          偏移，並進入狀態 27
+    ID             偏移，並進入狀態 13
+    MM             偏移，並進入狀態 14
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 17
+    STR            偏移，並進入狀態 18
+    INVALID_TOKEN  偏移，並進入狀態 19
+    '-'            偏移，並進入狀態 20
+    '('            偏移，並進入狀態 21
+
+    AND   使用規則 130 以縮減 (expr)
+    EQ    使用規則 130 以縮減 (expr)
+    GE    使用規則 130 以縮減 (expr)
+    LE    使用規則 130 以縮減 (expr)
+    MM    [使用規則 130 以縮減 (expr)]
+    NE    使用規則 130 以縮減 (expr)
+    OR    使用規則 130 以縮減 (expr)
+    PP    [使用規則 130 以縮減 (expr)]
+    '<'   使用規則 130 以縮減 (expr)
+    '>'   使用規則 130 以縮減 (expr)
+    '+'   使用規則 130 以縮減 (expr)
+    '-'   [使用規則 130 以縮減 (expr)]
+    '*'   使用規則 130 以縮減 (expr)
+    '/'   使用規則 130 以縮減 (expr)
+    '%'   使用規則 130 以縮減 (expr)
+    '\n'  使用規則 130 以縮減 (expr)
+    ';'   使用規則 130 以縮減 (expr)
+    ','   使用規則 130 以縮減 (expr)
+    ')'   使用規則 130 以縮減 (expr)
+    ']'   使用規則 130 以縮減 (expr)
+
+    generic_id  進入狀態 22
+    lvalue      進入狀態 29
+    factor      進入狀態 30
+
+
+狀態 35
+
+  110 expr: expr • '+' expr
+  111     | expr • '-' expr
+  112     | expr • '*' expr
+  113     | expr • '/' expr
+  114     | expr • '%' expr
+  115     | expr • AND expr
+  116     | expr • OR expr
+  117     | expr • EQ expr
+  118     | expr • NE expr
+  119     | expr • LE expr
+  120     | expr • GE expr
+  121     | expr • '<' expr
+  122     | expr • '>' expr
+  124     | expr • PP
+  125     | expr • MM
+  126     | expr • '+' error
+  127     | expr • '-' error
+  128     | expr • '*' error
+  129     | expr • '/' error
+  139 factor: '(' expr • ')'
+
+    AND  偏移，並進入狀態 41
+    EQ   偏移，並進入狀態 42
+    GE   偏移，並進入狀態 43
+    LE   偏移，並進入狀態 44
+    MM   偏移，並進入狀態 45
+    NE   偏移，並進入狀態 46
+    OR   偏移，並進入狀態 47
+    PP   偏移，並進入狀態 48
+    '<'  偏移，並進入狀態 49
+    '>'  偏移，並進入狀態 50
+    '+'  偏移，並進入狀態 51
+    '-'  偏移，並進入狀態 52
+    '*'  偏移，並進入狀態 53
+    '/'  偏移，並進入狀態 54
+    '%'  偏移，並進入狀態 55
+    ')'  偏移，並進入狀態 59
+
+
+狀態 36
+
+  136 factor: generic_id '(' • para_list ')'
+
+    error          偏移，並進入狀態 60
+    ID             偏移，並進入狀態 13
+    MM             偏移，並進入狀態 14
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 17
+    STR            偏移，並進入狀態 18
+    INVALID_TOKEN  偏移，並進入狀態 19
+    '-'            偏移，並進入狀態 20
+    '('            偏移，並進入狀態 21
+
+    ','  使用規則 177 以縮減 (para_list)
+    ')'  使用規則 177 以縮減 (para_list)
+
+    generic_id  進入狀態 22
+    lvalue      進入狀態 23
+    expr        進入狀態 61
+    factor      進入狀態 25
+    para_list   進入狀態 62
+
+
+狀態 37
+
+   54 generic_id: generic_id '[' • expr ']'
+   86 lvalue: generic_id '[' • expr ']'
+
+    error          偏移，並進入狀態 34
+    ID             偏移，並進入狀態 13
+    MM             偏移，並進入狀態 14
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 17
+    STR            偏移，並進入狀態 18
+    INVALID_TOKEN  偏移，並進入狀態 19
+    '-'            偏移，並進入狀態 20
+    '('            偏移，並進入狀態 21
+
+    generic_id  進入狀態 22
+    lvalue      進入狀態 23
+    expr        進入狀態 63
+    factor      進入狀態 25
+
+
+狀態 38
+
+   55 generic_id: generic_id '.' • ID
+
+    ID  偏移，並進入狀態 64
+
+
+狀態 39
+
+  138 factor: lvalue MM •
+
+    $default  使用規則 138 以縮減 (factor)
+
+
+狀態 40
+
+  137 factor: lvalue PP •
+
+    $default  使用規則 137 以縮減 (factor)
+
+
+狀態 41
+
+  115 expr: expr AND • expr
+
+    error          偏移，並進入狀態 34
+    ID             偏移，並進入狀態 13
+    MM             偏移，並進入狀態 14
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 17
+    STR            偏移，並進入狀態 18
+    INVALID_TOKEN  偏移，並進入狀態 19
+    '-'            偏移，並進入狀態 20
+    '('            偏移，並進入狀態 21
+
+    generic_id  進入狀態 22
+    lvalue      進入狀態 23
+    expr        進入狀態 65
+    factor      進入狀態 25
+
+
+狀態 42
+
+  117 expr: expr EQ • expr
+
+    error          偏移，並進入狀態 34
+    ID             偏移，並進入狀態 13
+    MM             偏移，並進入狀態 14
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 17
+    STR            偏移，並進入狀態 18
+    INVALID_TOKEN  偏移，並進入狀態 19
+    '-'            偏移，並進入狀態 20
+    '('            偏移，並進入狀態 21
+
+    generic_id  進入狀態 22
+    lvalue      進入狀態 23
+    expr        進入狀態 66
+    factor      進入狀態 25
+
+
+狀態 43
+
+  120 expr: expr GE • expr
+
+    error          偏移，並進入狀態 34
+    ID             偏移，並進入狀態 13
+    MM             偏移，並進入狀態 14
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 17
+    STR            偏移，並進入狀態 18
+    INVALID_TOKEN  偏移，並進入狀態 19
+    '-'            偏移，並進入狀態 20
+    '('            偏移，並進入狀態 21
+
+    generic_id  進入狀態 22
+    lvalue      進入狀態 23
+    expr        進入狀態 67
+    factor      進入狀態 25
+
+
+狀態 44
+
+  119 expr: expr LE • expr
+
+    error          偏移，並進入狀態 34
+    ID             偏移，並進入狀態 13
+    MM             偏移，並進入狀態 14
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 17
+    STR            偏移，並進入狀態 18
+    INVALID_TOKEN  偏移，並進入狀態 19
+    '-'            偏移，並進入狀態 20
+    '('            偏移，並進入狀態 21
+
+    generic_id  進入狀態 22
+    lvalue      進入狀態 23
+    expr        進入狀態 68
+    factor      進入狀態 25
+
+
+狀態 45
+
+  125 expr: expr MM •
+
+    $default  使用規則 125 以縮減 (expr)
+
+
+狀態 46
+
+  118 expr: expr NE • expr
+
+    error          偏移，並進入狀態 34
+    ID             偏移，並進入狀態 13
+    MM             偏移，並進入狀態 14
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 17
+    STR            偏移，並進入狀態 18
+    INVALID_TOKEN  偏移，並進入狀態 19
+    '-'            偏移，並進入狀態 20
+    '('            偏移，並進入狀態 21
+
+    generic_id  進入狀態 22
+    lvalue      進入狀態 23
+    expr        進入狀態 69
+    factor      進入狀態 25
+
+
+狀態 47
+
+  116 expr: expr OR • expr
+
+    error          偏移，並進入狀態 34
+    ID             偏移，並進入狀態 13
+    MM             偏移，並進入狀態 14
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 17
+    STR            偏移，並進入狀態 18
+    INVALID_TOKEN  偏移，並進入狀態 19
+    '-'            偏移，並進入狀態 20
+    '('            偏移，並進入狀態 21
+
+    generic_id  進入狀態 22
+    lvalue      進入狀態 23
+    expr        進入狀態 70
+    factor      進入狀態 25
+
+
+狀態 48
+
+  124 expr: expr PP •
+
+    $default  使用規則 124 以縮減 (expr)
+
+
+狀態 49
+
+  121 expr: expr '<' • expr
+
+    error          偏移，並進入狀態 34
+    ID             偏移，並進入狀態 13
+    MM             偏移，並進入狀態 14
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 17
+    STR            偏移，並進入狀態 18
+    INVALID_TOKEN  偏移，並進入狀態 19
+    '-'            偏移，並進入狀態 20
+    '('            偏移，並進入狀態 21
+
+    generic_id  進入狀態 22
+    lvalue      進入狀態 23
+    expr        進入狀態 71
+    factor      進入狀態 25
+
+
+狀態 50
+
+  122 expr: expr '>' • expr
+
+    error          偏移，並進入狀態 34
+    ID             偏移，並進入狀態 13
+    MM             偏移，並進入狀態 14
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 17
+    STR            偏移，並進入狀態 18
+    INVALID_TOKEN  偏移，並進入狀態 19
+    '-'            偏移，並進入狀態 20
+    '('            偏移，並進入狀態 21
+
+    generic_id  進入狀態 22
+    lvalue      進入狀態 23
+    expr        進入狀態 72
+    factor      進入狀態 25
+
+
+狀態 51
+
+  110 expr: expr '+' • expr
+  126     | expr '+' • error
+
+    error          偏移，並進入狀態 73
+    ID             偏移，並進入狀態 13
+    MM             偏移，並進入狀態 14
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 17
+    STR            偏移，並進入狀態 18
+    INVALID_TOKEN  偏移，並進入狀態 19
+    '-'            偏移，並進入狀態 20
+    '('            偏移，並進入狀態 21
+
+    generic_id  進入狀態 22
+    lvalue      進入狀態 23
+    expr        進入狀態 74
+    factor      進入狀態 25
+
+
+狀態 52
+
+  111 expr: expr '-' • expr
+  127     | expr '-' • error
+
+    error          偏移，並進入狀態 75
+    ID             偏移，並進入狀態 13
+    MM             偏移，並進入狀態 14
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 17
+    STR            偏移，並進入狀態 18
+    INVALID_TOKEN  偏移，並進入狀態 19
+    '-'            偏移，並進入狀態 20
+    '('            偏移，並進入狀態 21
+
+    generic_id  進入狀態 22
+    lvalue      進入狀態 23
+    expr        進入狀態 76
+    factor      進入狀態 25
+
+
+狀態 53
+
+  112 expr: expr '*' • expr
+  128     | expr '*' • error
+
+    error          偏移，並進入狀態 77
+    ID             偏移，並進入狀態 13
+    MM             偏移，並進入狀態 14
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 17
+    STR            偏移，並進入狀態 18
+    INVALID_TOKEN  偏移，並進入狀態 19
+    '-'            偏移，並進入狀態 20
+    '('            偏移，並進入狀態 21
+
+    generic_id  進入狀態 22
+    lvalue      進入狀態 23
+    expr        進入狀態 78
+    factor      進入狀態 25
+
+
+狀態 54
+
+  113 expr: expr '/' • expr
+  129     | expr '/' • error
+
+    error          偏移，並進入狀態 79
+    ID             偏移，並進入狀態 13
+    MM             偏移，並進入狀態 14
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 17
+    STR            偏移，並進入狀態 18
+    INVALID_TOKEN  偏移，並進入狀態 19
+    '-'            偏移，並進入狀態 20
+    '('            偏移，並進入狀態 21
+
+    generic_id  進入狀態 22
+    lvalue      進入狀態 23
+    expr        進入狀態 80
+    factor      進入狀態 25
+
+
+狀態 55
+
+  114 expr: expr '%' • expr
+
+    error          偏移，並進入狀態 34
+    ID             偏移，並進入狀態 13
+    MM             偏移，並進入狀態 14
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 17
+    STR            偏移，並進入狀態 18
+    INVALID_TOKEN  偏移，並進入狀態 19
+    '-'            偏移，並進入狀態 20
+    '('            偏移，並進入狀態 21
+
+    generic_id  進入狀態 22
+    lvalue      進入狀態 23
+    expr        進入狀態 81
+    factor      進入狀態 25
+
+
+狀態 56
+
+    7 lines: lines expr '\n' •
+
+    $default  使用規則 7 以縮減 (lines)
+
+
+狀態 57
+
+  144 factor: factor error •
+
+    $default  使用規則 144 以縮減 (factor)
+
+
+狀態 58
+
+   11 class_def: CLASS ID $@1 '{' • $@2 declare '}'
+
+    $default  使用規則 10 以縮減 ($@2)
+
+    $@2  進入狀態 82
+
+
+狀態 59
+
+  139 factor: '(' expr ')' •
+
+    $default  使用規則 139 以縮減 (factor)
+
+
+狀態 60
+
+  130 expr: error •
+  145 factor: error • factor
+  180 para_list: error •
+
+    error          偏移，並進入狀態 27
+    ID             偏移，並進入狀態 13
+    MM             偏移，並進入狀態 14
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 17
+    STR            偏移，並進入狀態 18
+    INVALID_TOKEN  偏移，並進入狀態 19
+    '-'            偏移，並進入狀態 20
+    '('            偏移，並進入狀態 21
+
+    AND  使用規則 130 以縮減 (expr)
+    EQ   使用規則 130 以縮減 (expr)
+    GE   使用規則 130 以縮減 (expr)
+    LE   使用規則 130 以縮減 (expr)
+    MM   [使用規則 130 以縮減 (expr)]
+    NE   使用規則 130 以縮減 (expr)
+    OR   使用規則 130 以縮減 (expr)
+    PP   [使用規則 130 以縮減 (expr)]
+    '<'  使用規則 130 以縮減 (expr)
+    '>'  使用規則 130 以縮減 (expr)
+    '+'  使用規則 130 以縮減 (expr)
+    '-'  [使用規則 130 以縮減 (expr)]
+    '*'  使用規則 130 以縮減 (expr)
+    '/'  使用規則 130 以縮減 (expr)
+    '%'  使用規則 130 以縮減 (expr)
+    ','  使用規則 130 以縮減 (expr)
+    ','  [使用規則 180 以縮減 (para_list)]
+    ')'  使用規則 130 以縮減 (expr)
+    ')'  [使用規則 180 以縮減 (para_list)]
+
+    generic_id  進入狀態 22
+    lvalue      進入狀態 29
+    factor      進入狀態 30
+
+
+狀態 61
+
+  110 expr: expr • '+' expr
+  111     | expr • '-' expr
+  112     | expr • '*' expr
+  113     | expr • '/' expr
+  114     | expr • '%' expr
+  115     | expr • AND expr
+  116     | expr • OR expr
+  117     | expr • EQ expr
+  118     | expr • NE expr
+  119     | expr • LE expr
+  120     | expr • GE expr
+  121     | expr • '<' expr
+  122     | expr • '>' expr
+  124     | expr • PP
+  125     | expr • MM
+  126     | expr • '+' error
+  127     | expr • '-' error
+  128     | expr • '*' error
+  129     | expr • '/' error
+  178 para_list: expr •
+
+    AND  偏移，並進入狀態 41
+    EQ   偏移，並進入狀態 42
+    GE   偏移，並進入狀態 43
+    LE   偏移，並進入狀態 44
+    MM   偏移，並進入狀態 45
+    NE   偏移，並進入狀態 46
+    OR   偏移，並進入狀態 47
+    PP   偏移，並進入狀態 48
+    '<'  偏移，並進入狀態 49
+    '>'  偏移，並進入狀態 50
+    '+'  偏移，並進入狀態 51
+    '-'  偏移，並進入狀態 52
+    '*'  偏移，並進入狀態 53
+    '/'  偏移，並進入狀態 54
+    '%'  偏移，並進入狀態 55
+
+    $default  使用規則 178 以縮減 (para_list)
+
+
+狀態 62
+
+  136 factor: generic_id '(' para_list • ')'
+  179 para_list: para_list • ',' expr
+
+    ','  偏移，並進入狀態 83
+    ')'  偏移，並進入狀態 84
+
+
+狀態 63
+
+   54 generic_id: generic_id '[' expr • ']'
+   86 lvalue: generic_id '[' expr • ']'
+  110 expr: expr • '+' expr
+  111     | expr • '-' expr
+  112     | expr • '*' expr
+  113     | expr • '/' expr
+  114     | expr • '%' expr
+  115     | expr • AND expr
+  116     | expr • OR expr
+  117     | expr • EQ expr
+  118     | expr • NE expr
+  119     | expr • LE expr
+  120     | expr • GE expr
+  121     | expr • '<' expr
+  122     | expr • '>' expr
+  124     | expr • PP
+  125     | expr • MM
+  126     | expr • '+' error
+  127     | expr • '-' error
+  128     | expr • '*' error
+  129     | expr • '/' error
+
+    AND  偏移，並進入狀態 41
+    EQ   偏移，並進入狀態 42
+    GE   偏移，並進入狀態 43
+    LE   偏移，並進入狀態 44
+    MM   偏移，並進入狀態 45
+    NE   偏移，並進入狀態 46
+    OR   偏移，並進入狀態 47
+    PP   偏移，並進入狀態 48
+    '<'  偏移，並進入狀態 49
+    '>'  偏移，並進入狀態 50
+    '+'  偏移，並進入狀態 51
+    '-'  偏移，並進入狀態 52
+    '*'  偏移，並進入狀態 53
+    '/'  偏移，並進入狀態 54
+    '%'  偏移，並進入狀態 55
+    ']'  偏移，並進入狀態 85
+
+
+狀態 64
+
+   55 generic_id: generic_id '.' ID •
+
+    $default  使用規則 55 以縮減 (generic_id)
+
+
+狀態 65
+
+  110 expr: expr • '+' expr
+  111     | expr • '-' expr
+  112     | expr • '*' expr
+  113     | expr • '/' expr
+  114     | expr • '%' expr
+  115     | expr • AND expr
+  115     | expr AND expr •
+  116     | expr • OR expr
+  117     | expr • EQ expr
+  118     | expr • NE expr
+  119     | expr • LE expr
+  120     | expr • GE expr
+  121     | expr • '<' expr
+  122     | expr • '>' expr
+  124     | expr • PP
+  125     | expr • MM
+  126     | expr • '+' error
+  127     | expr • '-' error
+  128     | expr • '*' error
+  129     | expr • '/' error
+
+    EQ   偏移，並進入狀態 42
+    GE   偏移，並進入狀態 43
+    LE   偏移，並進入狀態 44
+    MM   偏移，並進入狀態 45
+    NE   偏移，並進入狀態 46
+    PP   偏移，並進入狀態 48
+    '<'  偏移，並進入狀態 49
+    '>'  偏移，並進入狀態 50
+    '+'  偏移，並進入狀態 51
+    '-'  偏移，並進入狀態 52
+    '*'  偏移，並進入狀態 53
+    '/'  偏移，並進入狀態 54
+    '%'  偏移，並進入狀態 55
+
+    MM        [使用規則 115 以縮減 (expr)]
+    PP        [使用規則 115 以縮減 (expr)]
+    $default  使用規則 115 以縮減 (expr)
+
+
+狀態 66
+
+  110 expr: expr • '+' expr
+  111     | expr • '-' expr
+  112     | expr • '*' expr
+  113     | expr • '/' expr
+  114     | expr • '%' expr
+  115     | expr • AND expr
+  116     | expr • OR expr
+  117     | expr • EQ expr
+  117     | expr EQ expr •
+  118     | expr • NE expr
+  119     | expr • LE expr
+  120     | expr • GE expr
+  121     | expr • '<' expr
+  122     | expr • '>' expr
+  124     | expr • PP
+  125     | expr • MM
+  126     | expr • '+' error
+  127     | expr • '-' error
+  128     | expr • '*' error
+  129     | expr • '/' error
+
+    GE   偏移，並進入狀態 43
+    LE   偏移，並進入狀態 44
+    MM   偏移，並進入狀態 45
+    PP   偏移，並進入狀態 48
+    '<'  偏移，並進入狀態 49
+    '>'  偏移，並進入狀態 50
+    '+'  偏移，並進入狀態 51
+    '-'  偏移，並進入狀態 52
+    '*'  偏移，並進入狀態 53
+    '/'  偏移，並進入狀態 54
+    '%'  偏移，並進入狀態 55
+
+    MM        [使用規則 117 以縮減 (expr)]
+    PP        [使用規則 117 以縮減 (expr)]
+    $default  使用規則 117 以縮減 (expr)
+
+
+狀態 67
+
+  110 expr: expr • '+' expr
+  111     | expr • '-' expr
+  112     | expr • '*' expr
+  113     | expr • '/' expr
+  114     | expr • '%' expr
+  115     | expr • AND expr
+  116     | expr • OR expr
+  117     | expr • EQ expr
+  118     | expr • NE expr
+  119     | expr • LE expr
+  120     | expr • GE expr
+  120     | expr GE expr •
+  121     | expr • '<' expr
+  122     | expr • '>' expr
+  124     | expr • PP
+  125     | expr • MM
+  126     | expr • '+' error
+  127     | expr • '-' error
+  128     | expr • '*' error
+  129     | expr • '/' error
+
+    MM   偏移，並進入狀態 45
+    PP   偏移，並進入狀態 48
+    '+'  偏移，並進入狀態 51
+    '-'  偏移，並進入狀態 52
+    '*'  偏移，並進入狀態 53
+    '/'  偏移，並進入狀態 54
+    '%'  偏移，並進入狀態 55
+
+    MM        [使用規則 120 以縮減 (expr)]
+    PP        [使用規則 120 以縮減 (expr)]
+    $default  使用規則 120 以縮減 (expr)
+
+
+狀態 68
+
+  110 expr: expr • '+' expr
+  111     | expr • '-' expr
+  112     | expr • '*' expr
+  113     | expr • '/' expr
+  114     | expr • '%' expr
+  115     | expr • AND expr
+  116     | expr • OR expr
+  117     | expr • EQ expr
+  118     | expr • NE expr
+  119     | expr • LE expr
+  119     | expr LE expr •
+  120     | expr • GE expr
+  121     | expr • '<' expr
+  122     | expr • '>' expr
+  124     | expr • PP
+  125     | expr • MM
+  126     | expr • '+' error
+  127     | expr • '-' error
+  128     | expr • '*' error
+  129     | expr • '/' error
+
+    MM   偏移，並進入狀態 45
+    PP   偏移，並進入狀態 48
+    '+'  偏移，並進入狀態 51
+    '-'  偏移，並進入狀態 52
+    '*'  偏移，並進入狀態 53
+    '/'  偏移，並進入狀態 54
+    '%'  偏移，並進入狀態 55
+
+    MM        [使用規則 119 以縮減 (expr)]
+    PP        [使用規則 119 以縮減 (expr)]
+    $default  使用規則 119 以縮減 (expr)
+
+
+狀態 69
+
+  110 expr: expr • '+' expr
+  111     | expr • '-' expr
+  112     | expr • '*' expr
+  113     | expr • '/' expr
+  114     | expr • '%' expr
+  115     | expr • AND expr
+  116     | expr • OR expr
+  117     | expr • EQ expr
+  118     | expr • NE expr
+  118     | expr NE expr •
+  119     | expr • LE expr
+  120     | expr • GE expr
+  121     | expr • '<' expr
+  122     | expr • '>' expr
+  124     | expr • PP
+  125     | expr • MM
+  126     | expr • '+' error
+  127     | expr • '-' error
+  128     | expr • '*' error
+  129     | expr • '/' error
+
+    GE   偏移，並進入狀態 43
+    LE   偏移，並進入狀態 44
+    MM   偏移，並進入狀態 45
+    PP   偏移，並進入狀態 48
+    '<'  偏移，並進入狀態 49
+    '>'  偏移，並進入狀態 50
+    '+'  偏移，並進入狀態 51
+    '-'  偏移，並進入狀態 52
+    '*'  偏移，並進入狀態 53
+    '/'  偏移，並進入狀態 54
+    '%'  偏移，並進入狀態 55
+
+    MM        [使用規則 118 以縮減 (expr)]
+    PP        [使用規則 118 以縮減 (expr)]
+    $default  使用規則 118 以縮減 (expr)
+
+
+狀態 70
+
+  110 expr: expr • '+' expr
+  111     | expr • '-' expr
+  112     | expr • '*' expr
+  113     | expr • '/' expr
+  114     | expr • '%' expr
+  115     | expr • AND expr
+  116     | expr • OR expr
+  116     | expr OR expr •
+  117     | expr • EQ expr
+  118     | expr • NE expr
+  119     | expr • LE expr
+  120     | expr • GE expr
+  121     | expr • '<' expr
+  122     | expr • '>' expr
+  124     | expr • PP
+  125     | expr • MM
+  126     | expr • '+' error
+  127     | expr • '-' error
+  128     | expr • '*' error
+  129     | expr • '/' error
+
+    AND  偏移，並進入狀態 41
+    EQ   偏移，並進入狀態 42
+    GE   偏移，並進入狀態 43
+    LE   偏移，並進入狀態 44
+    MM   偏移，並進入狀態 45
+    NE   偏移，並進入狀態 46
+    PP   偏移，並進入狀態 48
+    '<'  偏移，並進入狀態 49
+    '>'  偏移，並進入狀態 50
+    '+'  偏移，並進入狀態 51
+    '-'  偏移，並進入狀態 52
+    '*'  偏移，並進入狀態 53
+    '/'  偏移，並進入狀態 54
+    '%'  偏移，並進入狀態 55
+
+    MM        [使用規則 116 以縮減 (expr)]
+    PP        [使用規則 116 以縮減 (expr)]
+    $default  使用規則 116 以縮減 (expr)
+
+
+狀態 71
+
+  110 expr: expr • '+' expr
+  111     | expr • '-' expr
+  112     | expr • '*' expr
+  113     | expr • '/' expr
+  114     | expr • '%' expr
+  115     | expr • AND expr
+  116     | expr • OR expr
+  117     | expr • EQ expr
+  118     | expr • NE expr
+  119     | expr • LE expr
+  120     | expr • GE expr
+  121     | expr • '<' expr
+  121     | expr '<' expr •
+  122     | expr • '>' expr
+  124     | expr • PP
+  125     | expr • MM
+  126     | expr • '+' error
+  127     | expr • '-' error
+  128     | expr • '*' error
+  129     | expr • '/' error
+
+    MM   偏移，並進入狀態 45
+    PP   偏移，並進入狀態 48
+    '+'  偏移，並進入狀態 51
+    '-'  偏移，並進入狀態 52
+    '*'  偏移，並進入狀態 53
+    '/'  偏移，並進入狀態 54
+    '%'  偏移，並進入狀態 55
+
+    MM        [使用規則 121 以縮減 (expr)]
+    PP        [使用規則 121 以縮減 (expr)]
+    $default  使用規則 121 以縮減 (expr)
+
+
+狀態 72
+
+  110 expr: expr • '+' expr
+  111     | expr • '-' expr
+  112     | expr • '*' expr
+  113     | expr • '/' expr
+  114     | expr • '%' expr
+  115     | expr • AND expr
+  116     | expr • OR expr
+  117     | expr • EQ expr
+  118     | expr • NE expr
+  119     | expr • LE expr
+  120     | expr • GE expr
+  121     | expr • '<' expr
+  122     | expr • '>' expr
+  122     | expr '>' expr •
+  124     | expr • PP
+  125     | expr • MM
+  126     | expr • '+' error
+  127     | expr • '-' error
+  128     | expr • '*' error
+  129     | expr • '/' error
+
+    MM   偏移，並進入狀態 45
+    PP   偏移，並進入狀態 48
+    '+'  偏移，並進入狀態 51
+    '-'  偏移，並進入狀態 52
+    '*'  偏移，並進入狀態 53
+    '/'  偏移，並進入狀態 54
+    '%'  偏移，並進入狀態 55
+
+    MM        [使用規則 122 以縮減 (expr)]
+    PP        [使用規則 122 以縮減 (expr)]
+    $default  使用規則 122 以縮減 (expr)
+
+
+狀態 73
+
+  126 expr: expr '+' error •
+  130     | error •
+  145 factor: error • factor
+
+    error          偏移，並進入狀態 27
+    ID             偏移，並進入狀態 13
+    MM             偏移，並進入狀態 14
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 17
+    STR            偏移，並進入狀態 18
+    INVALID_TOKEN  偏移，並進入狀態 19
+    '-'            偏移，並進入狀態 20
+    '('            偏移，並進入狀態 21
+
+    AND   使用規則 126 以縮減 (expr)
+    AND   [使用規則 130 以縮減 (expr)]
+    EQ    使用規則 126 以縮減 (expr)
+    EQ    [使用規則 130 以縮減 (expr)]
+    GE    使用規則 126 以縮減 (expr)
+    GE    [使用規則 130 以縮減 (expr)]
+    LE    使用規則 126 以縮減 (expr)
+    LE    [使用規則 130 以縮減 (expr)]
+    MM    [使用規則 126 以縮減 (expr)]
+    MM    [使用規則 130 以縮減 (expr)]
+    NE    使用規則 126 以縮減 (expr)
+    NE    [使用規則 130 以縮減 (expr)]
+    OR    使用規則 126 以縮減 (expr)
+    OR    [使用規則 130 以縮減 (expr)]
+    PP    [使用規則 126 以縮減 (expr)]
+    PP    [使用規則 130 以縮減 (expr)]
+    '<'   使用規則 126 以縮減 (expr)
+    '<'   [使用規則 130 以縮減 (expr)]
+    '>'   使用規則 126 以縮減 (expr)
+    '>'   [使用規則 130 以縮減 (expr)]
+    '+'   使用規則 126 以縮減 (expr)
+    '+'   [使用規則 130 以縮減 (expr)]
+    '-'   [使用規則 126 以縮減 (expr)]
+    '-'   [使用規則 130 以縮減 (expr)]
+    '*'   使用規則 126 以縮減 (expr)
+    '*'   [使用規則 130 以縮減 (expr)]
+    '/'   使用規則 126 以縮減 (expr)
+    '/'   [使用規則 130 以縮減 (expr)]
+    '%'   使用規則 126 以縮減 (expr)
+    '%'   [使用規則 130 以縮減 (expr)]
+    '\n'  使用規則 126 以縮減 (expr)
+    '\n'  [使用規則 130 以縮減 (expr)]
+    ';'   使用規則 126 以縮減 (expr)
+    ';'   [使用規則 130 以縮減 (expr)]
+    ','   使用規則 126 以縮減 (expr)
+    ','   [使用規則 130 以縮減 (expr)]
+    ')'   使用規則 126 以縮減 (expr)
+    ')'   [使用規則 130 以縮減 (expr)]
+    ']'   使用規則 126 以縮減 (expr)
+    ']'   [使用規則 130 以縮減 (expr)]
+
+    generic_id  進入狀態 22
+    lvalue      進入狀態 29
+    factor      進入狀態 30
+
+
+狀態 74
+
+  110 expr: expr • '+' expr
+  110     | expr '+' expr •
+  111     | expr • '-' expr
+  112     | expr • '*' expr
+  113     | expr • '/' expr
+  114     | expr • '%' expr
+  115     | expr • AND expr
+  116     | expr • OR expr
+  117     | expr • EQ expr
+  118     | expr • NE expr
+  119     | expr • LE expr
+  120     | expr • GE expr
+  121     | expr • '<' expr
+  122     | expr • '>' expr
+  124     | expr • PP
+  125     | expr • MM
+  126     | expr • '+' error
+  127     | expr • '-' error
+  128     | expr • '*' error
+  129     | expr • '/' error
+
+    MM   偏移，並進入狀態 45
+    PP   偏移，並進入狀態 48
+    '*'  偏移，並進入狀態 53
+    '/'  偏移，並進入狀態 54
+    '%'  偏移，並進入狀態 55
+
+    MM        [使用規則 110 以縮減 (expr)]
+    PP        [使用規則 110 以縮減 (expr)]
+    $default  使用規則 110 以縮減 (expr)
+
+
+狀態 75
+
+  127 expr: expr '-' error •
+  130     | error •
+  145 factor: error • factor
+
+    error          偏移，並進入狀態 27
+    ID             偏移，並進入狀態 13
+    MM             偏移，並進入狀態 14
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 17
+    STR            偏移，並進入狀態 18
+    INVALID_TOKEN  偏移，並進入狀態 19
+    '-'            偏移，並進入狀態 20
+    '('            偏移，並進入狀態 21
+
+    AND   使用規則 127 以縮減 (expr)
+    AND   [使用規則 130 以縮減 (expr)]
+    EQ    使用規則 127 以縮減 (expr)
+    EQ    [使用規則 130 以縮減 (expr)]
+    GE    使用規則 127 以縮減 (expr)
+    GE    [使用規則 130 以縮減 (expr)]
+    LE    使用規則 127 以縮減 (expr)
+    LE    [使用規則 130 以縮減 (expr)]
+    MM    [使用規則 127 以縮減 (expr)]
+    MM    [使用規則 130 以縮減 (expr)]
+    NE    使用規則 127 以縮減 (expr)
+    NE    [使用規則 130 以縮減 (expr)]
+    OR    使用規則 127 以縮減 (expr)
+    OR    [使用規則 130 以縮減 (expr)]
+    PP    [使用規則 127 以縮減 (expr)]
+    PP    [使用規則 130 以縮減 (expr)]
+    '<'   使用規則 127 以縮減 (expr)
+    '<'   [使用規則 130 以縮減 (expr)]
+    '>'   使用規則 127 以縮減 (expr)
+    '>'   [使用規則 130 以縮減 (expr)]
+    '+'   使用規則 127 以縮減 (expr)
+    '+'   [使用規則 130 以縮減 (expr)]
+    '-'   [使用規則 127 以縮減 (expr)]
+    '-'   [使用規則 130 以縮減 (expr)]
+    '*'   使用規則 127 以縮減 (expr)
+    '*'   [使用規則 130 以縮減 (expr)]
+    '/'   使用規則 127 以縮減 (expr)
+    '/'   [使用規則 130 以縮減 (expr)]
+    '%'   使用規則 127 以縮減 (expr)
+    '%'   [使用規則 130 以縮減 (expr)]
+    '\n'  使用規則 127 以縮減 (expr)
+    '\n'  [使用規則 130 以縮減 (expr)]
+    ';'   使用規則 127 以縮減 (expr)
+    ';'   [使用規則 130 以縮減 (expr)]
+    ','   使用規則 127 以縮減 (expr)
+    ','   [使用規則 130 以縮減 (expr)]
+    ')'   使用規則 127 以縮減 (expr)
+    ')'   [使用規則 130 以縮減 (expr)]
+    ']'   使用規則 127 以縮減 (expr)
+    ']'   [使用規則 130 以縮減 (expr)]
+
+    generic_id  進入狀態 22
+    lvalue      進入狀態 29
+    factor      進入狀態 30
+
+
+狀態 76
+
+  110 expr: expr • '+' expr
+  111     | expr • '-' expr
+  111     | expr '-' expr •
+  112     | expr • '*' expr
+  113     | expr • '/' expr
+  114     | expr • '%' expr
+  115     | expr • AND expr
+  116     | expr • OR expr
+  117     | expr • EQ expr
+  118     | expr • NE expr
+  119     | expr • LE expr
+  120     | expr • GE expr
+  121     | expr • '<' expr
+  122     | expr • '>' expr
+  124     | expr • PP
+  125     | expr • MM
+  126     | expr • '+' error
+  127     | expr • '-' error
+  128     | expr • '*' error
+  129     | expr • '/' error
+
+    MM   偏移，並進入狀態 45
+    PP   偏移，並進入狀態 48
+    '*'  偏移，並進入狀態 53
+    '/'  偏移，並進入狀態 54
+    '%'  偏移，並進入狀態 55
+
+    MM        [使用規則 111 以縮減 (expr)]
+    PP        [使用規則 111 以縮減 (expr)]
+    $default  使用規則 111 以縮減 (expr)
+
+
+狀態 77
+
+  128 expr: expr '*' error •
+  130     | error •
+  145 factor: error • factor
+
+    error          偏移，並進入狀態 27
+    ID             偏移，並進入狀態 13
+    MM             偏移，並進入狀態 14
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 17
+    STR            偏移，並進入狀態 18
+    INVALID_TOKEN  偏移，並進入狀態 19
+    '-'            偏移，並進入狀態 20
+    '('            偏移，並進入狀態 21
+
+    AND   使用規則 128 以縮減 (expr)
+    AND   [使用規則 130 以縮減 (expr)]
+    EQ    使用規則 128 以縮減 (expr)
+    EQ    [使用規則 130 以縮減 (expr)]
+    GE    使用規則 128 以縮減 (expr)
+    GE    [使用規則 130 以縮減 (expr)]
+    LE    使用規則 128 以縮減 (expr)
+    LE    [使用規則 130 以縮減 (expr)]
+    MM    [使用規則 128 以縮減 (expr)]
+    MM    [使用規則 130 以縮減 (expr)]
+    NE    使用規則 128 以縮減 (expr)
+    NE    [使用規則 130 以縮減 (expr)]
+    OR    使用規則 128 以縮減 (expr)
+    OR    [使用規則 130 以縮減 (expr)]
+    PP    [使用規則 128 以縮減 (expr)]
+    PP    [使用規則 130 以縮減 (expr)]
+    '<'   使用規則 128 以縮減 (expr)
+    '<'   [使用規則 130 以縮減 (expr)]
+    '>'   使用規則 128 以縮減 (expr)
+    '>'   [使用規則 130 以縮減 (expr)]
+    '+'   使用規則 128 以縮減 (expr)
+    '+'   [使用規則 130 以縮減 (expr)]
+    '-'   [使用規則 128 以縮減 (expr)]
+    '-'   [使用規則 130 以縮減 (expr)]
+    '*'   使用規則 128 以縮減 (expr)
+    '*'   [使用規則 130 以縮減 (expr)]
+    '/'   使用規則 128 以縮減 (expr)
+    '/'   [使用規則 130 以縮減 (expr)]
+    '%'   使用規則 128 以縮減 (expr)
+    '%'   [使用規則 130 以縮減 (expr)]
+    '\n'  使用規則 128 以縮減 (expr)
+    '\n'  [使用規則 130 以縮減 (expr)]
+    ';'   使用規則 128 以縮減 (expr)
+    ';'   [使用規則 130 以縮減 (expr)]
+    ','   使用規則 128 以縮減 (expr)
+    ','   [使用規則 130 以縮減 (expr)]
+    ')'   使用規則 128 以縮減 (expr)
+    ')'   [使用規則 130 以縮減 (expr)]
+    ']'   使用規則 128 以縮減 (expr)
+    ']'   [使用規則 130 以縮減 (expr)]
+
+    generic_id  進入狀態 22
+    lvalue      進入狀態 29
+    factor      進入狀態 30
+
+
+狀態 78
+
+  110 expr: expr • '+' expr
+  111     | expr • '-' expr
+  112     | expr • '*' expr
+  112     | expr '*' expr •
+  113     | expr • '/' expr
+  114     | expr • '%' expr
+  115     | expr • AND expr
+  116     | expr • OR expr
+  117     | expr • EQ expr
+  118     | expr • NE expr
+  119     | expr • LE expr
+  120     | expr • GE expr
+  121     | expr • '<' expr
+  122     | expr • '>' expr
+  124     | expr • PP
+  125     | expr • MM
+  126     | expr • '+' error
+  127     | expr • '-' error
+  128     | expr • '*' error
+  129     | expr • '/' error
+
+    MM  偏移，並進入狀態 45
+    PP  偏移，並進入狀態 48
+
+    MM        [使用規則 112 以縮減 (expr)]
+    PP        [使用規則 112 以縮減 (expr)]
+    $default  使用規則 112 以縮減 (expr)
+
+
+狀態 79
+
+  129 expr: expr '/' error •
+  130     | error •
+  145 factor: error • factor
+
+    error          偏移，並進入狀態 27
+    ID             偏移，並進入狀態 13
+    MM             偏移，並進入狀態 14
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 17
+    STR            偏移，並進入狀態 18
+    INVALID_TOKEN  偏移，並進入狀態 19
+    '-'            偏移，並進入狀態 20
+    '('            偏移，並進入狀態 21
+
+    AND   使用規則 129 以縮減 (expr)
+    AND   [使用規則 130 以縮減 (expr)]
+    EQ    使用規則 129 以縮減 (expr)
+    EQ    [使用規則 130 以縮減 (expr)]
+    GE    使用規則 129 以縮減 (expr)
+    GE    [使用規則 130 以縮減 (expr)]
+    LE    使用規則 129 以縮減 (expr)
+    LE    [使用規則 130 以縮減 (expr)]
+    MM    [使用規則 129 以縮減 (expr)]
+    MM    [使用規則 130 以縮減 (expr)]
+    NE    使用規則 129 以縮減 (expr)
+    NE    [使用規則 130 以縮減 (expr)]
+    OR    使用規則 129 以縮減 (expr)
+    OR    [使用規則 130 以縮減 (expr)]
+    PP    [使用規則 129 以縮減 (expr)]
+    PP    [使用規則 130 以縮減 (expr)]
+    '<'   使用規則 129 以縮減 (expr)
+    '<'   [使用規則 130 以縮減 (expr)]
+    '>'   使用規則 129 以縮減 (expr)
+    '>'   [使用規則 130 以縮減 (expr)]
+    '+'   使用規則 129 以縮減 (expr)
+    '+'   [使用規則 130 以縮減 (expr)]
+    '-'   [使用規則 129 以縮減 (expr)]
+    '-'   [使用規則 130 以縮減 (expr)]
+    '*'   使用規則 129 以縮減 (expr)
+    '*'   [使用規則 130 以縮減 (expr)]
+    '/'   使用規則 129 以縮減 (expr)
+    '/'   [使用規則 130 以縮減 (expr)]
+    '%'   使用規則 129 以縮減 (expr)
+    '%'   [使用規則 130 以縮減 (expr)]
+    '\n'  使用規則 129 以縮減 (expr)
+    '\n'  [使用規則 130 以縮減 (expr)]
+    ';'   使用規則 129 以縮減 (expr)
+    ';'   [使用規則 130 以縮減 (expr)]
+    ','   使用規則 129 以縮減 (expr)
+    ','   [使用規則 130 以縮減 (expr)]
+    ')'   使用規則 129 以縮減 (expr)
+    ')'   [使用規則 130 以縮減 (expr)]
+    ']'   使用規則 129 以縮減 (expr)
+    ']'   [使用規則 130 以縮減 (expr)]
+
+    generic_id  進入狀態 22
+    lvalue      進入狀態 29
+    factor      進入狀態 30
+
+
+狀態 80
+
+  110 expr: expr • '+' expr
+  111     | expr • '-' expr
+  112     | expr • '*' expr
+  113     | expr • '/' expr
+  113     | expr '/' expr •
+  114     | expr • '%' expr
+  115     | expr • AND expr
+  116     | expr • OR expr
+  117     | expr • EQ expr
+  118     | expr • NE expr
+  119     | expr • LE expr
+  120     | expr • GE expr
+  121     | expr • '<' expr
+  122     | expr • '>' expr
+  124     | expr • PP
+  125     | expr • MM
+  126     | expr • '+' error
+  127     | expr • '-' error
+  128     | expr • '*' error
+  129     | expr • '/' error
+
+    MM  偏移，並進入狀態 45
+    PP  偏移，並進入狀態 48
+
+    MM        [使用規則 113 以縮減 (expr)]
+    PP        [使用規則 113 以縮減 (expr)]
+    $default  使用規則 113 以縮減 (expr)
+
+
+狀態 81
+
+  110 expr: expr • '+' expr
+  111     | expr • '-' expr
+  112     | expr • '*' expr
+  113     | expr • '/' expr
+  114     | expr • '%' expr
+  114     | expr '%' expr •
+  115     | expr • AND expr
+  116     | expr • OR expr
+  117     | expr • EQ expr
+  118     | expr • NE expr
+  119     | expr • LE expr
+  120     | expr • GE expr
+  121     | expr • '<' expr
+  122     | expr • '>' expr
+  124     | expr • PP
+  125     | expr • MM
+  126     | expr • '+' error
+  127     | expr • '-' error
+  128     | expr • '*' error
+  129     | expr • '/' error
+
+    MM  偏移，並進入狀態 45
+    PP  偏移，並進入狀態 48
+
+    MM        [使用規則 114 以縮減 (expr)]
+    PP        [使用規則 114 以縮減 (expr)]
+    $default  使用規則 114 以縮減 (expr)
+
+
+狀態 82
+
+   11 class_def: CLASS ID $@1 '{' $@2 • declare '}'
+
+    $default  使用規則 12 以縮減 (declare)
+
+    declare  進入狀態 86
+
+
+狀態 83
+
+  179 para_list: para_list ',' • expr
+
+    error          偏移，並進入狀態 34
+    ID             偏移，並進入狀態 13
+    MM             偏移，並進入狀態 14
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 17
+    STR            偏移，並進入狀態 18
+    INVALID_TOKEN  偏移，並進入狀態 19
+    '-'            偏移，並進入狀態 20
+    '('            偏移，並進入狀態 21
+
+    generic_id  進入狀態 22
+    lvalue      進入狀態 23
+    expr        進入狀態 87
+    factor      進入狀態 25
+
+
+狀態 84
+
+  136 factor: generic_id '(' para_list ')' •
+
+    $default  使用規則 136 以縮減 (factor)
+
+
+狀態 85
+
+   54 generic_id: generic_id '[' expr ']' •
+   86 lvalue: generic_id '[' expr ']' •
+
+    AND       使用規則 54 以縮減 (generic_id)
+    AND       [使用規則 86 以縮減 (lvalue)]
+    EQ        使用規則 54 以縮減 (generic_id)
+    EQ        [使用規則 86 以縮減 (lvalue)]
+    GE        使用規則 54 以縮減 (generic_id)
+    GE        [使用規則 86 以縮減 (lvalue)]
+    LE        使用規則 54 以縮減 (generic_id)
+    LE        [使用規則 86 以縮減 (lvalue)]
+    MM        使用規則 54 以縮減 (generic_id)
+    MM        [使用規則 86 以縮減 (lvalue)]
+    NE        使用規則 54 以縮減 (generic_id)
+    NE        [使用規則 86 以縮減 (lvalue)]
+    OR        使用規則 54 以縮減 (generic_id)
+    OR        [使用規則 86 以縮減 (lvalue)]
+    PP        使用規則 54 以縮減 (generic_id)
+    PP        [使用規則 86 以縮減 (lvalue)]
+    '<'       使用規則 54 以縮減 (generic_id)
+    '<'       [使用規則 86 以縮減 (lvalue)]
+    '>'       使用規則 54 以縮減 (generic_id)
+    '>'       [使用規則 86 以縮減 (lvalue)]
+    '+'       使用規則 54 以縮減 (generic_id)
+    '+'       [使用規則 86 以縮減 (lvalue)]
+    '-'       使用規則 54 以縮減 (generic_id)
+    '-'       [使用規則 86 以縮減 (lvalue)]
+    '*'       使用規則 54 以縮減 (generic_id)
+    '*'       [使用規則 86 以縮減 (lvalue)]
+    '/'       使用規則 54 以縮減 (generic_id)
+    '/'       [使用規則 86 以縮減 (lvalue)]
+    '%'       使用規則 54 以縮減 (generic_id)
+    '%'       [使用規則 86 以縮減 (lvalue)]
+    '\n'      使用規則 54 以縮減 (generic_id)
+    '\n'      [使用規則 86 以縮減 (lvalue)]
+    ';'       使用規則 54 以縮減 (generic_id)
+    ';'       [使用規則 86 以縮減 (lvalue)]
+    ','       使用規則 54 以縮減 (generic_id)
+    ','       [使用規則 86 以縮減 (lvalue)]
+    ')'       使用規則 54 以縮減 (generic_id)
+    ')'       [使用規則 86 以縮減 (lvalue)]
+    ']'       使用規則 54 以縮減 (generic_id)
+    ']'       [使用規則 86 以縮減 (lvalue)]
+    $default  使用規則 54 以縮減 (generic_id)
+
+
+狀態 86
+
+   11 class_def: CLASS ID $@1 '{' $@2 declare • '}'
+   13 declare: declare • function_decl
+   14        | declare • variable_decl
+   15        | declare • class_def
+   16        | declare • error ';'
+   17        | declare • error '}'
+   18        | declare • error
+
+    error    偏移，並進入狀態 88
+    ID       偏移，並進入狀態 89
+    BOOLEAN  偏移，並進入狀態 90
+    CHAR     偏移，並進入狀態 91
+    CLASS    偏移，並進入狀態 3
+    FINAL    偏移，並進入狀態 92
+    FLOAT    偏移，並進入狀態 93
+    INT      偏移，並進入狀態 94
+    STATIC   偏移，並進入狀態 95
+    VOID     偏移，並進入狀態 96
+    '}'      偏移，並進入狀態 97
+
+    class_def      進入狀態 98
+    variable_decl  進入狀態 99
+    function_decl  進入狀態 100
+    spec_type__    進入狀態 101
+    type           進入狀態 102
+    type_id        進入狀態 103
+
+
+狀態 87
+
+  110 expr: expr • '+' expr
+  111     | expr • '-' expr
+  112     | expr • '*' expr
+  113     | expr • '/' expr
+  114     | expr • '%' expr
+  115     | expr • AND expr
+  116     | expr • OR expr
+  117     | expr • EQ expr
+  118     | expr • NE expr
+  119     | expr • LE expr
+  120     | expr • GE expr
+  121     | expr • '<' expr
+  122     | expr • '>' expr
+  124     | expr • PP
+  125     | expr • MM
+  126     | expr • '+' error
+  127     | expr • '-' error
+  128     | expr • '*' error
+  129     | expr • '/' error
+  179 para_list: para_list ',' expr •
+
+    AND  偏移，並進入狀態 41
+    EQ   偏移，並進入狀態 42
+    GE   偏移，並進入狀態 43
+    LE   偏移，並進入狀態 44
+    MM   偏移，並進入狀態 45
+    NE   偏移，並進入狀態 46
+    OR   偏移，並進入狀態 47
+    PP   偏移，並進入狀態 48
+    '<'  偏移，並進入狀態 49
+    '>'  偏移，並進入狀態 50
+    '+'  偏移，並進入狀態 51
+    '-'  偏移，並進入狀態 52
+    '*'  偏移，並進入狀態 53
+    '/'  偏移，並進入狀態 54
+    '%'  偏移，並進入狀態 55
+
+    $default  使用規則 179 以縮減 (para_list)
+
+
+狀態 88
+
+   16 declare: declare error • ';'
+   17        | declare error • '}'
+   18        | declare error •
+   31 variable_decl: error • spec_type__ id_list ';'
+
+    ID       偏移，並進入狀態 104
+    BOOLEAN  偏移，並進入狀態 90
+    CHAR     偏移，並進入狀態 91
+    FINAL    偏移，並進入狀態 92
+    FLOAT    偏移，並進入狀態 93
+    INT      偏移，並進入狀態 94
+    STATIC   偏移，並進入狀態 95
+    VOID     偏移，並進入狀態 96
+    '}'      偏移，並進入狀態 105
+    ';'      偏移，並進入狀態 106
+
+    ID        [使用規則 18 以縮減 (declare)]
+    BOOLEAN   [使用規則 18 以縮減 (declare)]
+    CHAR      [使用規則 18 以縮減 (declare)]
+    FINAL     [使用規則 18 以縮減 (declare)]
+    FLOAT     [使用規則 18 以縮減 (declare)]
+    INT       [使用規則 18 以縮減 (declare)]
+    STATIC    [使用規則 18 以縮減 (declare)]
+    VOID      [使用規則 18 以縮減 (declare)]
+    '}'       [使用規則 18 以縮減 (declare)]
+    $default  使用規則 18 以縮減 (declare)
+
+    spec_type__  進入狀態 107
+    type         進入狀態 102
+    type_id      進入狀態 103
+
+
+狀態 89
+
+   33 function_decl: ID • '(' args ')' compound
+   63 type_id: ID •
+
+    '('  偏移，並進入狀態 108
+
+    $default  使用規則 63 以縮減 (type_id)
+
+
+狀態 90
+
+   60 type: BOOLEAN •
+
+    $default  使用規則 60 以縮減 (type)
+
+
+狀態 91
+
+   59 type: CHAR •
+
+    $default  使用規則 59 以縮減 (type)
+
+
+狀態 92
+
+   40 spec_type__: FINAL • type
+
+    ID       偏移，並進入狀態 104
+    BOOLEAN  偏移，並進入狀態 90
+    CHAR     偏移，並進入狀態 91
+    FLOAT    偏移，並進入狀態 93
+    INT      偏移，並進入狀態 94
+    VOID     偏移，並進入狀態 96
+
+    type     進入狀態 109
+    type_id  進入狀態 103
+
+
+狀態 93
+
+   58 type: FLOAT •
+
+    $default  使用規則 58 以縮減 (type)
+
+
+狀態 94
+
+   57 type: INT •
+
+    $default  使用規則 57 以縮減 (type)
+
+
+狀態 95
+
+   39 spec_type__: STATIC • type
+
+    ID       偏移，並進入狀態 104
+    BOOLEAN  偏移，並進入狀態 90
+    CHAR     偏移，並進入狀態 91
+    FLOAT    偏移，並進入狀態 93
+    INT      偏移，並進入狀態 94
+    VOID     偏移，並進入狀態 96
+
+    type     進入狀態 110
+    type_id  進入狀態 103
+
+
+狀態 96
+
+   61 type: VOID •
+
+    $default  使用規則 61 以縮減 (type)
+
+
+狀態 97
+
+   11 class_def: CLASS ID $@1 '{' $@2 declare '}' •
+
+    $default  使用規則 11 以縮減 (class_def)
+
+
+狀態 98
+
+   15 declare: declare class_def •
+
+    $default  使用規則 15 以縮減 (declare)
+
+
+狀態 99
+
+   14 declare: declare variable_decl •
+
+    $default  使用規則 14 以縮減 (declare)
+
+
+狀態 100
+
+   13 declare: declare function_decl •
+
+    $default  使用規則 13 以縮減 (declare)
+
+
+狀態 101
+
+   30 variable_decl: spec_type__ • id_list maybe_missing_semi
+   32              | spec_type__ • id_list error
+   34 function_decl: spec_type__ • ID '(' args ')' compound
+
+    ID  偏移，並進入狀態 111
+
+    id_item  進入狀態 112
+    id_list  進入狀態 113
+
+
+狀態 102
+
+   41 spec_type__: type •
+   56 type: type • '[' ']'
+
+    '['  偏移，並進入狀態 114
+
+    $default  使用規則 41 以縮減 (spec_type__)
+
+
+狀態 103
+
+   62 type: type_id •
+
+    $default  使用規則 62 以縮減 (type)
+
+
+狀態 104
+
+   63 type_id: ID •
+
+    $default  使用規則 63 以縮減 (type_id)
+
+
+狀態 105
+
+   17 declare: declare error '}' •
+
+    $default  使用規則 17 以縮減 (declare)
+
+
+狀態 106
+
+   16 declare: declare error ';' •
+
+    $default  使用規則 16 以縮減 (declare)
+
+
+狀態 107
+
+   31 variable_decl: error spec_type__ • id_list ';'
+
+    ID  偏移，並進入狀態 115
+
+    id_item  進入狀態 112
+    id_list  進入狀態 116
+
+
+狀態 108
+
+   33 function_decl: ID '(' • args ')' compound
+
+    ID       偏移，並進入狀態 104
+    BOOLEAN  偏移，並進入狀態 90
+    CHAR     偏移，並進入狀態 91
+    FLOAT    偏移，並進入狀態 93
+    INT      偏移，並進入狀態 94
+    VOID     偏移，並進入狀態 96
+
+    $default  使用規則 42 以縮減 (args)
+
+    args     進入狀態 117
+    type     進入狀態 118
+    type_id  進入狀態 103
+
+
+狀態 109
+
+   40 spec_type__: FINAL type •
+   56 type: type • '[' ']'
+
+    '['  偏移，並進入狀態 114
+
+    $default  使用規則 40 以縮減 (spec_type__)
+
+
+狀態 110
+
+   39 spec_type__: STATIC type •
+   56 type: type • '[' ']'
+
+    '['  偏移，並進入狀態 114
+
+    $default  使用規則 39 以縮減 (spec_type__)
+
+
+狀態 111
+
+   24 id_item: ID •
+   25        | ID • '=' init_decl
+   34 function_decl: spec_type__ ID • '(' args ')' compound
+
+    '='  偏移，並進入狀態 119
+    '('  偏移，並進入狀態 120
+
+    '('       [使用規則 24 以縮減 (id_item)]
+    $default  使用規則 24 以縮減 (id_item)
+
+
+狀態 112
+
+   26 id_list: id_item •
+
+    $default  使用規則 26 以縮減 (id_list)
+
+
+狀態 113
+
+   27 id_list: id_list • ',' id_item
+   30 variable_decl: spec_type__ id_list • maybe_missing_semi
+   32              | spec_type__ id_list • error
+
+    error  偏移，並進入狀態 121
+    ';'    偏移，並進入狀態 122
+    ','    偏移，並進入狀態 123
+
+    error          [使用規則 29 以縮減 (maybe_missing_semi)]
+    ID             使用規則 29 以縮減 (maybe_missing_semi)
+    BOOLEAN        使用規則 29 以縮減 (maybe_missing_semi)
+    CHAR           使用規則 29 以縮減 (maybe_missing_semi)
+    CLASS          使用規則 29 以縮減 (maybe_missing_semi)
+    FINAL          使用規則 29 以縮減 (maybe_missing_semi)
+    FLOAT          使用規則 29 以縮減 (maybe_missing_semi)
+    FOR            使用規則 29 以縮減 (maybe_missing_semi)
+    IF             使用規則 29 以縮減 (maybe_missing_semi)
+    INT            使用規則 29 以縮減 (maybe_missing_semi)
+    MM             使用規則 29 以縮減 (maybe_missing_semi)
+    INT_L          使用規則 29 以縮減 (maybe_missing_semi)
+    FLOAT_L        使用規則 29 以縮減 (maybe_missing_semi)
+    PP             使用規則 29 以縮減 (maybe_missing_semi)
+    PRINT          使用規則 29 以縮減 (maybe_missing_semi)
+    RETURN         使用規則 29 以縮減 (maybe_missing_semi)
+    STATIC         使用規則 29 以縮減 (maybe_missing_semi)
+    STR            使用規則 29 以縮減 (maybe_missing_semi)
+    VOID           使用規則 29 以縮減 (maybe_missing_semi)
+    WHILE          使用規則 29 以縮減 (maybe_missing_semi)
+    INVALID_TOKEN  使用規則 29 以縮減 (maybe_missing_semi)
+    '+'            使用規則 29 以縮減 (maybe_missing_semi)
+    '-'            使用規則 29 以縮減 (maybe_missing_semi)
+    ELSE           使用規則 29 以縮減 (maybe_missing_semi)
+    '}'            使用規則 29 以縮減 (maybe_missing_semi)
+    '{'            使用規則 29 以縮減 (maybe_missing_semi)
+    '('            使用規則 29 以縮減 (maybe_missing_semi)
+
+    maybe_missing_semi  進入狀態 124
+
+
+狀態 114
+
+   56 type: type '[' • ']'
+
+    ']'  偏移，並進入狀態 125
+
+
+狀態 115
+
+   24 id_item: ID •
+   25        | ID • '=' init_decl
+
+    '='  偏移，並進入狀態 119
+
+    $default  使用規則 24 以縮減 (id_item)
+
+
+狀態 116
+
+   27 id_list: id_list • ',' id_item
+   31 variable_decl: error spec_type__ id_list • ';'
+
+    ';'  偏移，並進入狀態 126
+    ','  偏移，並進入狀態 123
+
+
+狀態 117
+
+   33 function_decl: ID '(' args • ')' compound
+   44 args: args • ',' type generic_id
+
+    ','  偏移，並進入狀態 127
+    ')'  偏移，並進入狀態 128
+
+
+狀態 118
+
+   43 args: type • generic_id
+   56 type: type • '[' ']'
+
+    ID   偏移，並進入狀態 13
+    '['  偏移，並進入狀態 114
+
+    generic_id  進入狀態 129
+
+
+狀態 119
+
+   25 id_item: ID '=' • init_decl
+
+    ID             偏移，並進入狀態 13
+    NEW            偏移，並進入狀態 130
+    INT_L          偏移，並進入狀態 131
+    FLOAT_L        偏移，並進入狀態 132
+    STR            偏移，並進入狀態 133
+    INVALID_TOKEN  偏移，並進入狀態 134
+
+    init_decl   進入狀態 135
+    generic_id  進入狀態 136
+    const_expr  進入狀態 137
+
+
+狀態 120
+
+   34 function_decl: spec_type__ ID '(' • args ')' compound
+
+    ID       偏移，並進入狀態 104
+    BOOLEAN  偏移，並進入狀態 90
+    CHAR     偏移，並進入狀態 91
+    FLOAT    偏移，並進入狀態 93
+    INT      偏移，並進入狀態 94
+    VOID     偏移，並進入狀態 96
+
+    $default  使用規則 42 以縮減 (args)
+
+    args     進入狀態 138
+    type     進入狀態 118
+    type_id  進入狀態 103
+
+
+狀態 121
+
+   32 variable_decl: spec_type__ id_list error •
+
+    $default  使用規則 32 以縮減 (variable_decl)
+
+
+狀態 122
+
+   28 maybe_missing_semi: ';' •
+
+    $default  使用規則 28 以縮減 (maybe_missing_semi)
+
+
+狀態 123
+
+   27 id_list: id_list ',' • id_item
+
+    ID  偏移，並進入狀態 115
+
+    id_item  進入狀態 139
+
+
+狀態 124
+
+   30 variable_decl: spec_type__ id_list maybe_missing_semi •
+
+    $default  使用規則 30 以縮減 (variable_decl)
+
+
+狀態 125
+
+   56 type: type '[' ']' •
+
+    $default  使用規則 56 以縮減 (type)
+
+
+狀態 126
+
+   31 variable_decl: error spec_type__ id_list ';' •
+
+    $default  使用規則 31 以縮減 (variable_decl)
+
+
+狀態 127
+
+   44 args: args ',' • type generic_id
+
+    ID       偏移，並進入狀態 104
+    BOOLEAN  偏移，並進入狀態 90
+    CHAR     偏移，並進入狀態 91
+    FLOAT    偏移，並進入狀態 93
+    INT      偏移，並進入狀態 94
+    VOID     偏移，並進入狀態 96
+
+    type     進入狀態 140
+    type_id  進入狀態 103
+
+
+狀態 128
+
+   33 function_decl: ID '(' args ')' • compound
+
+    error  偏移，並進入狀態 141
+    '{'    偏移，並進入狀態 142
+
+    compound  進入狀態 143
+
+
+狀態 129
+
+   43 args: type generic_id •
+   54 generic_id: generic_id • '[' expr ']'
+   55           | generic_id • '.' ID
+
+    '['  偏移，並進入狀態 144
+    '.'  偏移，並進入狀態 38
+
+    $default  使用規則 43 以縮減 (args)
+
+
+狀態 130
+
+   36 init_decl: NEW • type arr_or_obj
+
+    ID       偏移，並進入狀態 104
+    BOOLEAN  偏移，並進入狀態 90
+    CHAR     偏移，並進入狀態 91
+    FLOAT    偏移，並進入狀態 93
+    INT      偏移，並進入狀態 94
+    VOID     偏移，並進入狀態 96
+
+    type     進入狀態 145
+    type_id  進入狀態 103
+
+
+狀態 131
+
+   64 const_expr: INT_L •
+
+    $default  使用規則 64 以縮減 (const_expr)
+
+
+狀態 132
+
+   65 const_expr: FLOAT_L •
+
+    $default  使用規則 65 以縮減 (const_expr)
+
+
+狀態 133
+
+   66 const_expr: STR •
+
+    $default  使用規則 66 以縮減 (const_expr)
+
+
+狀態 134
+
+   68 const_expr: INVALID_TOKEN •
+
+    $default  使用規則 68 以縮減 (const_expr)
+
+
+狀態 135
+
+   25 id_item: ID '=' init_decl •
+
+    $default  使用規則 25 以縮減 (id_item)
+
+
+狀態 136
+
+   54 generic_id: generic_id • '[' expr ']'
+   55           | generic_id • '.' ID
+   67 const_expr: generic_id •
+
+    '['  偏移，並進入狀態 144
+    '.'  偏移，並進入狀態 38
+
+    $default  使用規則 67 以縮減 (const_expr)
+
+
+狀態 137
+
+   35 init_decl: const_expr •
+   69 const_expr: const_expr • Infixop const_expr
+
+    AND  偏移，並進入狀態 146
+    EQ   偏移，並進入狀態 147
+    GE   偏移，並進入狀態 148
+    LE   偏移，並進入狀態 149
+    NE   偏移，並進入狀態 150
+    OR   偏移，並進入狀態 151
+    '<'  偏移，並進入狀態 152
+    '>'  偏移，並進入狀態 153
+    '+'  偏移，並進入狀態 154
+    '-'  偏移，並進入狀態 155
+    '*'  偏移，並進入狀態 156
+    '/'  偏移，並進入狀態 157
+    '%'  偏移，並進入狀態 158
+    '&'  偏移，並進入狀態 159
+    '|'  偏移，並進入狀態 160
+
+    '+'       [使用規則 35 以縮減 (init_decl)]
+    '-'       [使用規則 35 以縮減 (init_decl)]
+    $default  使用規則 35 以縮減 (init_decl)
+
+    Infixop  進入狀態 161
+
+
+狀態 138
+
+   34 function_decl: spec_type__ ID '(' args • ')' compound
+   44 args: args • ',' type generic_id
+
+    ','  偏移，並進入狀態 127
+    ')'  偏移，並進入狀態 162
+
+
+狀態 139
+
+   27 id_list: id_list ',' id_item •
+
+    $default  使用規則 27 以縮減 (id_list)
+
+
+狀態 140
+
+   44 args: args ',' type • generic_id
+   56 type: type • '[' ']'
+
+    ID   偏移，並進入狀態 13
+    '['  偏移，並進入狀態 114
+
+    generic_id  進入狀態 163
+
+
+狀態 141
+
+   23 compound: error • '}'
+
+    '}'  偏移，並進入狀態 164
+
+
+狀態 142
+
+   20 compound: '{' • $@3 statement_star '}'
+   22         | '{' • $@4 statement_star error '}'
+
+    error          使用規則 19 以縮減 ($@3)
+    error          [使用規則 21 以縮減 ($@4)]
+    ID             使用規則 19 以縮減 ($@3)
+    ID             [使用規則 21 以縮減 ($@4)]
+    BOOLEAN        使用規則 19 以縮減 ($@3)
+    BOOLEAN        [使用規則 21 以縮減 ($@4)]
+    CHAR           使用規則 19 以縮減 ($@3)
+    CHAR           [使用規則 21 以縮減 ($@4)]
+    CLASS          使用規則 19 以縮減 ($@3)
+    CLASS          [使用規則 21 以縮減 ($@4)]
+    FINAL          使用規則 19 以縮減 ($@3)
+    FINAL          [使用規則 21 以縮減 ($@4)]
+    FLOAT          使用規則 19 以縮減 ($@3)
+    FLOAT          [使用規則 21 以縮減 ($@4)]
+    FOR            使用規則 19 以縮減 ($@3)
+    FOR            [使用規則 21 以縮減 ($@4)]
+    IF             使用規則 19 以縮減 ($@3)
+    IF             [使用規則 21 以縮減 ($@4)]
+    INT            使用規則 19 以縮減 ($@3)
+    INT            [使用規則 21 以縮減 ($@4)]
+    MM             使用規則 19 以縮減 ($@3)
+    MM             [使用規則 21 以縮減 ($@4)]
+    INT_L          使用規則 19 以縮減 ($@3)
+    INT_L          [使用規則 21 以縮減 ($@4)]
+    FLOAT_L        使用規則 19 以縮減 ($@3)
+    FLOAT_L        [使用規則 21 以縮減 ($@4)]
+    PP             使用規則 19 以縮減 ($@3)
+    PP             [使用規則 21 以縮減 ($@4)]
+    PRINT          使用規則 19 以縮減 ($@3)
+    PRINT          [使用規則 21 以縮減 ($@4)]
+    RETURN         使用規則 19 以縮減 ($@3)
+    RETURN         [使用規則 21 以縮減 ($@4)]
+    STATIC         使用規則 19 以縮減 ($@3)
+    STATIC         [使用規則 21 以縮減 ($@4)]
+    STR            使用規則 19 以縮減 ($@3)
+    STR            [使用規則 21 以縮減 ($@4)]
+    VOID           使用規則 19 以縮減 ($@3)
+    VOID           [使用規則 21 以縮減 ($@4)]
+    WHILE          使用規則 19 以縮減 ($@3)
+    WHILE          [使用規則 21 以縮減 ($@4)]
+    INVALID_TOKEN  使用規則 19 以縮減 ($@3)
+    INVALID_TOKEN  [使用規則 21 以縮減 ($@4)]
+    '+'            使用規則 19 以縮減 ($@3)
+    '+'            [使用規則 21 以縮減 ($@4)]
+    '-'            使用規則 19 以縮減 ($@3)
+    '-'            [使用規則 21 以縮減 ($@4)]
+    ELSE           使用規則 19 以縮減 ($@3)
+    ELSE           [使用規則 21 以縮減 ($@4)]
+    '{'            使用規則 19 以縮減 ($@3)
+    '{'            [使用規則 21 以縮減 ($@4)]
+    '('            使用規則 19 以縮減 ($@3)
+    '('            [使用規則 21 以縮減 ($@4)]
+    $default       使用規則 19 以縮減 ($@3)
+
+    $@3  進入狀態 165
+    $@4  進入狀態 166
+
+
+狀態 143
+
+   33 function_decl: ID '(' args ')' compound •
+
+    $default  使用規則 33 以縮減 (function_decl)
+
+
+狀態 144
+
+   54 generic_id: generic_id '[' • expr ']'
+
+    error          偏移，並進入狀態 34
+    ID             偏移，並進入狀態 13
+    MM             偏移，並進入狀態 14
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 17
+    STR            偏移，並進入狀態 18
+    INVALID_TOKEN  偏移，並進入狀態 19
+    '-'            偏移，並進入狀態 20
+    '('            偏移，並進入狀態 21
+
+    generic_id  進入狀態 22
+    lvalue      進入狀態 23
+    expr        進入狀態 167
+    factor      進入狀態 25
+
+
+狀態 145
+
+   36 init_decl: NEW type • arr_or_obj
+   56 type: type • '[' ']'
+
+    '('  偏移，並進入狀態 168
+    '['  偏移，並進入狀態 169
+
+    arr_or_obj  進入狀態 170
+
+
+狀態 146
+
+   83 Infixop: AND •
+
+    $default  使用規則 83 以縮減 (Infixop)
+
+
+狀態 147
+
+   81 Infixop: EQ •
+
+    $default  使用規則 81 以縮減 (Infixop)
+
+
+狀態 148
+
+   80 Infixop: GE •
+
+    $default  使用規則 80 以縮減 (Infixop)
+
+
+狀態 149
+
+   79 Infixop: LE •
+
+    $default  使用規則 79 以縮減 (Infixop)
+
+
+狀態 150
+
+   82 Infixop: NE •
+
+    $default  使用規則 82 以縮減 (Infixop)
+
+
+狀態 151
+
+   84 Infixop: OR •
+
+    $default  使用規則 84 以縮減 (Infixop)
+
+
+狀態 152
+
+   76 Infixop: '<' •
+
+    $default  使用規則 76 以縮減 (Infixop)
+
+
+狀態 153
+
+   75 Infixop: '>' •
+
+    $default  使用規則 75 以縮減 (Infixop)
+
+
+狀態 154
+
+   70 Infixop: '+' •
+
+    $default  使用規則 70 以縮減 (Infixop)
+
+
+狀態 155
+
+   71 Infixop: '-' •
+
+    $default  使用規則 71 以縮減 (Infixop)
+
+
+狀態 156
+
+   72 Infixop: '*' •
+
+    $default  使用規則 72 以縮減 (Infixop)
+
+
+狀態 157
+
+   73 Infixop: '/' •
+
+    $default  使用規則 73 以縮減 (Infixop)
+
+
+狀態 158
+
+   74 Infixop: '%' •
+
+    $default  使用規則 74 以縮減 (Infixop)
+
+
+狀態 159
+
+   77 Infixop: '&' •
+
+    $default  使用規則 77 以縮減 (Infixop)
+
+
+狀態 160
+
+   78 Infixop: '|' •
+
+    $default  使用規則 78 以縮減 (Infixop)
+
+
+狀態 161
+
+   69 const_expr: const_expr Infixop • const_expr
+
+    ID             偏移，並進入狀態 13
+    INT_L          偏移，並進入狀態 131
+    FLOAT_L        偏移，並進入狀態 132
+    STR            偏移，並進入狀態 133
+    INVALID_TOKEN  偏移，並進入狀態 134
+
+    generic_id  進入狀態 136
+    const_expr  進入狀態 171
+
+
+狀態 162
+
+   34 function_decl: spec_type__ ID '(' args ')' • compound
+
+    error  偏移，並進入狀態 141
+    '{'    偏移，並進入狀態 142
+
+    compound  進入狀態 172
+
+
+狀態 163
+
+   44 args: args ',' type generic_id •
+   54 generic_id: generic_id • '[' expr ']'
+   55           | generic_id • '.' ID
+
+    '['  偏移，並進入狀態 144
+    '.'  偏移，並進入狀態 38
+
+    $default  使用規則 44 以縮減 (args)
+
+
+狀態 164
+
+   23 compound: error '}' •
+
+    $default  使用規則 23 以縮減 (compound)
+
+
+狀態 165
+
+   20 compound: '{' $@3 • statement_star '}'
+
+    $default  使用規則 97 以縮減 (statement_star)
+
+    statement_star  進入狀態 173
+
+
+狀態 166
+
+   22 compound: '{' $@4 • statement_star error '}'
+
+    $default  使用規則 97 以縮減 (statement_star)
+
+    statement_star  進入狀態 174
+
+
+狀態 167
+
+   54 generic_id: generic_id '[' expr • ']'
+  110 expr: expr • '+' expr
+  111     | expr • '-' expr
+  112     | expr • '*' expr
+  113     | expr • '/' expr
+  114     | expr • '%' expr
+  115     | expr • AND expr
+  116     | expr • OR expr
+  117     | expr • EQ expr
+  118     | expr • NE expr
+  119     | expr • LE expr
+  120     | expr • GE expr
+  121     | expr • '<' expr
+  122     | expr • '>' expr
+  124     | expr • PP
+  125     | expr • MM
+  126     | expr • '+' error
+  127     | expr • '-' error
+  128     | expr • '*' error
+  129     | expr • '/' error
+
+    AND  偏移，並進入狀態 41
+    EQ   偏移，並進入狀態 42
+    GE   偏移，並進入狀態 43
+    LE   偏移，並進入狀態 44
+    MM   偏移，並進入狀態 45
+    NE   偏移，並進入狀態 46
+    OR   偏移，並進入狀態 47
+    PP   偏移，並進入狀態 48
+    '<'  偏移，並進入狀態 49
+    '>'  偏移，並進入狀態 50
+    '+'  偏移，並進入狀態 51
+    '-'  偏移，並進入狀態 52
+    '*'  偏移，並進入狀態 53
+    '/'  偏移，並進入狀態 54
+    '%'  偏移，並進入狀態 55
+    ']'  偏移，並進入狀態 175
+
+
+狀態 168
+
+   38 arr_or_obj: '(' • tuple ')'
+
+    INT_L    偏移，並進入狀態 176
+    FLOAT_L  偏移，並進入狀態 177
+    STR      偏移，並進入狀態 178
+
+    $default  使用規則 46 以縮減 (tuple)
+
+    tuple        進入狀態 179
+    tuple_items  進入狀態 180
+
+
+狀態 169
+
+   37 arr_or_obj: '[' • INT_L ']'
+   56 type: type '[' • ']'
+
+    INT_L  偏移，並進入狀態 181
+    ']'    偏移，並進入狀態 125
+
+
+狀態 170
+
+   36 init_decl: NEW type arr_or_obj •
+
+    $default  使用規則 36 以縮減 (init_decl)
+
+
+狀態 171
+
+   69 const_expr: const_expr • Infixop const_expr
+   69           | const_expr Infixop const_expr •
+
+    AND  偏移，並進入狀態 146
+    EQ   偏移，並進入狀態 147
+    GE   偏移，並進入狀態 148
+    LE   偏移，並進入狀態 149
+    NE   偏移，並進入狀態 150
+    OR   偏移，並進入狀態 151
+    '<'  偏移，並進入狀態 152
+    '>'  偏移，並進入狀態 153
+    '+'  偏移，並進入狀態 154
+    '-'  偏移，並進入狀態 155
+    '*'  偏移，並進入狀態 156
+    '/'  偏移，並進入狀態 157
+    '%'  偏移，並進入狀態 158
+    '&'  偏移，並進入狀態 159
+    '|'  偏移，並進入狀態 160
+
+    AND       [使用規則 69 以縮減 (const_expr)]
+    EQ        [使用規則 69 以縮減 (const_expr)]
+    GE        [使用規則 69 以縮減 (const_expr)]
+    LE        [使用規則 69 以縮減 (const_expr)]
+    NE        [使用規則 69 以縮減 (const_expr)]
+    OR        [使用規則 69 以縮減 (const_expr)]
+    '<'       [使用規則 69 以縮減 (const_expr)]
+    '>'       [使用規則 69 以縮減 (const_expr)]
+    '+'       [使用規則 69 以縮減 (const_expr)]
+    '-'       [使用規則 69 以縮減 (const_expr)]
+    '*'       [使用規則 69 以縮減 (const_expr)]
+    '/'       [使用規則 69 以縮減 (const_expr)]
+    '%'       [使用規則 69 以縮減 (const_expr)]
+    '&'       [使用規則 69 以縮減 (const_expr)]
+    '|'       [使用規則 69 以縮減 (const_expr)]
+    $default  使用規則 69 以縮減 (const_expr)
+
+    Infixop  進入狀態 161
+
+
+狀態 172
+
+   34 function_decl: spec_type__ ID '(' args ')' compound •
+
+    $default  使用規則 34 以縮減 (function_decl)
+
+
+狀態 173
+
+   20 compound: '{' $@3 statement_star • '}'
+   98 statement_star: statement_star • statement
+   99               | statement_star • error
+
+    error          偏移，並進入狀態 182
+    ID             偏移，並進入狀態 13
+    FOR            偏移，並進入狀態 183
+    IF             偏移，並進入狀態 184
+    MM             偏移，並進入狀態 185
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 186
+    PRINT          偏移，並進入狀態 187
+    RETURN         偏移，並進入狀態 188
+    STR            偏移，並進入狀態 18
+    WHILE          偏移，並進入狀態 189
+    INVALID_TOKEN  偏移，並進入狀態 19
+    '+'            偏移，並進入狀態 190
+    '-'            偏移，並進入狀態 191
+    ELSE           偏移，並進入狀態 192
+    '}'            偏移，並進入狀態 193
+    '{'            偏移，並進入狀態 142
+    '('            偏移，並進入狀態 21
+
+    error          [使用規則 12 以縮減 (declare)]
+    ID             [使用規則 12 以縮減 (declare)]
+    BOOLEAN        使用規則 12 以縮減 (declare)
+    CHAR           使用規則 12 以縮減 (declare)
+    CLASS          使用規則 12 以縮減 (declare)
+    FINAL          使用規則 12 以縮減 (declare)
+    FLOAT          使用規則 12 以縮減 (declare)
+    FOR            [使用規則 12 以縮減 (declare)]
+    IF             [使用規則 12 以縮減 (declare)]
+    INT            使用規則 12 以縮減 (declare)
+    MM             [使用規則 12 以縮減 (declare)]
+    INT_L          [使用規則 12 以縮減 (declare)]
+    FLOAT_L        [使用規則 12 以縮減 (declare)]
+    PP             [使用規則 12 以縮減 (declare)]
+    PRINT          [使用規則 12 以縮減 (declare)]
+    RETURN         [使用規則 12 以縮減 (declare)]
+    STATIC         使用規則 12 以縮減 (declare)
+    STR            [使用規則 12 以縮減 (declare)]
+    VOID           使用規則 12 以縮減 (declare)
+    WHILE          [使用規則 12 以縮減 (declare)]
+    INVALID_TOKEN  [使用規則 12 以縮減 (declare)]
+    '+'            [使用規則 12 以縮減 (declare)]
+    '-'            [使用規則 12 以縮減 (declare)]
+    ELSE           [使用規則 12 以縮減 (declare)]
+    '}'            [使用規則 12 以縮減 (declare)]
+    '{'            [使用規則 12 以縮減 (declare)]
+    '('            [使用規則 12 以縮減 (declare)]
+
+    declare           進入狀態 194
+    compound          進入狀態 195
+    generic_id        進入狀態 196
+    lvalue            進入狀態 197
+    statement         進入狀態 198
+    assign_stmt       進入狀態 199
+    simple_call_decl  進入狀態 200
+    expr              進入狀態 201
+    factor            進入狀態 25
+    conditional       進入狀態 202
+    loop              進入狀態 203
+    while_expr__      進入狀態 204
+    for_expr__        進入狀態 205
+    return            進入狀態 206
+
+
+狀態 174
+
+   22 compound: '{' $@4 statement_star • error '}'
+   98 statement_star: statement_star • statement
+   99               | statement_star • error
+
+    error          偏移，並進入狀態 207
+    ID             偏移，並進入狀態 13
+    FOR            偏移，並進入狀態 183
+    IF             偏移，並進入狀態 184
+    MM             偏移，並進入狀態 185
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 186
+    PRINT          偏移，並進入狀態 187
+    RETURN         偏移，並進入狀態 188
+    STR            偏移，並進入狀態 18
+    WHILE          偏移，並進入狀態 189
+    INVALID_TOKEN  偏移，並進入狀態 19
+    '+'            偏移，並進入狀態 190
+    '-'            偏移，並進入狀態 191
+    ELSE           偏移，並進入狀態 192
+    '{'            偏移，並進入狀態 142
+    '('            偏移，並進入狀態 21
+
+    error          [使用規則 12 以縮減 (declare)]
+    ID             [使用規則 12 以縮減 (declare)]
+    BOOLEAN        使用規則 12 以縮減 (declare)
+    CHAR           使用規則 12 以縮減 (declare)
+    CLASS          使用規則 12 以縮減 (declare)
+    FINAL          使用規則 12 以縮減 (declare)
+    FLOAT          使用規則 12 以縮減 (declare)
+    FOR            [使用規則 12 以縮減 (declare)]
+    IF             [使用規則 12 以縮減 (declare)]
+    INT            使用規則 12 以縮減 (declare)
+    MM             [使用規則 12 以縮減 (declare)]
+    INT_L          [使用規則 12 以縮減 (declare)]
+    FLOAT_L        [使用規則 12 以縮減 (declare)]
+    PP             [使用規則 12 以縮減 (declare)]
+    PRINT          [使用規則 12 以縮減 (declare)]
+    RETURN         [使用規則 12 以縮減 (declare)]
+    STATIC         使用規則 12 以縮減 (declare)
+    STR            [使用規則 12 以縮減 (declare)]
+    VOID           使用規則 12 以縮減 (declare)
+    WHILE          [使用規則 12 以縮減 (declare)]
+    INVALID_TOKEN  [使用規則 12 以縮減 (declare)]
+    '+'            [使用規則 12 以縮減 (declare)]
+    '-'            [使用規則 12 以縮減 (declare)]
+    ELSE           [使用規則 12 以縮減 (declare)]
+    '{'            [使用規則 12 以縮減 (declare)]
+    '('            [使用規則 12 以縮減 (declare)]
+
+    declare           進入狀態 194
+    compound          進入狀態 195
+    generic_id        進入狀態 196
+    lvalue            進入狀態 197
+    statement         進入狀態 198
+    assign_stmt       進入狀態 199
+    simple_call_decl  進入狀態 200
+    expr              進入狀態 201
+    factor            進入狀態 25
+    conditional       進入狀態 202
+    loop              進入狀態 203
+    while_expr__      進入狀態 204
+    for_expr__        進入狀態 205
+    return            進入狀態 206
+
+
+狀態 175
+
+   54 generic_id: generic_id '[' expr ']' •
+
+    $default  使用規則 54 以縮減 (generic_id)
+
+
+狀態 176
+
+   47 tuple_items: INT_L •
+
+    $default  使用規則 47 以縮減 (tuple_items)
+
+
+狀態 177
+
+   48 tuple_items: FLOAT_L •
+
+    $default  使用規則 48 以縮減 (tuple_items)
+
+
+狀態 178
+
+   49 tuple_items: STR •
+
+    $default  使用規則 49 以縮減 (tuple_items)
+
+
+狀態 179
+
+   38 arr_or_obj: '(' tuple • ')'
+
+    ')'  偏移，並進入狀態 208
+
+
+狀態 180
+
+   45 tuple: tuple_items •
+   50 tuple_items: tuple_items • INT_L
+   51            | tuple_items • FLOAT_L
+   52            | tuple_items • STR
+
+    INT_L    偏移，並進入狀態 209
+    FLOAT_L  偏移，並進入狀態 210
+    STR      偏移，並進入狀態 211
+
+    $default  使用規則 45 以縮減 (tuple)
+
+
+狀態 181
+
+   37 arr_or_obj: '[' INT_L • ']'
+
+    ']'  偏移，並進入狀態 212
+
+
+狀態 182
+
+   23 compound: error • '}'
+   99 statement_star: statement_star error •
+  130 expr: error •
+  145 factor: error • factor
+
+    error          偏移，並進入狀態 27
+    ID             偏移，並進入狀態 13
+    MM             偏移，並進入狀態 14
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 17
+    STR            偏移，並進入狀態 18
+    INVALID_TOKEN  偏移，並進入狀態 19
+    '-'            偏移，並進入狀態 20
+    '}'            偏移，並進入狀態 164
+    '('            偏移，並進入狀態 21
+
+    error          [使用規則 99 以縮減 (statement_star)]
+    ID             [使用規則 99 以縮減 (statement_star)]
+    AND            使用規則 130 以縮減 (expr)
+    BOOLEAN        使用規則 99 以縮減 (statement_star)
+    CHAR           使用規則 99 以縮減 (statement_star)
+    CLASS          使用規則 99 以縮減 (statement_star)
+    EQ             使用規則 130 以縮減 (expr)
+    FINAL          使用規則 99 以縮減 (statement_star)
+    FLOAT          使用規則 99 以縮減 (statement_star)
+    FOR            使用規則 99 以縮減 (statement_star)
+    GE             使用規則 130 以縮減 (expr)
+    IF             使用規則 99 以縮減 (statement_star)
+    INT            使用規則 99 以縮減 (statement_star)
+    LE             使用規則 130 以縮減 (expr)
+    MM             [使用規則 99 以縮減 (statement_star)]
+    MM             [使用規則 130 以縮減 (expr)]
+    NE             使用規則 130 以縮減 (expr)
+    INT_L          [使用規則 99 以縮減 (statement_star)]
+    FLOAT_L        [使用規則 99 以縮減 (statement_star)]
+    OR             使用規則 130 以縮減 (expr)
+    PP             [使用規則 99 以縮減 (statement_star)]
+    PP             [使用規則 130 以縮減 (expr)]
+    PRINT          使用規則 99 以縮減 (statement_star)
+    RETURN         使用規則 99 以縮減 (statement_star)
+    STATIC         使用規則 99 以縮減 (statement_star)
+    STR            [使用規則 99 以縮減 (statement_star)]
+    VOID           使用規則 99 以縮減 (statement_star)
+    WHILE          使用規則 99 以縮減 (statement_star)
+    INVALID_TOKEN  [使用規則 99 以縮減 (statement_star)]
+    '<'            使用規則 130 以縮減 (expr)
+    '>'            使用規則 130 以縮減 (expr)
+    '+'            使用規則 99 以縮減 (statement_star)
+    '+'            [使用規則 130 以縮減 (expr)]
+    '-'            [使用規則 99 以縮減 (statement_star)]
+    '-'            [使用規則 130 以縮減 (expr)]
+    '*'            使用規則 130 以縮減 (expr)
+    '/'            使用規則 130 以縮減 (expr)
+    '%'            使用規則 130 以縮減 (expr)
+    ELSE           使用規則 99 以縮減 (statement_star)
+    '}'            [使用規則 99 以縮減 (statement_star)]
+    '{'            使用規則 99 以縮減 (statement_star)
+    ';'            使用規則 130 以縮減 (expr)
+    '('            [使用規則 99 以縮減 (statement_star)]
+
+    generic_id  進入狀態 22
+    lvalue      進入狀態 29
+    factor      進入狀態 30
+
+
+狀態 183
+
+  168 for_expr__: FOR • '(' ForInitOpt ';' bool_expr ';' ForUpdateOpt ')'
+  169           | FOR • error ')'
+
+    error  偏移，並進入狀態 213
+    '('    偏移，並進入狀態 214
+
+
+狀態 184
+
+  146 conditional: IF • '(' bool_expr ')' statement
+  147            | IF • '(' bool_expr ')' statement ELSE statement
+
+    '('  偏移，並進入狀態 215
+
+
+狀態 185
+
+  106 simple_call_decl: MM • generic_id
+  142 factor: MM • factor
+
+    error          偏移，並進入狀態 27
+    ID             偏移，並進入狀態 13
+    MM             偏移，並進入狀態 14
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 17
+    STR            偏移，並進入狀態 18
+    INVALID_TOKEN  偏移，並進入狀態 19
+    '-'            偏移，並進入狀態 20
+    '('            偏移，並進入狀態 21
+
+    generic_id  進入狀態 216
+    lvalue      進入狀態 29
+    factor      進入狀態 31
+
+
+狀態 186
+
+   89 statement: PP • lvalue ';'
+  104 simple_call_decl: PP • generic_id
+  141 factor: PP • factor
+
+    error          偏移，並進入狀態 27
+    ID             偏移，並進入狀態 13
+    MM             偏移，並進入狀態 14
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 17
+    STR            偏移，並進入狀態 18
+    INVALID_TOKEN  偏移，並進入狀態 19
+    '-'            偏移，並進入狀態 20
+    '('            偏移，並進入狀態 21
+
+    generic_id  進入狀態 217
+    lvalue      進入狀態 218
+    factor      進入狀態 32
+
+
+狀態 187
+
+  109 simple_call_decl: PRINT • '(' expr ')'
+
+    '('  偏移，並進入狀態 219
+
+
+狀態 188
+
+  174 return: RETURN • expr ';'
+  175       | RETURN • ';'
+  176       | RETURN • error
+
+    error          偏移，並進入狀態 220
+    ID             偏移，並進入狀態 13
+    MM             偏移，並進入狀態 14
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 17
+    STR            偏移，並進入狀態 18
+    INVALID_TOKEN  偏移，並進入狀態 19
+    '-'            偏移，並進入狀態 20
+    ';'            偏移，並進入狀態 221
+    '('            偏移，並進入狀態 21
+
+    generic_id  進入狀態 22
+    lvalue      進入狀態 23
+    expr        進入狀態 222
+    factor      進入狀態 25
+
+
+狀態 189
+
+  153 loop: WHILE • '(' bool_expr ')' error
+  157 while_expr__: WHILE • '(' bool_expr ')'
+  158             | WHILE • '(' error
+  159             | WHILE • error ')'
+
+    error  偏移，並進入狀態 223
+    '('    偏移，並進入狀態 224
+
+
+狀態 190
+
+  107 simple_call_decl: '+' • generic_id
+
+    ID  偏移，並進入狀態 13
+
+    generic_id  進入狀態 225
+
+
+狀態 191
+
+  108 simple_call_decl: '-' • generic_id
+  140 factor: '-' • factor
+
+    error          偏移，並進入狀態 27
+    ID             偏移，並進入狀態 13
+    MM             偏移，並進入狀態 14
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 17
+    STR            偏移，並進入狀態 18
+    INVALID_TOKEN  偏移，並進入狀態 19
+    '-'            偏移，並進入狀態 20
+    '('            偏移，並進入狀態 21
+
+    generic_id  進入狀態 226
+    lvalue      進入狀態 29
+    factor      進入狀態 33
+
+
+狀態 192
+
+  148 conditional: ELSE • statement
+
+    error          偏移，並進入狀態 227
+    ID             偏移，並進入狀態 13
+    FOR            偏移，並進入狀態 183
+    IF             偏移，並進入狀態 184
+    MM             偏移，並進入狀態 185
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 186
+    PRINT          偏移，並進入狀態 187
+    RETURN         偏移，並進入狀態 188
+    STR            偏移，並進入狀態 18
+    WHILE          偏移，並進入狀態 189
+    INVALID_TOKEN  偏移，並進入狀態 19
+    '+'            偏移，並進入狀態 190
+    '-'            偏移，並進入狀態 191
+    ELSE           偏移，並進入狀態 192
+    '{'            偏移，並進入狀態 142
+    '('            偏移，並進入狀態 21
+
+    error          [使用規則 12 以縮減 (declare)]
+    ID             [使用規則 12 以縮減 (declare)]
+    BOOLEAN        使用規則 12 以縮減 (declare)
+    CHAR           使用規則 12 以縮減 (declare)
+    CLASS          使用規則 12 以縮減 (declare)
+    FINAL          使用規則 12 以縮減 (declare)
+    FLOAT          使用規則 12 以縮減 (declare)
+    FOR            [使用規則 12 以縮減 (declare)]
+    IF             [使用規則 12 以縮減 (declare)]
+    INT            使用規則 12 以縮減 (declare)
+    MM             [使用規則 12 以縮減 (declare)]
+    INT_L          [使用規則 12 以縮減 (declare)]
+    FLOAT_L        [使用規則 12 以縮減 (declare)]
+    PP             [使用規則 12 以縮減 (declare)]
+    PRINT          [使用規則 12 以縮減 (declare)]
+    RETURN         [使用規則 12 以縮減 (declare)]
+    STATIC         使用規則 12 以縮減 (declare)
+    STR            [使用規則 12 以縮減 (declare)]
+    VOID           使用規則 12 以縮減 (declare)
+    WHILE          [使用規則 12 以縮減 (declare)]
+    INVALID_TOKEN  [使用規則 12 以縮減 (declare)]
+    '+'            [使用規則 12 以縮減 (declare)]
+    '-'            [使用規則 12 以縮減 (declare)]
+    ELSE           [使用規則 12 以縮減 (declare)]
+    '}'            使用規則 12 以縮減 (declare)
+    '{'            [使用規則 12 以縮減 (declare)]
+    '('            [使用規則 12 以縮減 (declare)]
+
+    declare           進入狀態 194
+    compound          進入狀態 195
+    generic_id        進入狀態 196
+    lvalue            進入狀態 197
+    statement         進入狀態 228
+    assign_stmt       進入狀態 199
+    simple_call_decl  進入狀態 200
+    expr              進入狀態 201
+    factor            進入狀態 25
+    conditional       進入狀態 202
+    loop              進入狀態 203
+    while_expr__      進入狀態 204
+    for_expr__        進入狀態 205
+    return            進入狀態 206
+
+
+狀態 193
+
+   20 compound: '{' $@3 statement_star '}' •
+
+    $default  使用規則 20 以縮減 (compound)
+
+
+狀態 194
+
+   13 declare: declare • function_decl
+   14        | declare • variable_decl
+   15        | declare • class_def
+   16        | declare • error ';'
+   17        | declare • error '}'
+   18        | declare • error
+   95 statement: declare •
+
+    error    偏移，並進入狀態 88
+    ID       偏移，並進入狀態 89
+    BOOLEAN  偏移，並進入狀態 90
+    CHAR     偏移，並進入狀態 91
+    CLASS    偏移，並進入狀態 3
+    FINAL    偏移，並進入狀態 92
+    FLOAT    偏移，並進入狀態 93
+    INT      偏移，並進入狀態 94
+    STATIC   偏移，並進入狀態 95
+    VOID     偏移，並進入狀態 96
+
+    error          [使用規則 95 以縮減 (statement)]
+    ID             [使用規則 95 以縮減 (statement)]
+    BOOLEAN        [使用規則 95 以縮減 (statement)]
+    CHAR           [使用規則 95 以縮減 (statement)]
+    CLASS          [使用規則 95 以縮減 (statement)]
+    FINAL          [使用規則 95 以縮減 (statement)]
+    FLOAT          [使用規則 95 以縮減 (statement)]
+    FOR            使用規則 95 以縮減 (statement)
+    IF             使用規則 95 以縮減 (statement)
+    INT            [使用規則 95 以縮減 (statement)]
+    MM             使用規則 95 以縮減 (statement)
+    INT_L          使用規則 95 以縮減 (statement)
+    FLOAT_L        使用規則 95 以縮減 (statement)
+    PP             使用規則 95 以縮減 (statement)
+    PRINT          使用規則 95 以縮減 (statement)
+    RETURN         使用規則 95 以縮減 (statement)
+    STATIC         [使用規則 95 以縮減 (statement)]
+    STR            使用規則 95 以縮減 (statement)
+    VOID           [使用規則 95 以縮減 (statement)]
+    WHILE          使用規則 95 以縮減 (statement)
+    INVALID_TOKEN  使用規則 95 以縮減 (statement)
+    '+'            使用規則 95 以縮減 (statement)
+    '-'            使用規則 95 以縮減 (statement)
+    ELSE           使用規則 95 以縮減 (statement)
+    '}'            使用規則 95 以縮減 (statement)
+    '{'            使用規則 95 以縮減 (statement)
+    '('            使用規則 95 以縮減 (statement)
+
+    class_def      進入狀態 98
+    variable_decl  進入狀態 99
+    function_decl  進入狀態 100
+    spec_type__    進入狀態 101
+    type           進入狀態 102
+    type_id        進入狀態 103
+
+
+狀態 195
+
+   91 statement: compound •
+
+    $default  使用規則 91 以縮減 (statement)
+
+
+狀態 196
+
+   54 generic_id: generic_id • '[' expr ']'
+   55           | generic_id • '.' ID
+   85 lvalue: generic_id •
+   86       | generic_id • '[' expr ']'
+  100 assign_stmt: generic_id • '=' expr ';'
+  101 simple_call_decl: generic_id • '(' para_list ')'
+  102                 | generic_id • '=' expr
+  103                 | generic_id • PP
+  105                 | generic_id • MM
+  132 factor: generic_id •
+  136       | generic_id • '(' para_list ')'
+
+    MM   偏移，並進入狀態 229
+    PP   偏移，並進入狀態 230
+    '='  偏移，並進入狀態 231
+    '('  偏移，並進入狀態 232
+    '['  偏移，並進入狀態 37
+    '.'  偏移，並進入狀態 38
+
+    error     使用規則 132 以縮減 (factor)
+    AND       使用規則 85 以縮減 (lvalue)
+    AND       [使用規則 132 以縮減 (factor)]
+    EQ        使用規則 85 以縮減 (lvalue)
+    EQ        [使用規則 132 以縮減 (factor)]
+    GE        使用規則 85 以縮減 (lvalue)
+    GE        [使用規則 132 以縮減 (factor)]
+    LE        使用規則 85 以縮減 (lvalue)
+    LE        [使用規則 132 以縮減 (factor)]
+    MM        [使用規則 85 以縮減 (lvalue)]
+    MM        [使用規則 132 以縮減 (factor)]
+    NE        使用規則 85 以縮減 (lvalue)
+    NE        [使用規則 132 以縮減 (factor)]
+    OR        使用規則 85 以縮減 (lvalue)
+    OR        [使用規則 132 以縮減 (factor)]
+    PP        [使用規則 85 以縮減 (lvalue)]
+    PP        [使用規則 132 以縮減 (factor)]
+    '<'       使用規則 85 以縮減 (lvalue)
+    '<'       [使用規則 132 以縮減 (factor)]
+    '>'       使用規則 85 以縮減 (lvalue)
+    '>'       [使用規則 132 以縮減 (factor)]
+    '+'       使用規則 85 以縮減 (lvalue)
+    '+'       [使用規則 132 以縮減 (factor)]
+    '-'       使用規則 85 以縮減 (lvalue)
+    '-'       [使用規則 132 以縮減 (factor)]
+    '*'       使用規則 85 以縮減 (lvalue)
+    '*'       [使用規則 132 以縮減 (factor)]
+    '/'       使用規則 85 以縮減 (lvalue)
+    '/'       [使用規則 132 以縮減 (factor)]
+    '%'       使用規則 85 以縮減 (lvalue)
+    '%'       [使用規則 132 以縮減 (factor)]
+    ';'       使用規則 85 以縮減 (lvalue)
+    ';'       [使用規則 132 以縮減 (factor)]
+    $default  使用規則 85 以縮減 (lvalue)
+
+
+狀態 197
+
+   88 statement: lvalue • PP ';'
+  123 expr: lvalue •
+  137 factor: lvalue • PP
+  138       | lvalue • MM
+
+    MM  偏移，並進入狀態 39
+    PP  偏移，並進入狀態 233
+
+    MM        [使用規則 123 以縮減 (expr)]
+    PP        [使用規則 123 以縮減 (expr)]
+    $default  使用規則 123 以縮減 (expr)
+
+
+狀態 198
+
+   98 statement_star: statement_star statement •
+
+    $default  使用規則 98 以縮減 (statement_star)
+
+
+狀態 199
+
+   87 statement: assign_stmt •
+
+    $default  使用規則 87 以縮減 (statement)
+
+
+狀態 200
+
+   90 statement: simple_call_decl • ';'
+
+    ';'  偏移，並進入狀態 234
+
+
+狀態 201
+
+   96 statement: expr • ';'
+  110 expr: expr • '+' expr
+  111     | expr • '-' expr
+  112     | expr • '*' expr
+  113     | expr • '/' expr
+  114     | expr • '%' expr
+  115     | expr • AND expr
+  116     | expr • OR expr
+  117     | expr • EQ expr
+  118     | expr • NE expr
+  119     | expr • LE expr
+  120     | expr • GE expr
+  121     | expr • '<' expr
+  122     | expr • '>' expr
+  124     | expr • PP
+  125     | expr • MM
+  126     | expr • '+' error
+  127     | expr • '-' error
+  128     | expr • '*' error
+  129     | expr • '/' error
+
+    AND  偏移，並進入狀態 41
+    EQ   偏移，並進入狀態 42
+    GE   偏移，並進入狀態 43
+    LE   偏移，並進入狀態 44
+    MM   偏移，並進入狀態 45
+    NE   偏移，並進入狀態 46
+    OR   偏移，並進入狀態 47
+    PP   偏移，並進入狀態 48
+    '<'  偏移，並進入狀態 49
+    '>'  偏移，並進入狀態 50
+    '+'  偏移，並進入狀態 51
+    '-'  偏移，並進入狀態 52
+    '*'  偏移，並進入狀態 53
+    '/'  偏移，並進入狀態 54
+    '%'  偏移，並進入狀態 55
+    ';'  偏移，並進入狀態 235
+
+
+狀態 202
+
+   92 statement: conditional •
+
+    $default  使用規則 92 以縮減 (statement)
+
+
+狀態 203
+
+   93 statement: loop •
+
+    $default  使用規則 93 以縮減 (statement)
+
+
+狀態 204
+
+  152 loop: while_expr__ • statement
+  155     | while_expr__ • error
+
+    error          偏移，並進入狀態 236
+    ID             偏移，並進入狀態 13
+    FOR            偏移，並進入狀態 183
+    IF             偏移，並進入狀態 184
+    MM             偏移，並進入狀態 185
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 186
+    PRINT          偏移，並進入狀態 187
+    RETURN         偏移，並進入狀態 188
+    STR            偏移，並進入狀態 18
+    WHILE          偏移，並進入狀態 189
+    INVALID_TOKEN  偏移，並進入狀態 19
+    '+'            偏移，並進入狀態 190
+    '-'            偏移，並進入狀態 191
+    ELSE           偏移，並進入狀態 192
+    '{'            偏移，並進入狀態 142
+    '('            偏移，並進入狀態 21
+
+    error          [使用規則 12 以縮減 (declare)]
+    ID             [使用規則 12 以縮減 (declare)]
+    BOOLEAN        使用規則 12 以縮減 (declare)
+    CHAR           使用規則 12 以縮減 (declare)
+    CLASS          使用規則 12 以縮減 (declare)
+    FINAL          使用規則 12 以縮減 (declare)
+    FLOAT          使用規則 12 以縮減 (declare)
+    FOR            [使用規則 12 以縮減 (declare)]
+    IF             [使用規則 12 以縮減 (declare)]
+    INT            使用規則 12 以縮減 (declare)
+    MM             [使用規則 12 以縮減 (declare)]
+    INT_L          [使用規則 12 以縮減 (declare)]
+    FLOAT_L        [使用規則 12 以縮減 (declare)]
+    PP             [使用規則 12 以縮減 (declare)]
+    PRINT          [使用規則 12 以縮減 (declare)]
+    RETURN         [使用規則 12 以縮減 (declare)]
+    STATIC         使用規則 12 以縮減 (declare)
+    STR            [使用規則 12 以縮減 (declare)]
+    VOID           使用規則 12 以縮減 (declare)
+    WHILE          [使用規則 12 以縮減 (declare)]
+    INVALID_TOKEN  [使用規則 12 以縮減 (declare)]
+    '+'            [使用規則 12 以縮減 (declare)]
+    '-'            [使用規則 12 以縮減 (declare)]
+    ELSE           [使用規則 12 以縮減 (declare)]
+    '}'            使用規則 12 以縮減 (declare)
+    '{'            [使用規則 12 以縮減 (declare)]
+    '('            [使用規則 12 以縮減 (declare)]
+
+    declare           進入狀態 194
+    compound          進入狀態 195
+    generic_id        進入狀態 196
+    lvalue            進入狀態 197
+    statement         進入狀態 237
+    assign_stmt       進入狀態 199
+    simple_call_decl  進入狀態 200
+    expr              進入狀態 201
+    factor            進入狀態 25
+    conditional       進入狀態 202
+    loop              進入狀態 203
+    while_expr__      進入狀態 204
+    for_expr__        進入狀態 205
+    return            進入狀態 206
+
+
+狀態 205
+
+  154 loop: for_expr__ • statement
+  156     | for_expr__ • error
+
+    error          偏移，並進入狀態 238
+    ID             偏移，並進入狀態 13
+    FOR            偏移，並進入狀態 183
+    IF             偏移，並進入狀態 184
+    MM             偏移，並進入狀態 185
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 186
+    PRINT          偏移，並進入狀態 187
+    RETURN         偏移，並進入狀態 188
+    STR            偏移，並進入狀態 18
+    WHILE          偏移，並進入狀態 189
+    INVALID_TOKEN  偏移，並進入狀態 19
+    '+'            偏移，並進入狀態 190
+    '-'            偏移，並進入狀態 191
+    ELSE           偏移，並進入狀態 192
+    '{'            偏移，並進入狀態 142
+    '('            偏移，並進入狀態 21
+
+    error          [使用規則 12 以縮減 (declare)]
+    ID             [使用規則 12 以縮減 (declare)]
+    BOOLEAN        使用規則 12 以縮減 (declare)
+    CHAR           使用規則 12 以縮減 (declare)
+    CLASS          使用規則 12 以縮減 (declare)
+    FINAL          使用規則 12 以縮減 (declare)
+    FLOAT          使用規則 12 以縮減 (declare)
+    FOR            [使用規則 12 以縮減 (declare)]
+    IF             [使用規則 12 以縮減 (declare)]
+    INT            使用規則 12 以縮減 (declare)
+    MM             [使用規則 12 以縮減 (declare)]
+    INT_L          [使用規則 12 以縮減 (declare)]
+    FLOAT_L        [使用規則 12 以縮減 (declare)]
+    PP             [使用規則 12 以縮減 (declare)]
+    PRINT          [使用規則 12 以縮減 (declare)]
+    RETURN         [使用規則 12 以縮減 (declare)]
+    STATIC         使用規則 12 以縮減 (declare)
+    STR            [使用規則 12 以縮減 (declare)]
+    VOID           使用規則 12 以縮減 (declare)
+    WHILE          [使用規則 12 以縮減 (declare)]
+    INVALID_TOKEN  [使用規則 12 以縮減 (declare)]
+    '+'            [使用規則 12 以縮減 (declare)]
+    '-'            [使用規則 12 以縮減 (declare)]
+    ELSE           [使用規則 12 以縮減 (declare)]
+    '}'            使用規則 12 以縮減 (declare)
+    '{'            [使用規則 12 以縮減 (declare)]
+    '('            [使用規則 12 以縮減 (declare)]
+
+    declare           進入狀態 194
+    compound          進入狀態 195
+    generic_id        進入狀態 196
+    lvalue            進入狀態 197
+    statement         進入狀態 239
+    assign_stmt       進入狀態 199
+    simple_call_decl  進入狀態 200
+    expr              進入狀態 201
+    factor            進入狀態 25
+    conditional       進入狀態 202
+    loop              進入狀態 203
+    while_expr__      進入狀態 204
+    for_expr__        進入狀態 205
+    return            進入狀態 206
+
+
+狀態 206
+
+   94 statement: return •
+
+    $default  使用規則 94 以縮減 (statement)
+
+
+狀態 207
+
+   22 compound: '{' $@4 statement_star error • '}'
+   23         | error • '}'
+   99 statement_star: statement_star error •
+  130 expr: error •
+  145 factor: error • factor
+
+    error          偏移，並進入狀態 27
+    ID             偏移，並進入狀態 13
+    MM             偏移，並進入狀態 14
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 17
+    STR            偏移，並進入狀態 18
+    INVALID_TOKEN  偏移，並進入狀態 19
+    '-'            偏移，並進入狀態 20
+    '}'            偏移，並進入狀態 240
+    '('            偏移，並進入狀態 21
+
+    error          [使用規則 99 以縮減 (statement_star)]
+    ID             [使用規則 99 以縮減 (statement_star)]
+    AND            使用規則 130 以縮減 (expr)
+    BOOLEAN        使用規則 99 以縮減 (statement_star)
+    CHAR           使用規則 99 以縮減 (statement_star)
+    CLASS          使用規則 99 以縮減 (statement_star)
+    EQ             使用規則 130 以縮減 (expr)
+    FINAL          使用規則 99 以縮減 (statement_star)
+    FLOAT          使用規則 99 以縮減 (statement_star)
+    FOR            使用規則 99 以縮減 (statement_star)
+    GE             使用規則 130 以縮減 (expr)
+    IF             使用規則 99 以縮減 (statement_star)
+    INT            使用規則 99 以縮減 (statement_star)
+    LE             使用規則 130 以縮減 (expr)
+    MM             [使用規則 99 以縮減 (statement_star)]
+    MM             [使用規則 130 以縮減 (expr)]
+    NE             使用規則 130 以縮減 (expr)
+    INT_L          [使用規則 99 以縮減 (statement_star)]
+    FLOAT_L        [使用規則 99 以縮減 (statement_star)]
+    OR             使用規則 130 以縮減 (expr)
+    PP             [使用規則 99 以縮減 (statement_star)]
+    PP             [使用規則 130 以縮減 (expr)]
+    PRINT          使用規則 99 以縮減 (statement_star)
+    RETURN         使用規則 99 以縮減 (statement_star)
+    STATIC         使用規則 99 以縮減 (statement_star)
+    STR            [使用規則 99 以縮減 (statement_star)]
+    VOID           使用規則 99 以縮減 (statement_star)
+    WHILE          使用規則 99 以縮減 (statement_star)
+    INVALID_TOKEN  [使用規則 99 以縮減 (statement_star)]
+    '<'            使用規則 130 以縮減 (expr)
+    '>'            使用規則 130 以縮減 (expr)
+    '+'            使用規則 99 以縮減 (statement_star)
+    '+'            [使用規則 130 以縮減 (expr)]
+    '-'            [使用規則 99 以縮減 (statement_star)]
+    '-'            [使用規則 130 以縮減 (expr)]
+    '*'            使用規則 130 以縮減 (expr)
+    '/'            使用規則 130 以縮減 (expr)
+    '%'            使用規則 130 以縮減 (expr)
+    ELSE           使用規則 99 以縮減 (statement_star)
+    '{'            使用規則 99 以縮減 (statement_star)
+    ';'            使用規則 130 以縮減 (expr)
+    '('            [使用規則 99 以縮減 (statement_star)]
+
+    generic_id  進入狀態 22
+    lvalue      進入狀態 29
+    factor      進入狀態 30
+
+
+狀態 208
+
+   38 arr_or_obj: '(' tuple ')' •
+
+    $default  使用規則 38 以縮減 (arr_or_obj)
+
+
+狀態 209
+
+   50 tuple_items: tuple_items INT_L •
+
+    $default  使用規則 50 以縮減 (tuple_items)
+
+
+狀態 210
+
+   51 tuple_items: tuple_items FLOAT_L •
+
+    $default  使用規則 51 以縮減 (tuple_items)
+
+
+狀態 211
+
+   52 tuple_items: tuple_items STR •
+
+    $default  使用規則 52 以縮減 (tuple_items)
+
+
+狀態 212
+
+   37 arr_or_obj: '[' INT_L ']' •
+
+    $default  使用規則 37 以縮減 (arr_or_obj)
+
+
+狀態 213
+
+  169 for_expr__: FOR error • ')'
+
+    ')'  偏移，並進入狀態 241
+
+
+狀態 214
+
+  168 for_expr__: FOR '(' • ForInitOpt ';' bool_expr ';' ForUpdateOpt ')'
+
+    ID       偏移，並進入狀態 242
+    BOOLEAN  偏移，並進入狀態 90
+    CHAR     偏移，並進入狀態 91
+    FLOAT    偏移，並進入狀態 93
+    INT      偏移，並進入狀態 94
+    PP       偏移，並進入狀態 243
+    VOID     偏移，並進入狀態 96
+
+    $default  使用規則 160 以縮減 (ForInitOpt)
+
+    generic_id       進入狀態 244
+    type             進入狀態 245
+    type_id          進入狀態 103
+    ForInitOpt       進入狀態 246
+    for_init_list    進入狀態 247
+    single_for_init  進入狀態 248
+
+
+狀態 215
+
+  146 conditional: IF '(' • bool_expr ')' statement
+  147            | IF '(' • bool_expr ')' statement ELSE statement
+
+    error          偏移，並進入狀態 249
+    ID             偏移，並進入狀態 13
+    MM             偏移，並進入狀態 14
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 17
+    STR            偏移，並進入狀態 18
+    INVALID_TOKEN  偏移，並進入狀態 250
+    '-'            偏移，並進入狀態 20
+    '('            偏移，並進入狀態 21
+
+    generic_id  進入狀態 22
+    lvalue      進入狀態 23
+    expr        進入狀態 251
+    factor      進入狀態 25
+    bool_expr   進入狀態 252
+
+
+狀態 216
+
+   54 generic_id: generic_id • '[' expr ']'
+   55           | generic_id • '.' ID
+   85 lvalue: generic_id •
+   86       | generic_id • '[' expr ']'
+  106 simple_call_decl: MM generic_id •
+  132 factor: generic_id •
+  136       | generic_id • '(' para_list ')'
+
+    '('  偏移，並進入狀態 36
+    '['  偏移，並進入狀態 37
+    '.'  偏移，並進入狀態 38
+
+    MM        使用規則 85 以縮減 (lvalue)
+    MM        [使用規則 132 以縮減 (factor)]
+    PP        使用規則 85 以縮減 (lvalue)
+    PP        [使用規則 132 以縮減 (factor)]
+    ';'       使用規則 106 以縮減 (simple_call_decl)
+    ';'       [使用規則 132 以縮減 (factor)]
+    $default  使用規則 132 以縮減 (factor)
+
+
+狀態 217
+
+   54 generic_id: generic_id • '[' expr ']'
+   55           | generic_id • '.' ID
+   85 lvalue: generic_id •
+   86       | generic_id • '[' expr ']'
+  104 simple_call_decl: PP generic_id •
+  132 factor: generic_id •
+  136       | generic_id • '(' para_list ')'
+
+    '('  偏移，並進入狀態 36
+    '['  偏移，並進入狀態 37
+    '.'  偏移，並進入狀態 38
+
+    MM        使用規則 85 以縮減 (lvalue)
+    MM        [使用規則 132 以縮減 (factor)]
+    PP        使用規則 85 以縮減 (lvalue)
+    PP        [使用規則 132 以縮減 (factor)]
+    ';'       使用規則 85 以縮減 (lvalue)
+    ';'       [使用規則 104 以縮減 (simple_call_decl)]
+    ';'       [使用規則 132 以縮減 (factor)]
+    $default  使用規則 132 以縮減 (factor)
+
+
+狀態 218
+
+   89 statement: PP lvalue • ';'
+  137 factor: lvalue • PP
+  138       | lvalue • MM
+
+    MM   偏移，並進入狀態 39
+    PP   偏移，並進入狀態 40
+    ';'  偏移，並進入狀態 253
+
+
+狀態 219
+
+  109 simple_call_decl: PRINT '(' • expr ')'
+
+    error          偏移，並進入狀態 34
+    ID             偏移，並進入狀態 13
+    MM             偏移，並進入狀態 14
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 17
+    STR            偏移，並進入狀態 18
+    INVALID_TOKEN  偏移，並進入狀態 19
+    '-'            偏移，並進入狀態 20
+    '('            偏移，並進入狀態 21
+
+    generic_id  進入狀態 22
+    lvalue      進入狀態 23
+    expr        進入狀態 254
+    factor      進入狀態 25
+
+
+狀態 220
+
+  130 expr: error •
+  145 factor: error • factor
+  176 return: RETURN error •
+
+    error          偏移，並進入狀態 27
+    ID             偏移，並進入狀態 13
+    MM             偏移，並進入狀態 14
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 17
+    STR            偏移，並進入狀態 18
+    INVALID_TOKEN  偏移，並進入狀態 19
+    '-'            偏移，並進入狀態 20
+    '('            偏移，並進入狀態 21
+
+    error          [使用規則 176 以縮減 (return)]
+    ID             [使用規則 176 以縮減 (return)]
+    AND            使用規則 130 以縮減 (expr)
+    BOOLEAN        使用規則 176 以縮減 (return)
+    CHAR           使用規則 176 以縮減 (return)
+    CLASS          使用規則 176 以縮減 (return)
+    EQ             使用規則 130 以縮減 (expr)
+    FINAL          使用規則 176 以縮減 (return)
+    FLOAT          使用規則 176 以縮減 (return)
+    FOR            使用規則 176 以縮減 (return)
+    GE             使用規則 130 以縮減 (expr)
+    IF             使用規則 176 以縮減 (return)
+    INT            使用規則 176 以縮減 (return)
+    LE             使用規則 130 以縮減 (expr)
+    MM             [使用規則 130 以縮減 (expr)]
+    MM             [使用規則 176 以縮減 (return)]
+    NE             使用規則 130 以縮減 (expr)
+    INT_L          [使用規則 176 以縮減 (return)]
+    FLOAT_L        [使用規則 176 以縮減 (return)]
+    OR             使用規則 130 以縮減 (expr)
+    PP             [使用規則 130 以縮減 (expr)]
+    PP             [使用規則 176 以縮減 (return)]
+    PRINT          使用規則 176 以縮減 (return)
+    RETURN         使用規則 176 以縮減 (return)
+    STATIC         使用規則 176 以縮減 (return)
+    STR            [使用規則 176 以縮減 (return)]
+    VOID           使用規則 176 以縮減 (return)
+    WHILE          使用規則 176 以縮減 (return)
+    INVALID_TOKEN  [使用規則 176 以縮減 (return)]
+    '<'            使用規則 130 以縮減 (expr)
+    '>'            使用規則 130 以縮減 (expr)
+    '+'            使用規則 130 以縮減 (expr)
+    '+'            [使用規則 176 以縮減 (return)]
+    '-'            [使用規則 130 以縮減 (expr)]
+    '-'            [使用規則 176 以縮減 (return)]
+    '*'            使用規則 130 以縮減 (expr)
+    '/'            使用規則 130 以縮減 (expr)
+    '%'            使用規則 130 以縮減 (expr)
+    ELSE           使用規則 176 以縮減 (return)
+    '}'            使用規則 176 以縮減 (return)
+    '{'            使用規則 176 以縮減 (return)
+    ';'            使用規則 130 以縮減 (expr)
+    '('            [使用規則 176 以縮減 (return)]
+
+    generic_id  進入狀態 22
+    lvalue      進入狀態 29
+    factor      進入狀態 30
+
+
+狀態 221
+
+  175 return: RETURN ';' •
+
+    $default  使用規則 175 以縮減 (return)
+
+
+狀態 222
+
+  110 expr: expr • '+' expr
+  111     | expr • '-' expr
+  112     | expr • '*' expr
+  113     | expr • '/' expr
+  114     | expr • '%' expr
+  115     | expr • AND expr
+  116     | expr • OR expr
+  117     | expr • EQ expr
+  118     | expr • NE expr
+  119     | expr • LE expr
+  120     | expr • GE expr
+  121     | expr • '<' expr
+  122     | expr • '>' expr
+  124     | expr • PP
+  125     | expr • MM
+  126     | expr • '+' error
+  127     | expr • '-' error
+  128     | expr • '*' error
+  129     | expr • '/' error
+  174 return: RETURN expr • ';'
+
+    AND  偏移，並進入狀態 41
+    EQ   偏移，並進入狀態 42
+    GE   偏移，並進入狀態 43
+    LE   偏移，並進入狀態 44
+    MM   偏移，並進入狀態 45
+    NE   偏移，並進入狀態 46
+    OR   偏移，並進入狀態 47
+    PP   偏移，並進入狀態 48
+    '<'  偏移，並進入狀態 49
+    '>'  偏移，並進入狀態 50
+    '+'  偏移，並進入狀態 51
+    '-'  偏移，並進入狀態 52
+    '*'  偏移，並進入狀態 53
+    '/'  偏移，並進入狀態 54
+    '%'  偏移，並進入狀態 55
+    ';'  偏移，並進入狀態 255
+
+
+狀態 223
+
+  159 while_expr__: WHILE error • ')'
+
+    ')'  偏移，並進入狀態 256
+
+
+狀態 224
+
+  153 loop: WHILE '(' • bool_expr ')' error
+  157 while_expr__: WHILE '(' • bool_expr ')'
+  158             | WHILE '(' • error
+
+    error          偏移，並進入狀態 257
+    ID             偏移，並進入狀態 13
+    MM             偏移，並進入狀態 14
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 17
+    STR            偏移，並進入狀態 18
+    INVALID_TOKEN  偏移，並進入狀態 250
+    '-'            偏移，並進入狀態 20
+    '('            偏移，並進入狀態 21
+
+    generic_id  進入狀態 22
+    lvalue      進入狀態 23
+    expr        進入狀態 251
+    factor      進入狀態 25
+    bool_expr   進入狀態 258
+
+
+狀態 225
+
+   54 generic_id: generic_id • '[' expr ']'
+   55           | generic_id • '.' ID
+  107 simple_call_decl: '+' generic_id •
+
+    '['  偏移，並進入狀態 144
+    '.'  偏移，並進入狀態 38
+
+    $default  使用規則 107 以縮減 (simple_call_decl)
+
+
+狀態 226
+
+   54 generic_id: generic_id • '[' expr ']'
+   55           | generic_id • '.' ID
+   85 lvalue: generic_id •
+   86       | generic_id • '[' expr ']'
+  108 simple_call_decl: '-' generic_id •
+  132 factor: generic_id •
+  136       | generic_id • '(' para_list ')'
+
+    '('  偏移，並進入狀態 36
+    '['  偏移，並進入狀態 37
+    '.'  偏移，並進入狀態 38
+
+    MM        使用規則 85 以縮減 (lvalue)
+    MM        [使用規則 132 以縮減 (factor)]
+    PP        使用規則 85 以縮減 (lvalue)
+    PP        [使用規則 132 以縮減 (factor)]
+    ';'       使用規則 108 以縮減 (simple_call_decl)
+    ';'       [使用規則 132 以縮減 (factor)]
+    $default  使用規則 132 以縮減 (factor)
+
+
+狀態 227
+
+   23 compound: error • '}'
+  130 expr: error •
+  145 factor: error • factor
+
+    error          偏移，並進入狀態 27
+    ID             偏移，並進入狀態 13
+    MM             偏移，並進入狀態 14
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 17
+    STR            偏移，並進入狀態 18
+    INVALID_TOKEN  偏移，並進入狀態 19
+    '-'            偏移，並進入狀態 20
+    '}'            偏移，並進入狀態 164
+    '('            偏移，並進入狀態 21
+
+    AND  使用規則 130 以縮減 (expr)
+    EQ   使用規則 130 以縮減 (expr)
+    GE   使用規則 130 以縮減 (expr)
+    LE   使用規則 130 以縮減 (expr)
+    MM   [使用規則 130 以縮減 (expr)]
+    NE   使用規則 130 以縮減 (expr)
+    OR   使用規則 130 以縮減 (expr)
+    PP   [使用規則 130 以縮減 (expr)]
+    '<'  使用規則 130 以縮減 (expr)
+    '>'  使用規則 130 以縮減 (expr)
+    '+'  使用規則 130 以縮減 (expr)
+    '-'  [使用規則 130 以縮減 (expr)]
+    '*'  使用規則 130 以縮減 (expr)
+    '/'  使用規則 130 以縮減 (expr)
+    '%'  使用規則 130 以縮減 (expr)
+    ';'  使用規則 130 以縮減 (expr)
+
+    generic_id  進入狀態 22
+    lvalue      進入狀態 29
+    factor      進入狀態 30
+
+
+狀態 228
+
+  148 conditional: ELSE statement •
+
+    $default  使用規則 148 以縮減 (conditional)
+
+
+狀態 229
+
+  105 simple_call_decl: generic_id MM •
+
+    $default  使用規則 105 以縮減 (simple_call_decl)
+
+
+狀態 230
+
+  103 simple_call_decl: generic_id PP •
+
+    $default  使用規則 103 以縮減 (simple_call_decl)
+
+
+狀態 231
+
+  100 assign_stmt: generic_id '=' • expr ';'
+  102 simple_call_decl: generic_id '=' • expr
+
+    error          偏移，並進入狀態 34
+    ID             偏移，並進入狀態 13
+    MM             偏移，並進入狀態 14
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 17
+    STR            偏移，並進入狀態 18
+    INVALID_TOKEN  偏移，並進入狀態 19
+    '-'            偏移，並進入狀態 20
+    '('            偏移，並進入狀態 21
+
+    generic_id  進入狀態 22
+    lvalue      進入狀態 23
+    expr        進入狀態 259
+    factor      進入狀態 25
+
+
+狀態 232
+
+  101 simple_call_decl: generic_id '(' • para_list ')'
+  136 factor: generic_id '(' • para_list ')'
+
+    error          偏移，並進入狀態 60
+    ID             偏移，並進入狀態 13
+    MM             偏移，並進入狀態 14
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 17
+    STR            偏移，並進入狀態 18
+    INVALID_TOKEN  偏移，並進入狀態 19
+    '-'            偏移，並進入狀態 20
+    '('            偏移，並進入狀態 21
+
+    ','  使用規則 177 以縮減 (para_list)
+    ')'  使用規則 177 以縮減 (para_list)
+
+    generic_id  進入狀態 22
+    lvalue      進入狀態 23
+    expr        進入狀態 61
+    factor      進入狀態 25
+    para_list   進入狀態 260
+
+
+狀態 233
+
+   88 statement: lvalue PP • ';'
+  137 factor: lvalue PP •
+
+    ';'  偏移，並進入狀態 261
+
+    ';'       [使用規則 137 以縮減 (factor)]
+    $default  使用規則 137 以縮減 (factor)
+
+
+狀態 234
+
+   90 statement: simple_call_decl ';' •
+
+    $default  使用規則 90 以縮減 (statement)
+
+
+狀態 235
+
+   96 statement: expr ';' •
+
+    $default  使用規則 96 以縮減 (statement)
+
+
+狀態 236
+
+   23 compound: error • '}'
+  130 expr: error •
+  145 factor: error • factor
+  155 loop: while_expr__ error •
+
+    error          偏移，並進入狀態 27
+    ID             偏移，並進入狀態 13
+    MM             偏移，並進入狀態 14
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 17
+    STR            偏移，並進入狀態 18
+    INVALID_TOKEN  偏移，並進入狀態 19
+    '-'            偏移，並進入狀態 20
+    '}'            偏移，並進入狀態 164
+    '('            偏移，並進入狀態 21
+
+    error          [使用規則 155 以縮減 (loop)]
+    ID             [使用規則 155 以縮減 (loop)]
+    AND            使用規則 130 以縮減 (expr)
+    BOOLEAN        使用規則 155 以縮減 (loop)
+    CHAR           使用規則 155 以縮減 (loop)
+    CLASS          使用規則 155 以縮減 (loop)
+    EQ             使用規則 130 以縮減 (expr)
+    FINAL          使用規則 155 以縮減 (loop)
+    FLOAT          使用規則 155 以縮減 (loop)
+    FOR            使用規則 155 以縮減 (loop)
+    GE             使用規則 130 以縮減 (expr)
+    IF             使用規則 155 以縮減 (loop)
+    INT            使用規則 155 以縮減 (loop)
+    LE             使用規則 130 以縮減 (expr)
+    MM             [使用規則 130 以縮減 (expr)]
+    MM             [使用規則 155 以縮減 (loop)]
+    NE             使用規則 130 以縮減 (expr)
+    INT_L          [使用規則 155 以縮減 (loop)]
+    FLOAT_L        [使用規則 155 以縮減 (loop)]
+    OR             使用規則 130 以縮減 (expr)
+    PP             [使用規則 130 以縮減 (expr)]
+    PP             [使用規則 155 以縮減 (loop)]
+    PRINT          使用規則 155 以縮減 (loop)
+    RETURN         使用規則 155 以縮減 (loop)
+    STATIC         使用規則 155 以縮減 (loop)
+    STR            [使用規則 155 以縮減 (loop)]
+    VOID           使用規則 155 以縮減 (loop)
+    WHILE          使用規則 155 以縮減 (loop)
+    INVALID_TOKEN  [使用規則 155 以縮減 (loop)]
+    '<'            使用規則 130 以縮減 (expr)
+    '>'            使用規則 130 以縮減 (expr)
+    '+'            使用規則 130 以縮減 (expr)
+    '+'            [使用規則 155 以縮減 (loop)]
+    '-'            [使用規則 130 以縮減 (expr)]
+    '-'            [使用規則 155 以縮減 (loop)]
+    '*'            使用規則 130 以縮減 (expr)
+    '/'            使用規則 130 以縮減 (expr)
+    '%'            使用規則 130 以縮減 (expr)
+    ELSE           使用規則 155 以縮減 (loop)
+    '}'            [使用規則 155 以縮減 (loop)]
+    '{'            使用規則 155 以縮減 (loop)
+    ';'            使用規則 130 以縮減 (expr)
+    '('            [使用規則 155 以縮減 (loop)]
+
+    generic_id  進入狀態 22
+    lvalue      進入狀態 29
+    factor      進入狀態 30
+
+
+狀態 237
+
+  152 loop: while_expr__ statement •
+
+    $default  使用規則 152 以縮減 (loop)
+
+
+狀態 238
+
+   23 compound: error • '}'
+  130 expr: error •
+  145 factor: error • factor
+  156 loop: for_expr__ error •
+
+    error          偏移，並進入狀態 27
+    ID             偏移，並進入狀態 13
+    MM             偏移，並進入狀態 14
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 17
+    STR            偏移，並進入狀態 18
+    INVALID_TOKEN  偏移，並進入狀態 19
+    '-'            偏移，並進入狀態 20
+    '}'            偏移，並進入狀態 164
+    '('            偏移，並進入狀態 21
+
+    error          [使用規則 156 以縮減 (loop)]
+    ID             [使用規則 156 以縮減 (loop)]
+    AND            使用規則 130 以縮減 (expr)
+    BOOLEAN        使用規則 156 以縮減 (loop)
+    CHAR           使用規則 156 以縮減 (loop)
+    CLASS          使用規則 156 以縮減 (loop)
+    EQ             使用規則 130 以縮減 (expr)
+    FINAL          使用規則 156 以縮減 (loop)
+    FLOAT          使用規則 156 以縮減 (loop)
+    FOR            使用規則 156 以縮減 (loop)
+    GE             使用規則 130 以縮減 (expr)
+    IF             使用規則 156 以縮減 (loop)
+    INT            使用規則 156 以縮減 (loop)
+    LE             使用規則 130 以縮減 (expr)
+    MM             [使用規則 130 以縮減 (expr)]
+    MM             [使用規則 156 以縮減 (loop)]
+    NE             使用規則 130 以縮減 (expr)
+    INT_L          [使用規則 156 以縮減 (loop)]
+    FLOAT_L        [使用規則 156 以縮減 (loop)]
+    OR             使用規則 130 以縮減 (expr)
+    PP             [使用規則 130 以縮減 (expr)]
+    PP             [使用規則 156 以縮減 (loop)]
+    PRINT          使用規則 156 以縮減 (loop)
+    RETURN         使用規則 156 以縮減 (loop)
+    STATIC         使用規則 156 以縮減 (loop)
+    STR            [使用規則 156 以縮減 (loop)]
+    VOID           使用規則 156 以縮減 (loop)
+    WHILE          使用規則 156 以縮減 (loop)
+    INVALID_TOKEN  [使用規則 156 以縮減 (loop)]
+    '<'            使用規則 130 以縮減 (expr)
+    '>'            使用規則 130 以縮減 (expr)
+    '+'            使用規則 130 以縮減 (expr)
+    '+'            [使用規則 156 以縮減 (loop)]
+    '-'            [使用規則 130 以縮減 (expr)]
+    '-'            [使用規則 156 以縮減 (loop)]
+    '*'            使用規則 130 以縮減 (expr)
+    '/'            使用規則 130 以縮減 (expr)
+    '%'            使用規則 130 以縮減 (expr)
+    ELSE           使用規則 156 以縮減 (loop)
+    '}'            [使用規則 156 以縮減 (loop)]
+    '{'            使用規則 156 以縮減 (loop)
+    ';'            使用規則 130 以縮減 (expr)
+    '('            [使用規則 156 以縮減 (loop)]
+
+    generic_id  進入狀態 22
+    lvalue      進入狀態 29
+    factor      進入狀態 30
+
+
+狀態 239
+
+  154 loop: for_expr__ statement •
+
+    $default  使用規則 154 以縮減 (loop)
+
+
+狀態 240
+
+   22 compound: '{' $@4 statement_star error '}' •
+   23         | error '}' •
+
+    error          使用規則 22 以縮減 (compound)
+    error          [使用規則 23 以縮減 (compound)]
+    ID             使用規則 22 以縮減 (compound)
+    ID             [使用規則 23 以縮減 (compound)]
+    BOOLEAN        使用規則 22 以縮減 (compound)
+    BOOLEAN        [使用規則 23 以縮減 (compound)]
+    CHAR           使用規則 22 以縮減 (compound)
+    CHAR           [使用規則 23 以縮減 (compound)]
+    CLASS          使用規則 22 以縮減 (compound)
+    CLASS          [使用規則 23 以縮減 (compound)]
+    FINAL          使用規則 22 以縮減 (compound)
+    FINAL          [使用規則 23 以縮減 (compound)]
+    FLOAT          使用規則 22 以縮減 (compound)
+    FLOAT          [使用規則 23 以縮減 (compound)]
+    FOR            使用規則 22 以縮減 (compound)
+    FOR            [使用規則 23 以縮減 (compound)]
+    IF             使用規則 22 以縮減 (compound)
+    IF             [使用規則 23 以縮減 (compound)]
+    INT            使用規則 22 以縮減 (compound)
+    INT            [使用規則 23 以縮減 (compound)]
+    MM             使用規則 22 以縮減 (compound)
+    MM             [使用規則 23 以縮減 (compound)]
+    INT_L          使用規則 22 以縮減 (compound)
+    INT_L          [使用規則 23 以縮減 (compound)]
+    FLOAT_L        使用規則 22 以縮減 (compound)
+    FLOAT_L        [使用規則 23 以縮減 (compound)]
+    PP             使用規則 22 以縮減 (compound)
+    PP             [使用規則 23 以縮減 (compound)]
+    PRINT          使用規則 22 以縮減 (compound)
+    PRINT          [使用規則 23 以縮減 (compound)]
+    RETURN         使用規則 22 以縮減 (compound)
+    RETURN         [使用規則 23 以縮減 (compound)]
+    STATIC         使用規則 22 以縮減 (compound)
+    STATIC         [使用規則 23 以縮減 (compound)]
+    STR            使用規則 22 以縮減 (compound)
+    STR            [使用規則 23 以縮減 (compound)]
+    VOID           使用規則 22 以縮減 (compound)
+    VOID           [使用規則 23 以縮減 (compound)]
+    WHILE          使用規則 22 以縮減 (compound)
+    WHILE          [使用規則 23 以縮減 (compound)]
+    INVALID_TOKEN  使用規則 22 以縮減 (compound)
+    INVALID_TOKEN  [使用規則 23 以縮減 (compound)]
+    '+'            使用規則 22 以縮減 (compound)
+    '+'            [使用規則 23 以縮減 (compound)]
+    '-'            使用規則 22 以縮減 (compound)
+    '-'            [使用規則 23 以縮減 (compound)]
+    ELSE           使用規則 22 以縮減 (compound)
+    ELSE           [使用規則 23 以縮減 (compound)]
+    '{'            使用規則 22 以縮減 (compound)
+    '{'            [使用規則 23 以縮減 (compound)]
+    '('            使用規則 22 以縮減 (compound)
+    '('            [使用規則 23 以縮減 (compound)]
+    $default       使用規則 22 以縮減 (compound)
+
+
+狀態 241
+
+  169 for_expr__: FOR error ')' •
+
+    $default  使用規則 169 以縮減 (for_expr__)
+
+
+狀態 242
+
+   53 generic_id: ID •
+   63 type_id: ID •
+
+    ID        使用規則 63 以縮減 (type_id)
+    '['       使用規則 53 以縮減 (generic_id)
+    '['       [使用規則 63 以縮減 (type_id)]
+    $default  使用規則 53 以縮減 (generic_id)
+
+
+狀態 243
+
+  167 single_for_init: PP • generic_id
+
+    ID  偏移，並進入狀態 13
+
+    generic_id  進入狀態 262
+
+
+狀態 244
+
+   54 generic_id: generic_id • '[' expr ']'
+   55           | generic_id • '.' ID
+  164 single_for_init: generic_id • '=' expr
+  166                | generic_id • PP
+
+    PP   偏移，並進入狀態 263
+    '='  偏移，並進入狀態 264
+    '['  偏移，並進入狀態 144
+    '.'  偏移，並進入狀態 38
+
+
+狀態 245
+
+   56 type: type • '[' ']'
+  165 single_for_init: type • generic_id '=' expr
+
+    ID   偏移，並進入狀態 13
+    '['  偏移，並進入狀態 114
+
+    generic_id  進入狀態 265
+
+
+狀態 246
+
+  168 for_expr__: FOR '(' ForInitOpt • ';' bool_expr ';' ForUpdateOpt ')'
+
+    ';'  偏移，並進入狀態 266
+
+
+狀態 247
+
+  161 ForInitOpt: for_init_list •
+  163 for_init_list: for_init_list • ',' single_for_init
+
+    ','  偏移，並進入狀態 267
+
+    $default  使用規則 161 以縮減 (ForInitOpt)
+
+
+狀態 248
+
+  162 for_init_list: single_for_init •
+
+    $default  使用規則 162 以縮減 (for_init_list)
+
+
+狀態 249
+
+  130 expr: error •
+  145 factor: error • factor
+  151 bool_expr: error •
+
+    error          偏移，並進入狀態 27
+    ID             偏移，並進入狀態 13
+    MM             偏移，並進入狀態 14
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 17
+    STR            偏移，並進入狀態 18
+    INVALID_TOKEN  偏移，並進入狀態 19
+    '-'            偏移，並進入狀態 20
+    '('            偏移，並進入狀態 21
+
+    AND  使用規則 130 以縮減 (expr)
+    EQ   使用規則 130 以縮減 (expr)
+    GE   使用規則 130 以縮減 (expr)
+    LE   使用規則 130 以縮減 (expr)
+    MM   [使用規則 130 以縮減 (expr)]
+    NE   使用規則 130 以縮減 (expr)
+    OR   使用規則 130 以縮減 (expr)
+    PP   [使用規則 130 以縮減 (expr)]
+    '<'  使用規則 130 以縮減 (expr)
+    '>'  使用規則 130 以縮減 (expr)
+    '+'  使用規則 130 以縮減 (expr)
+    '-'  [使用規則 130 以縮減 (expr)]
+    '*'  使用規則 130 以縮減 (expr)
+    '/'  使用規則 130 以縮減 (expr)
+    '%'  使用規則 130 以縮減 (expr)
+    ';'  使用規則 130 以縮減 (expr)
+    ';'  [使用規則 151 以縮減 (bool_expr)]
+    ')'  使用規則 130 以縮減 (expr)
+    ')'  [使用規則 151 以縮減 (bool_expr)]
+
+    generic_id  進入狀態 22
+    lvalue      進入狀態 29
+    factor      進入狀態 30
+
+
+狀態 250
+
+  143 factor: INVALID_TOKEN •
+  150 bool_expr: INVALID_TOKEN •
+
+    ';'       使用規則 143 以縮減 (factor)
+    ';'       [使用規則 150 以縮減 (bool_expr)]
+    ')'       使用規則 143 以縮減 (factor)
+    ')'       [使用規則 150 以縮減 (bool_expr)]
+    $default  使用規則 143 以縮減 (factor)
+
+
+狀態 251
+
+  110 expr: expr • '+' expr
+  111     | expr • '-' expr
+  112     | expr • '*' expr
+  113     | expr • '/' expr
+  114     | expr • '%' expr
+  115     | expr • AND expr
+  116     | expr • OR expr
+  117     | expr • EQ expr
+  118     | expr • NE expr
+  119     | expr • LE expr
+  120     | expr • GE expr
+  121     | expr • '<' expr
+  122     | expr • '>' expr
+  124     | expr • PP
+  125     | expr • MM
+  126     | expr • '+' error
+  127     | expr • '-' error
+  128     | expr • '*' error
+  129     | expr • '/' error
+  149 bool_expr: expr •
+
+    AND  偏移，並進入狀態 41
+    EQ   偏移，並進入狀態 42
+    GE   偏移，並進入狀態 43
+    LE   偏移，並進入狀態 44
+    MM   偏移，並進入狀態 45
+    NE   偏移，並進入狀態 46
+    OR   偏移，並進入狀態 47
+    PP   偏移，並進入狀態 48
+    '<'  偏移，並進入狀態 49
+    '>'  偏移，並進入狀態 50
+    '+'  偏移，並進入狀態 51
+    '-'  偏移，並進入狀態 52
+    '*'  偏移，並進入狀態 53
+    '/'  偏移，並進入狀態 54
+    '%'  偏移，並進入狀態 55
+
+    $default  使用規則 149 以縮減 (bool_expr)
+
+
+狀態 252
+
+  146 conditional: IF '(' bool_expr • ')' statement
+  147            | IF '(' bool_expr • ')' statement ELSE statement
+
+    ')'  偏移，並進入狀態 268
+
+
+狀態 253
+
+   89 statement: PP lvalue ';' •
+
+    $default  使用規則 89 以縮減 (statement)
+
+
+狀態 254
+
+  109 simple_call_decl: PRINT '(' expr • ')'
+  110 expr: expr • '+' expr
+  111     | expr • '-' expr
+  112     | expr • '*' expr
+  113     | expr • '/' expr
+  114     | expr • '%' expr
+  115     | expr • AND expr
+  116     | expr • OR expr
+  117     | expr • EQ expr
+  118     | expr • NE expr
+  119     | expr • LE expr
+  120     | expr • GE expr
+  121     | expr • '<' expr
+  122     | expr • '>' expr
+  124     | expr • PP
+  125     | expr • MM
+  126     | expr • '+' error
+  127     | expr • '-' error
+  128     | expr • '*' error
+  129     | expr • '/' error
+
+    AND  偏移，並進入狀態 41
+    EQ   偏移，並進入狀態 42
+    GE   偏移，並進入狀態 43
+    LE   偏移，並進入狀態 44
+    MM   偏移，並進入狀態 45
+    NE   偏移，並進入狀態 46
+    OR   偏移，並進入狀態 47
+    PP   偏移，並進入狀態 48
+    '<'  偏移，並進入狀態 49
+    '>'  偏移，並進入狀態 50
+    '+'  偏移，並進入狀態 51
+    '-'  偏移，並進入狀態 52
+    '*'  偏移，並進入狀態 53
+    '/'  偏移，並進入狀態 54
+    '%'  偏移，並進入狀態 55
+    ')'  偏移，並進入狀態 269
+
+
+狀態 255
+
+  174 return: RETURN expr ';' •
+
+    $default  使用規則 174 以縮減 (return)
+
+
+狀態 256
+
+  159 while_expr__: WHILE error ')' •
+
+    $default  使用規則 159 以縮減 (while_expr__)
+
+
+狀態 257
+
+  130 expr: error •
+  145 factor: error • factor
+  151 bool_expr: error •
+  158 while_expr__: WHILE '(' error •
+
+    error          偏移，並進入狀態 27
+    ID             偏移，並進入狀態 13
+    MM             偏移，並進入狀態 14
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 17
+    STR            偏移，並進入狀態 18
+    INVALID_TOKEN  偏移，並進入狀態 19
+    '-'            偏移，並進入狀態 20
+    '('            偏移，並進入狀態 21
+
+    error          [使用規則 158 以縮減 (while_expr__)]
+    ID             [使用規則 158 以縮減 (while_expr__)]
+    AND            使用規則 130 以縮減 (expr)
+    BOOLEAN        使用規則 158 以縮減 (while_expr__)
+    CHAR           使用規則 158 以縮減 (while_expr__)
+    CLASS          使用規則 158 以縮減 (while_expr__)
+    EQ             使用規則 130 以縮減 (expr)
+    FINAL          使用規則 158 以縮減 (while_expr__)
+    FLOAT          使用規則 158 以縮減 (while_expr__)
+    FOR            使用規則 158 以縮減 (while_expr__)
+    GE             使用規則 130 以縮減 (expr)
+    IF             使用規則 158 以縮減 (while_expr__)
+    INT            使用規則 158 以縮減 (while_expr__)
+    LE             使用規則 130 以縮減 (expr)
+    MM             [使用規則 130 以縮減 (expr)]
+    MM             [使用規則 158 以縮減 (while_expr__)]
+    NE             使用規則 130 以縮減 (expr)
+    INT_L          [使用規則 158 以縮減 (while_expr__)]
+    FLOAT_L        [使用規則 158 以縮減 (while_expr__)]
+    OR             使用規則 130 以縮減 (expr)
+    PP             [使用規則 130 以縮減 (expr)]
+    PP             [使用規則 158 以縮減 (while_expr__)]
+    PRINT          使用規則 158 以縮減 (while_expr__)
+    RETURN         使用規則 158 以縮減 (while_expr__)
+    STATIC         使用規則 158 以縮減 (while_expr__)
+    STR            [使用規則 158 以縮減 (while_expr__)]
+    VOID           使用規則 158 以縮減 (while_expr__)
+    WHILE          使用規則 158 以縮減 (while_expr__)
+    INVALID_TOKEN  [使用規則 158 以縮減 (while_expr__)]
+    '<'            使用規則 130 以縮減 (expr)
+    '>'            使用規則 130 以縮減 (expr)
+    '+'            使用規則 130 以縮減 (expr)
+    '+'            [使用規則 158 以縮減 (while_expr__)]
+    '-'            [使用規則 130 以縮減 (expr)]
+    '-'            [使用規則 158 以縮減 (while_expr__)]
+    '*'            使用規則 130 以縮減 (expr)
+    '/'            使用規則 130 以縮減 (expr)
+    '%'            使用規則 130 以縮減 (expr)
+    ELSE           使用規則 158 以縮減 (while_expr__)
+    '}'            使用規則 158 以縮減 (while_expr__)
+    '{'            使用規則 158 以縮減 (while_expr__)
+    '('            [使用規則 158 以縮減 (while_expr__)]
+    ')'            使用規則 130 以縮減 (expr)
+    ')'            [使用規則 151 以縮減 (bool_expr)]
+
+    generic_id  進入狀態 22
+    lvalue      進入狀態 29
+    factor      進入狀態 30
+
+
+狀態 258
+
+  153 loop: WHILE '(' bool_expr • ')' error
+  157 while_expr__: WHILE '(' bool_expr • ')'
+
+    ')'  偏移，並進入狀態 270
+
+
+狀態 259
+
+  100 assign_stmt: generic_id '=' expr • ';'
+  102 simple_call_decl: generic_id '=' expr •
+  110 expr: expr • '+' expr
+  111     | expr • '-' expr
+  112     | expr • '*' expr
+  113     | expr • '/' expr
+  114     | expr • '%' expr
+  115     | expr • AND expr
+  116     | expr • OR expr
+  117     | expr • EQ expr
+  118     | expr • NE expr
+  119     | expr • LE expr
+  120     | expr • GE expr
+  121     | expr • '<' expr
+  122     | expr • '>' expr
+  124     | expr • PP
+  125     | expr • MM
+  126     | expr • '+' error
+  127     | expr • '-' error
+  128     | expr • '*' error
+  129     | expr • '/' error
+
+    AND  偏移，並進入狀態 41
+    EQ   偏移，並進入狀態 42
+    GE   偏移，並進入狀態 43
+    LE   偏移，並進入狀態 44
+    MM   偏移，並進入狀態 45
+    NE   偏移，並進入狀態 46
+    OR   偏移，並進入狀態 47
+    PP   偏移，並進入狀態 48
+    '<'  偏移，並進入狀態 49
+    '>'  偏移，並進入狀態 50
+    '+'  偏移，並進入狀態 51
+    '-'  偏移，並進入狀態 52
+    '*'  偏移，並進入狀態 53
+    '/'  偏移，並進入狀態 54
+    '%'  偏移，並進入狀態 55
+    ';'  偏移，並進入狀態 271
+
+    ';'  [使用規則 102 以縮減 (simple_call_decl)]
+
+
+狀態 260
+
+  101 simple_call_decl: generic_id '(' para_list • ')'
+  136 factor: generic_id '(' para_list • ')'
+  179 para_list: para_list • ',' expr
+
+    ','  偏移，並進入狀態 83
+    ')'  偏移，並進入狀態 272
+
+
+狀態 261
+
+   88 statement: lvalue PP ';' •
+
+    $default  使用規則 88 以縮減 (statement)
+
+
+狀態 262
+
+   54 generic_id: generic_id • '[' expr ']'
+   55           | generic_id • '.' ID
+  167 single_for_init: PP generic_id •
+
+    '['  偏移，並進入狀態 144
+    '.'  偏移，並進入狀態 38
+
+    $default  使用規則 167 以縮減 (single_for_init)
+
+
+狀態 263
+
+  166 single_for_init: generic_id PP •
+
+    $default  使用規則 166 以縮減 (single_for_init)
+
+
+狀態 264
+
+  164 single_for_init: generic_id '=' • expr
+
+    error          偏移，並進入狀態 34
+    ID             偏移，並進入狀態 13
+    MM             偏移，並進入狀態 14
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 17
+    STR            偏移，並進入狀態 18
+    INVALID_TOKEN  偏移，並進入狀態 19
+    '-'            偏移，並進入狀態 20
+    '('            偏移，並進入狀態 21
+
+    generic_id  進入狀態 22
+    lvalue      進入狀態 23
+    expr        進入狀態 273
+    factor      進入狀態 25
+
+
+狀態 265
+
+   54 generic_id: generic_id • '[' expr ']'
+   55           | generic_id • '.' ID
+  165 single_for_init: type generic_id • '=' expr
+
+    '='  偏移，並進入狀態 274
+    '['  偏移，並進入狀態 144
+    '.'  偏移，並進入狀態 38
+
+
+狀態 266
+
+  168 for_expr__: FOR '(' ForInitOpt ';' • bool_expr ';' ForUpdateOpt ')'
+
+    error          偏移，並進入狀態 249
+    ID             偏移，並進入狀態 13
+    MM             偏移，並進入狀態 14
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 17
+    STR            偏移，並進入狀態 18
+    INVALID_TOKEN  偏移，並進入狀態 250
+    '-'            偏移，並進入狀態 20
+    '('            偏移，並進入狀態 21
+
+    generic_id  進入狀態 22
+    lvalue      進入狀態 23
+    expr        進入狀態 251
+    factor      進入狀態 25
+    bool_expr   進入狀態 275
+
+
+狀態 267
+
+  163 for_init_list: for_init_list ',' • single_for_init
+
+    ID       偏移，並進入狀態 242
+    BOOLEAN  偏移，並進入狀態 90
+    CHAR     偏移，並進入狀態 91
+    FLOAT    偏移，並進入狀態 93
+    INT      偏移，並進入狀態 94
+    PP       偏移，並進入狀態 243
+    VOID     偏移，並進入狀態 96
+
+    generic_id       進入狀態 244
+    type             進入狀態 245
+    type_id          進入狀態 103
+    single_for_init  進入狀態 276
+
+
+狀態 268
+
+  146 conditional: IF '(' bool_expr ')' • statement
+  147            | IF '(' bool_expr ')' • statement ELSE statement
+
+    error          偏移，並進入狀態 227
+    ID             偏移，並進入狀態 13
+    FOR            偏移，並進入狀態 183
+    IF             偏移，並進入狀態 184
+    MM             偏移，並進入狀態 185
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 186
+    PRINT          偏移，並進入狀態 187
+    RETURN         偏移，並進入狀態 188
+    STR            偏移，並進入狀態 18
+    WHILE          偏移，並進入狀態 189
+    INVALID_TOKEN  偏移，並進入狀態 19
+    '+'            偏移，並進入狀態 190
+    '-'            偏移，並進入狀態 191
+    ELSE           偏移，並進入狀態 192
+    '{'            偏移，並進入狀態 142
+    '('            偏移，並進入狀態 21
+
+    error          [使用規則 12 以縮減 (declare)]
+    ID             [使用規則 12 以縮減 (declare)]
+    BOOLEAN        使用規則 12 以縮減 (declare)
+    CHAR           使用規則 12 以縮減 (declare)
+    CLASS          使用規則 12 以縮減 (declare)
+    FINAL          使用規則 12 以縮減 (declare)
+    FLOAT          使用規則 12 以縮減 (declare)
+    FOR            [使用規則 12 以縮減 (declare)]
+    IF             [使用規則 12 以縮減 (declare)]
+    INT            使用規則 12 以縮減 (declare)
+    MM             [使用規則 12 以縮減 (declare)]
+    INT_L          [使用規則 12 以縮減 (declare)]
+    FLOAT_L        [使用規則 12 以縮減 (declare)]
+    PP             [使用規則 12 以縮減 (declare)]
+    PRINT          [使用規則 12 以縮減 (declare)]
+    RETURN         [使用規則 12 以縮減 (declare)]
+    STATIC         使用規則 12 以縮減 (declare)
+    STR            [使用規則 12 以縮減 (declare)]
+    VOID           使用規則 12 以縮減 (declare)
+    WHILE          [使用規則 12 以縮減 (declare)]
+    INVALID_TOKEN  [使用規則 12 以縮減 (declare)]
+    '+'            [使用規則 12 以縮減 (declare)]
+    '-'            [使用規則 12 以縮減 (declare)]
+    ELSE           [使用規則 12 以縮減 (declare)]
+    '}'            使用規則 12 以縮減 (declare)
+    '{'            [使用規則 12 以縮減 (declare)]
+    '('            [使用規則 12 以縮減 (declare)]
+
+    declare           進入狀態 194
+    compound          進入狀態 195
+    generic_id        進入狀態 196
+    lvalue            進入狀態 197
+    statement         進入狀態 277
+    assign_stmt       進入狀態 199
+    simple_call_decl  進入狀態 200
+    expr              進入狀態 201
+    factor            進入狀態 25
+    conditional       進入狀態 202
+    loop              進入狀態 203
+    while_expr__      進入狀態 204
+    for_expr__        進入狀態 205
+    return            進入狀態 206
+
+
+狀態 269
+
+  109 simple_call_decl: PRINT '(' expr ')' •
+
+    $default  使用規則 109 以縮減 (simple_call_decl)
+
+
+狀態 270
+
+  153 loop: WHILE '(' bool_expr ')' • error
+  157 while_expr__: WHILE '(' bool_expr ')' •
+
+    error  偏移，並進入狀態 278
+
+    error          [使用規則 157 以縮減 (while_expr__)]
+    ID             使用規則 157 以縮減 (while_expr__)
+    BOOLEAN        使用規則 157 以縮減 (while_expr__)
+    CHAR           使用規則 157 以縮減 (while_expr__)
+    CLASS          使用規則 157 以縮減 (while_expr__)
+    FINAL          使用規則 157 以縮減 (while_expr__)
+    FLOAT          使用規則 157 以縮減 (while_expr__)
+    FOR            使用規則 157 以縮減 (while_expr__)
+    IF             使用規則 157 以縮減 (while_expr__)
+    INT            使用規則 157 以縮減 (while_expr__)
+    MM             使用規則 157 以縮減 (while_expr__)
+    INT_L          使用規則 157 以縮減 (while_expr__)
+    FLOAT_L        使用規則 157 以縮減 (while_expr__)
+    PP             使用規則 157 以縮減 (while_expr__)
+    PRINT          使用規則 157 以縮減 (while_expr__)
+    RETURN         使用規則 157 以縮減 (while_expr__)
+    STATIC         使用規則 157 以縮減 (while_expr__)
+    STR            使用規則 157 以縮減 (while_expr__)
+    VOID           使用規則 157 以縮減 (while_expr__)
+    WHILE          使用規則 157 以縮減 (while_expr__)
+    INVALID_TOKEN  使用規則 157 以縮減 (while_expr__)
+    '+'            使用規則 157 以縮減 (while_expr__)
+    '-'            使用規則 157 以縮減 (while_expr__)
+    ELSE           使用規則 157 以縮減 (while_expr__)
+    '}'            使用規則 157 以縮減 (while_expr__)
+    '{'            使用規則 157 以縮減 (while_expr__)
+    '('            使用規則 157 以縮減 (while_expr__)
+
+
+狀態 271
+
+  100 assign_stmt: generic_id '=' expr ';' •
+
+    $default  使用規則 100 以縮減 (assign_stmt)
+
+
+狀態 272
+
+  101 simple_call_decl: generic_id '(' para_list ')' •
+  136 factor: generic_id '(' para_list ')' •
+
+    ';'       使用規則 101 以縮減 (simple_call_decl)
+    ';'       [使用規則 136 以縮減 (factor)]
+    $default  使用規則 136 以縮減 (factor)
+
+
+狀態 273
+
+  110 expr: expr • '+' expr
+  111     | expr • '-' expr
+  112     | expr • '*' expr
+  113     | expr • '/' expr
+  114     | expr • '%' expr
+  115     | expr • AND expr
+  116     | expr • OR expr
+  117     | expr • EQ expr
+  118     | expr • NE expr
+  119     | expr • LE expr
+  120     | expr • GE expr
+  121     | expr • '<' expr
+  122     | expr • '>' expr
+  124     | expr • PP
+  125     | expr • MM
+  126     | expr • '+' error
+  127     | expr • '-' error
+  128     | expr • '*' error
+  129     | expr • '/' error
+  164 single_for_init: generic_id '=' expr •
+
+    AND  偏移，並進入狀態 41
+    EQ   偏移，並進入狀態 42
+    GE   偏移，並進入狀態 43
+    LE   偏移，並進入狀態 44
+    MM   偏移，並進入狀態 45
+    NE   偏移，並進入狀態 46
+    OR   偏移，並進入狀態 47
+    PP   偏移，並進入狀態 48
+    '<'  偏移，並進入狀態 49
+    '>'  偏移，並進入狀態 50
+    '+'  偏移，並進入狀態 51
+    '-'  偏移，並進入狀態 52
+    '*'  偏移，並進入狀態 53
+    '/'  偏移，並進入狀態 54
+    '%'  偏移，並進入狀態 55
+
+    $default  使用規則 164 以縮減 (single_for_init)
+
+
+狀態 274
+
+  165 single_for_init: type generic_id '=' • expr
+
+    error          偏移，並進入狀態 34
+    ID             偏移，並進入狀態 13
+    MM             偏移，並進入狀態 14
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 17
+    STR            偏移，並進入狀態 18
+    INVALID_TOKEN  偏移，並進入狀態 19
+    '-'            偏移，並進入狀態 20
+    '('            偏移，並進入狀態 21
+
+    generic_id  進入狀態 22
+    lvalue      進入狀態 23
+    expr        進入狀態 279
+    factor      進入狀態 25
+
+
+狀態 275
+
+  168 for_expr__: FOR '(' ForInitOpt ';' bool_expr • ';' ForUpdateOpt ')'
+
+    ';'  偏移，並進入狀態 280
+
+
+狀態 276
+
+  163 for_init_list: for_init_list ',' single_for_init •
+
+    $default  使用規則 163 以縮減 (for_init_list)
+
+
+狀態 277
+
+  146 conditional: IF '(' bool_expr ')' statement •
+  147            | IF '(' bool_expr ')' statement • ELSE statement
+
+    ELSE  偏移，並進入狀態 281
+
+    $default  使用規則 146 以縮減 (conditional)
+
+
+狀態 278
+
+  153 loop: WHILE '(' bool_expr ')' error •
+
+    $default  使用規則 153 以縮減 (loop)
+
+
+狀態 279
+
+  110 expr: expr • '+' expr
+  111     | expr • '-' expr
+  112     | expr • '*' expr
+  113     | expr • '/' expr
+  114     | expr • '%' expr
+  115     | expr • AND expr
+  116     | expr • OR expr
+  117     | expr • EQ expr
+  118     | expr • NE expr
+  119     | expr • LE expr
+  120     | expr • GE expr
+  121     | expr • '<' expr
+  122     | expr • '>' expr
+  124     | expr • PP
+  125     | expr • MM
+  126     | expr • '+' error
+  127     | expr • '-' error
+  128     | expr • '*' error
+  129     | expr • '/' error
+  165 single_for_init: type generic_id '=' expr •
+
+    AND  偏移，並進入狀態 41
+    EQ   偏移，並進入狀態 42
+    GE   偏移，並進入狀態 43
+    LE   偏移，並進入狀態 44
+    MM   偏移，並進入狀態 45
+    NE   偏移，並進入狀態 46
+    OR   偏移，並進入狀態 47
+    PP   偏移，並進入狀態 48
+    '<'  偏移，並進入狀態 49
+    '>'  偏移，並進入狀態 50
+    '+'  偏移，並進入狀態 51
+    '-'  偏移，並進入狀態 52
+    '*'  偏移，並進入狀態 53
+    '/'  偏移，並進入狀態 54
+    '%'  偏移，並進入狀態 55
+
+    $default  使用規則 165 以縮減 (single_for_init)
+
+
+狀態 280
+
+  168 for_expr__: FOR '(' ForInitOpt ';' bool_expr ';' • ForUpdateOpt ')'
+
+    ID     偏移，並進入狀態 13
+    MM     偏移，並進入狀態 282
+    PP     偏移，並進入狀態 283
+    PRINT  偏移，並進入狀態 187
+    '+'    偏移，並進入狀態 190
+    '-'    偏移，並進入狀態 284
+
+    $default  使用規則 170 以縮減 (ForUpdateOpt)
+
+    generic_id        進入狀態 285
+    simple_call_decl  進入狀態 286
+    ForUpdateOpt      進入狀態 287
+    for_update_list   進入狀態 288
+
+
+狀態 281
+
+  147 conditional: IF '(' bool_expr ')' statement ELSE • statement
+
+    error          偏移，並進入狀態 227
+    ID             偏移，並進入狀態 13
+    FOR            偏移，並進入狀態 183
+    IF             偏移，並進入狀態 184
+    MM             偏移，並進入狀態 185
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 186
+    PRINT          偏移，並進入狀態 187
+    RETURN         偏移，並進入狀態 188
+    STR            偏移，並進入狀態 18
+    WHILE          偏移，並進入狀態 189
+    INVALID_TOKEN  偏移，並進入狀態 19
+    '+'            偏移，並進入狀態 190
+    '-'            偏移，並進入狀態 191
+    ELSE           偏移，並進入狀態 192
+    '{'            偏移，並進入狀態 142
+    '('            偏移，並進入狀態 21
+
+    error          [使用規則 12 以縮減 (declare)]
+    ID             [使用規則 12 以縮減 (declare)]
+    BOOLEAN        使用規則 12 以縮減 (declare)
+    CHAR           使用規則 12 以縮減 (declare)
+    CLASS          使用規則 12 以縮減 (declare)
+    FINAL          使用規則 12 以縮減 (declare)
+    FLOAT          使用規則 12 以縮減 (declare)
+    FOR            [使用規則 12 以縮減 (declare)]
+    IF             [使用規則 12 以縮減 (declare)]
+    INT            使用規則 12 以縮減 (declare)
+    MM             [使用規則 12 以縮減 (declare)]
+    INT_L          [使用規則 12 以縮減 (declare)]
+    FLOAT_L        [使用規則 12 以縮減 (declare)]
+    PP             [使用規則 12 以縮減 (declare)]
+    PRINT          [使用規則 12 以縮減 (declare)]
+    RETURN         [使用規則 12 以縮減 (declare)]
+    STATIC         使用規則 12 以縮減 (declare)
+    STR            [使用規則 12 以縮減 (declare)]
+    VOID           使用規則 12 以縮減 (declare)
+    WHILE          [使用規則 12 以縮減 (declare)]
+    INVALID_TOKEN  [使用規則 12 以縮減 (declare)]
+    '+'            [使用規則 12 以縮減 (declare)]
+    '-'            [使用規則 12 以縮減 (declare)]
+    ELSE           [使用規則 12 以縮減 (declare)]
+    '}'            使用規則 12 以縮減 (declare)
+    '{'            [使用規則 12 以縮減 (declare)]
+    '('            [使用規則 12 以縮減 (declare)]
+
+    declare           進入狀態 194
+    compound          進入狀態 195
+    generic_id        進入狀態 196
+    lvalue            進入狀態 197
+    statement         進入狀態 289
+    assign_stmt       進入狀態 199
+    simple_call_decl  進入狀態 200
+    expr              進入狀態 201
+    factor            進入狀態 25
+    conditional       進入狀態 202
+    loop              進入狀態 203
+    while_expr__      進入狀態 204
+    for_expr__        進入狀態 205
+    return            進入狀態 206
+
+
+狀態 282
+
+  106 simple_call_decl: MM • generic_id
+
+    ID  偏移，並進入狀態 13
+
+    generic_id  進入狀態 290
+
+
+狀態 283
+
+  104 simple_call_decl: PP • generic_id
+
+    ID  偏移，並進入狀態 13
+
+    generic_id  進入狀態 291
+
+
+狀態 284
+
+  108 simple_call_decl: '-' • generic_id
+
+    ID  偏移，並進入狀態 13
+
+    generic_id  進入狀態 292
+
+
+狀態 285
+
+   54 generic_id: generic_id • '[' expr ']'
+   55           | generic_id • '.' ID
+  101 simple_call_decl: generic_id • '(' para_list ')'
+  102                 | generic_id • '=' expr
+  103                 | generic_id • PP
+  105                 | generic_id • MM
+
+    MM   偏移，並進入狀態 229
+    PP   偏移，並進入狀態 230
+    '='  偏移，並進入狀態 293
+    '('  偏移，並進入狀態 294
+    '['  偏移，並進入狀態 144
+    '.'  偏移，並進入狀態 38
+
+
+狀態 286
+
+  172 for_update_list: simple_call_decl •
+
+    $default  使用規則 172 以縮減 (for_update_list)
+
+
+狀態 287
+
+  168 for_expr__: FOR '(' ForInitOpt ';' bool_expr ';' ForUpdateOpt • ')'
+
+    ')'  偏移，並進入狀態 295
+
+
+狀態 288
+
+  171 ForUpdateOpt: for_update_list •
+  173 for_update_list: for_update_list • ',' simple_call_decl
+
+    ','  偏移，並進入狀態 296
+
+    $default  使用規則 171 以縮減 (ForUpdateOpt)
+
+
+狀態 289
+
+  147 conditional: IF '(' bool_expr ')' statement ELSE statement •
+
+    $default  使用規則 147 以縮減 (conditional)
+
+
+狀態 290
+
+   54 generic_id: generic_id • '[' expr ']'
+   55           | generic_id • '.' ID
+  106 simple_call_decl: MM generic_id •
+
+    '['  偏移，並進入狀態 144
+    '.'  偏移，並進入狀態 38
+
+    $default  使用規則 106 以縮減 (simple_call_decl)
+
+
+狀態 291
+
+   54 generic_id: generic_id • '[' expr ']'
+   55           | generic_id • '.' ID
+  104 simple_call_decl: PP generic_id •
+
+    '['  偏移，並進入狀態 144
+    '.'  偏移，並進入狀態 38
+
+    $default  使用規則 104 以縮減 (simple_call_decl)
+
+
+狀態 292
+
+   54 generic_id: generic_id • '[' expr ']'
+   55           | generic_id • '.' ID
+  108 simple_call_decl: '-' generic_id •
+
+    '['  偏移，並進入狀態 144
+    '.'  偏移，並進入狀態 38
+
+    $default  使用規則 108 以縮減 (simple_call_decl)
+
+
+狀態 293
+
+  102 simple_call_decl: generic_id '=' • expr
+
+    error          偏移，並進入狀態 34
+    ID             偏移，並進入狀態 13
+    MM             偏移，並進入狀態 14
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 17
+    STR            偏移，並進入狀態 18
+    INVALID_TOKEN  偏移，並進入狀態 19
+    '-'            偏移，並進入狀態 20
+    '('            偏移，並進入狀態 21
+
+    generic_id  進入狀態 22
+    lvalue      進入狀態 23
+    expr        進入狀態 297
+    factor      進入狀態 25
+
+
+狀態 294
+
+  101 simple_call_decl: generic_id '(' • para_list ')'
+
+    error          偏移，並進入狀態 60
+    ID             偏移，並進入狀態 13
+    MM             偏移，並進入狀態 14
+    INT_L          偏移，並進入狀態 15
+    FLOAT_L        偏移，並進入狀態 16
+    PP             偏移，並進入狀態 17
+    STR            偏移，並進入狀態 18
+    INVALID_TOKEN  偏移，並進入狀態 19
+    '-'            偏移，並進入狀態 20
+    '('            偏移，並進入狀態 21
+
+    ','  使用規則 177 以縮減 (para_list)
+    ')'  使用規則 177 以縮減 (para_list)
+
+    generic_id  進入狀態 22
+    lvalue      進入狀態 23
+    expr        進入狀態 61
+    factor      進入狀態 25
+    para_list   進入狀態 298
+
+
+狀態 295
+
+  168 for_expr__: FOR '(' ForInitOpt ';' bool_expr ';' ForUpdateOpt ')' •
+
+    $default  使用規則 168 以縮減 (for_expr__)
+
+
+狀態 296
+
+  173 for_update_list: for_update_list ',' • simple_call_decl
+
+    ID     偏移，並進入狀態 13
+    MM     偏移，並進入狀態 282
+    PP     偏移，並進入狀態 283
+    PRINT  偏移，並進入狀態 187
+    '+'    偏移，並進入狀態 190
+    '-'    偏移，並進入狀態 284
+
+    generic_id        進入狀態 285
+    simple_call_decl  進入狀態 299
+
+
+狀態 297
+
+  102 simple_call_decl: generic_id '=' expr •
+  110 expr: expr • '+' expr
+  111     | expr • '-' expr
+  112     | expr • '*' expr
+  113     | expr • '/' expr
+  114     | expr • '%' expr
+  115     | expr • AND expr
+  116     | expr • OR expr
+  117     | expr • EQ expr
+  118     | expr • NE expr
+  119     | expr • LE expr
+  120     | expr • GE expr
+  121     | expr • '<' expr
+  122     | expr • '>' expr
+  124     | expr • PP
+  125     | expr • MM
+  126     | expr • '+' error
+  127     | expr • '-' error
+  128     | expr • '*' error
+  129     | expr • '/' error
+
+    AND  偏移，並進入狀態 41
+    EQ   偏移，並進入狀態 42
+    GE   偏移，並進入狀態 43
+    LE   偏移，並進入狀態 44
+    MM   偏移，並進入狀態 45
+    NE   偏移，並進入狀態 46
+    OR   偏移，並進入狀態 47
+    PP   偏移，並進入狀態 48
+    '<'  偏移，並進入狀態 49
+    '>'  偏移，並進入狀態 50
+    '+'  偏移，並進入狀態 51
+    '-'  偏移，並進入狀態 52
+    '*'  偏移，並進入狀態 53
+    '/'  偏移，並進入狀態 54
+    '%'  偏移，並進入狀態 55
+
+    $default  使用規則 102 以縮減 (simple_call_decl)
+
+
+狀態 298
+
+  101 simple_call_decl: generic_id '(' para_list • ')'
+  179 para_list: para_list • ',' expr
+
+    ','  偏移，並進入狀態 83
+    ')'  偏移，並進入狀態 300
+
+
+狀態 299
+
+  173 for_update_list: for_update_list ',' simple_call_decl •
+
+    $default  使用規則 173 以縮減 (for_update_list)
+
+
+狀態 300
+
+  101 simple_call_decl: generic_id '(' para_list ')' •
+
+    $default  使用規則 101 以縮減 (simple_call_decl)
